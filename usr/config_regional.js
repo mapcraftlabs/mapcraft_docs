@@ -74,7 +74,7 @@ config = {
     zoom: 11,
 
     studyAreas: {
-        "Redev Area": 'http://fscottfoti.github.io/pda_parcels/cities.geojson'
+        "Redev Area": 'https://fscottfoti.github.io/pda_parcels/cities.geojson'
     },
     defaultStudyArea: "Redev Area",
 
