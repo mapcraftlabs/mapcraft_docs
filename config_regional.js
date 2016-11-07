@@ -318,6 +318,9 @@ config = {
 
     proForma(p, g) {
 
+        // THIS METHOD IS NOT PART OF THE CONFIGURATION
+        // IS USED FROM WITHIN runAnalytics above
+
         // editable props in g
         // sqftPerUnit
         // nonResToRes

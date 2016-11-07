@@ -6,8 +6,6 @@ Put simply, the Labs app is a way to take workflows that were traditionally perf
 
 NOTE: this document expects some familiarity with how the app works - it doesn't explain the app, just how to configure it.
 
-### A list of demos
-
 ## Geting up and running
 
 ### Installation
@@ -167,6 +165,36 @@ You can change the name of the default scenario.  By default the default scenari
 defaultScenario: 'Baseline',
 ```
 
+### keepShapeEdges
+
+Normally when you zoom out beyond a certain zoom level, the outlines of the shapes will disappear.  This is appropriate for small shapes like parcels, but less appropriate for large shapes like city boundaries.  To keep shapes edges at all zoom levels, enable this attribute.
+
+```javascript
+keepShapeEdges: true,
+```
+
+### initialize
+
+Hopefully this one is obvious.  Do anything you want to initialize your data in this method.  This is expected to take a while, so it's asynchronous and you need to call the callback when you're done with the initialization.  This is often used to load data and process it and store it in a global variable that would be accessible e.g. in the analytics methods.
+
+```javascript
+initialize (readyCallback) {
+
+    var url = "https://oaklandanalytics.github.io/scratchpad/data/parcels.csv";
+
+    d3.csv(url, function (data) {
+
+        nestedParcels = d3.nest()
+            .key(function (p) {
+                return p.juris;
+            })
+            .entries(data);
+
+        readyCallback();
+    })
+},
+```
+
 ### center and zoom
 
 This is the default center and zoom level of the map.  If you login and move around this isn't used much since the app always restores state, but is important because it's the user's first view.  As can be seen, center is a lat-lng array and zoom is a Leaflet zoom level.
@@ -203,13 +231,18 @@ debounceAnalyticsEvery: 500,
 
 ### studyAreas
 
-I'm not 100% sure this feature still works, but in theory it does.  If you **don't** want to use an overview map, you can use a dropdown list of study areas instead.  Just make a dictionary of key value pairs where keys are the study area names and values are the urls for the geojson.
+If you **don't** want to use an overview map, you can use a dropdown list of study areas instead.  Just make a dictionary of key value pairs where keys are the study area names and values are the urls for the geojson.  
+
+You may also set the default study area when doing this - otherwise the first key will be used as the default.
+
+Finally, this is also how you create an app with a single shape layer (non-hierarchical).  To do that just use one key-value pair in this object.
 
 ```javascript
 studyAreas: {
     "Ballard": "http://fscottfoti.github.io/pda_parcels/ballard.json",
     "Fremont": "http://fscottfoti.github.io/pda_parcels/fremont.json"
 },
+defaultStudyArea: "Ballard",
 ```
 
 ### overviewShapes
