@@ -220,6 +220,49 @@ This is a unique id on all the basic shapes.  The app will warn in the console i
 keyAttr: 'geom_id',
 ```
 
+### disableThemeIcons
+
+disableThemeIcons removes that icons that are present next to the theme names in the theme selector.
+
+``` javascript
+disableThemeIcons: true,
+```
+
+### Branding
+
+Set noBranding to remove the "Build by MapCraft" item on the Navbar.
+
+Change the appName if the app should not be branded as MapCraft Labs (i.e. it can be whitelabeled for the client).
+
+```javascript
+appName: 'MTC UrbanSim',
+noBranding: true,
+```
+
+### noScenarioEdits
+
+Set noScenarioEdits to remove the items to create a new scenario, or a copy of an existing scenario.
+
+```javascript
+noScenarioEdits: true,
+```
+
+### onlySeeMyScenarios
+
+By default all scenarios are shared between anyone that logs into the app, and edits can be made in a collaborative fashion.  Sometimes there are too many users, and scenarios should only be seen and edited by each user (each user sees only their own scenarios).  To do that set onlySeeMyScenarios.
+
+```javascript
+onlySeeMyScenarios: true,
+```
+
+### playgroundScenario
+
+Set playgroundScenario to create a scenario that is editable by the general public - i.e. people who are not logged in can edit.  This is usually used for public facing versions of the app.
+
+```javascript
+playgroundScenario: true,
+```
+
 ### debounceThemeEvery
 
 This is the amount of time to wait before re-theming or re-computing the analytics.  It should be made longer if there are more shapes (and more computations), and shorter to keep things snappy if there are only a few shapes.
@@ -322,6 +365,14 @@ themes: {
         }
     }
 },
+```
+
+### defaultTheme
+
+The defaultTheme should be the name of the theme which should be applied by default if the Default theme is not preferred.
+
+```javascript
+defaultTheme: 'Most Feasible Option',
 ```
 
 ### tableColumns
