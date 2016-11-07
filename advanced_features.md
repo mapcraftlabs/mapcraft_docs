@@ -137,44 +137,64 @@ analyticsTemplate: function () {
 },
 ```
 
-    config2 = {
-    // study areas are selected via a dropdown of via map - if via map leave this empty
+## The Three "Tiers" of App
+
+* A Tier 1 App has exactly one study area (set of shapes).  The number of shapes which can be in each study area is limited by what Leaflet can render in the browser comfortable and is about 5,000.
+
+* A Tier 2 App has more shapes than can be represented in a Tier 1 App and thus the shapes are separated into multiple study areas usually with an "overview map".  Each study area might be a neighborhood of parcels, and the overview map would be a map of the neighborhoods.  Each study area then is still essentially a Tier 1 App.
+
+* A Tier 3 App is Tier 2 App that usually has other layers which join to the shapes in the study areas.  For instance, attributes could also be edited on the neighborhoods and joined to the parcels.  A Tier 3 App usually has a regional analysis module which collates data for each shape and also the higher-level layers (like neighborhoods and cities) and then performa analysis on the result (runs a spreadsheet on each shape) and then aggregates or exports the results.  
+
+Both the Tier 2 and Tier 3 Apps can have several hundred thousand shapes combined among the study areas, but the Tier 3 App will perform analytics on all of those shapes togher, which can take several seconds, requires progress bars, choice of data from multiple scenarios and other complications.
+
+The next set of features is generally used in the Tier 3 App.
+
+## Layers
+
+Layers are used to associate attributes with higher-level shapes like neighborhoods, cities, block groups, zoning areas, etc.  One or more other layers can be configured, and the app will switch between the primary layer and each of the secondary layers.  Other than that, each layer will look exactly like a study area and provide the exact same functionality (a layer is essentially the same as a study area in the code).
+
+Thus to configure a second layer, specify a shapeUrl which is the geojson for the shapes, and many of the same attributes from the main config object as shown below.  This will likely include which attributes to theme, which to edit, and so forth.  Once an object is built for the secondary layer, that object should be included in the main configuration object using the extraLayers attribute, which is an object where keys are layer names and values are layer configuration objects.  You should also provide a defaultLayerName, which is the name of the layer represented by the main configuration object, and will be used in the UI to switch back to the main overview map.
+
+```javascript
+
+config2 = {
+
     shapeUrl: 'https://mapcraftlabs.github.io/seattle_parcels/seattle_neighborhoods.geojson',
-    // property of the features which should be unique amont all features
+
     keyAttr: 'NAME',
 
-    getRows: function () {
-        return _.where(PROFORMA_INPUTS, {'Layer': 'Neighborhood'});
-    },
-
     themes: function () {
-        return helpers.getThemes(this.getRows()); 
+        // put something here
     },
 
     tableColumns: function () {
-        return helpers.getTableColumns(this.getRows());
+        // put something here
     },
 
     editableAttributes: function () {
-        return helpers.inputGroupsFromJson(this.getRows());
+        // put something here
     },
 
     globalAttributes: function () {
-        return helpers.inputGroupsFromJson(PROFORMA_GLOBALS); 
+        // put something here
     },
- 
+
     placeHeadingTemplate: "\
         <h3 style='margin-top: 0px;'>{{p.NAME}}</h3>",
 
     hoverFeatureTemplate: function () {
-        return helpers.getDefaultHoverFeature(this.getRows());
+        // put something here
     }
 };
 
+config = {
+    // add many other configuration attributes here
     defaultLayerName: "Parcels",
     extraLayers: {
         "Neighborhoods": config2
-    },
+    }
+}
+```
 
         typeMap: function () {
         var d = {};
