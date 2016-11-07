@@ -22,7 +22,7 @@ config = {
 
     initialize (readyCallback) {
 
-        var url = "http://oaklandanalytics.github.io/scratchpad/data/parcels.csv";
+        var url = "https://oaklandanalytics.github.io/scratchpad/data/parcels.csv";
 
         d3.csv(url, function (data) {
 
