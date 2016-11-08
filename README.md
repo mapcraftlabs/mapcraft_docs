@@ -71,11 +71,11 @@ Thus you only need the html file and these 4 files (and really two of the files 
 
 ### A note on permissions
 
-Permissions are mostly set in the app.  There are commenter, editor, and admin permissions which get set by adding a person's login email for a certain permission.  Importantly, there are a few universal admins (e.g. Ian and I), which can add new admins to each deployment.  We can add new universal admins if the time comes for that.
+Permissions are mostly set in the app.  There are commenter, editor, and admin permissions which get set by adding a person's login email for a certain permission.  Importantly, there are a few universal admins (e.g. Ian and Fletcher), which can add new admins to each deployment.
 
 ### Deployment
 
-We pretty much use github pages for everything because it's convenient as hell and utterly free.  And of course it lets us roll back to previous versions because it's a version control system (obviously).  We'll host a GB or more worth of shapefiles on the gh-pages branch of some repo and we'll also end up hosting the html file, config file, and bundles there.  It's utterly easy to work with once you get fluent with git.
+We pretty much use github pages for everything because it's convenient.  And of course it lets us roll back to previous versions because it's a version control system (obviously).  We'll host a GB or more worth of shapefiles on the gh-pages branch of some repo and we'll also end up hosting the html file, config file, and bundles there.  It's utterly easy to work with once you get fluent with git.
 
 ### Database
 
