@@ -71,6 +71,20 @@ modifyGeoJsonFeatures: function (features) {
     });
 },
 ```
+### typeMap
+
+Setting the typeMap is not required, but it can make the behavior more consistent for the types of the attributes.  The function should return an object where the keys are the names of the attributes and the values are strings describing the types.  Right now type values are 'float', 'string', and 'percent'.  These types are used to convert attributes to the appropriate types before performing analysis, to save them as appropriate types after the user enters data in the input forms, etc.  The percent type is used so that the user can enter a number between 1 and 100 and the app will divide that number so it is in a range of .01 to 1.0 for analysis (which is what the Excel converter usually expects).
+
+```javascript
+typeMap: function () {
+    return {
+        residential_units: 'float',
+        job_spaces: 'float',
+        land_use: 'string',
+        interest_rate: 'percent'
+    }
+},
+```
 
 ## Charts
 
@@ -139,13 +153,13 @@ analyticsTemplate: function () {
 
 ## The Three "Tiers" of App
 
-* A Tier 1 App has exactly one study area (set of shapes).  The number of shapes which can be in each study area is limited by what Leaflet can render in the browser comfortable and is about 5,000.
+* A Tier 1 App has exactly one study area (set of shapes).  The number of shapes which can be in each study area is limited by what Leaflet can render in the browser comfortably and is about 5,000 shapes.
 
 * A Tier 2 App has more shapes than can be represented in a Tier 1 App and thus the shapes are separated into multiple study areas usually with an "overview map".  Each study area might be a neighborhood of parcels, and the overview map would be a map of the neighborhoods.  Each study area then is still essentially a Tier 1 App.
 
-* A Tier 3 App is Tier 2 App that usually has other layers which join to the shapes in the study areas.  For instance, attributes could also be edited on the neighborhoods and joined to the parcels.  A Tier 3 App usually has a regional analysis module which collates data for each shape and also the higher-level layers (like neighborhoods and cities) and then performa analysis on the result (runs a spreadsheet on each shape) and then aggregates or exports the results.  
+* A Tier 3 App is a Tier 2 App that usually has other layers which join to the shapes in the study areas.  For instance, attributes could also be edited on neighborhoods and joined to the parcels.  A Tier 3 App usually has a regional analysis module which collates data for each shape and also the higher-level layers (like neighborhoods and cities) and then performs analysis on the result (runs a spreadsheet on each shape) and then aggregates or exports the results.  
 
-Both the Tier 2 and Tier 3 Apps can have several hundred thousand shapes combined among the study areas, but the Tier 3 App will perform analytics on all of those shapes togher, which can take several seconds, requires progress bars, choice of data from multiple scenarios and other complications.
+Both the Tier 2 and Tier 3 Apps can have several hundred thousand shapes combined among the study areas, but the Tier 3 App will perform analytics on all of those shapes together, which can take several seconds, requires progress bars, choice of data from multiple scenarios and other complications.
 
 The next set of features is generally used in the Tier 3 App.
 
@@ -196,99 +210,119 @@ config = {
 }
 ```
 
-        typeMap: function () {
-        var d = {};
-        _.each(PROFORMA_GLOBALS, function (o) {
-            d[o.InternalName] = o.Type;
-        });
-        _.each(PROFORMA_INPUTS, function (o) {
-            d[o.InternalName] = o.Type;
-        });
-        return d;
-    },
+## App-wide Analysis
 
-        formatLabel: function (attr) {
-        var o = _.where(PROFORMA_INPUTS, {'InternalName': attr})[0];
-        if(!o) o = _.where(PROFORMA_OUTPUTS, {'InternalName': attr})[0];
-        return helpers.formatData('p', o.InternalName, o.NmbrFmt, o.Type);
-    },
+A key feature of the Tier 3 app is to do regional-level analysis.  This involves collating data from potentially several places.  The data is layered on in a certain order, although the featureMergeFunction below allows the user to change the default priority.  By default, data is merged in the following way:
 
-    baseDataCSVUrl: "https://mapcraftlabs.github.io/seattle_parcels/seattle_base_data.csv",
-    baseDataLayerJoinKeys: {
-        '_studyArea': 'Neighborhoods'
-    },
+1.  Start with the feature from the original geojson data.  
 
-    analysisDefaultInputs: {
-        'Land Value': 1000000,
-        'Improvement Value': 1250000,
-        'Land Use': 'Text',
-        'Parcel Size': 10000,
-        'Residential Vacancy Rate': 10,
-        'Residential Market Rent': 4,
-        'HUD Median Family Income': 73900,
-        'Rent Restricted Units': 20,
-        'Depth of Affordability': 80,
-        'Surface parking': 7000,
-        'Integrated deck': 33000,
-        'Podium parking': 30000,
-        'Underground parking': 40000,
-        'Podium Residential': 150,
-        'Lobby construction cost': 165,
-        'Wood frame 3-story walkup': 125,
-        'Wood frame 3-story wrap w-green roof': 150,
-        'Low-rise wood frame on podium': 165,
-        'High-rise residential': 210,
-        'Landscaping': 5,
-        'Plaza-Active Courtyard': 30,
-        'Multifamily Operating Cost': 30,
-        'Hard Cost Contingency': 4,
-        'Soft Costs': 25,
-        'Developer Fee': 4,
-        'CAP Rate': 4.5,
-        'Return on Cost Spread over CAP': 1.5,
-        'Threshold for Feasibility': 10
-    },
+2.  Override any attributes that have been edited within the app by the user using the latest value for each attribute.
 
-    featureMergeFunction: function (f, layerData) {
+3.  Iterate though each extra layer and include any attributes that have been set in that layer.  If any attributes are already present, use the value from the layer rather than the value from the feature (more specific value wins).
+
+4.  Add any global attributes to the feature.  As above, if any attributes are already present, use the value from the layer rather than the value from the feature (more specific value wins).
+
+5.  If the analysisDefaultInputs object is set, use these values to fill in additional defaults, but do not override existing values.
+
+6.  Run the analysisFunction on the object that results from the above steps.  Keep track of the results.  Allow the user to download separate csvs of the input and output attributes.  The separate csvs are only necessary because of memory limitations in the browser.
+
+### baseDataCSVUrl and baseDataLayerJoinKeys
+
+There are two ways the base data can be attained.  The first is to iterate through the overview shapefile and to fetch the geojson for every study area that's identified in the overview.  The app will then merge all the "properties" objects of all the features is all the study area geojson files into one big list of features, and then iterate through the steps above.
+
+The second option is do go ahead and cache the list of all features as a separate csv file.  This file can actually be generated in the app using the export all menu, and then hosted somewhere on the internet (like github.io).  Note that this will actually duplicate data, with data occuring once in the study area geojson file and once in the csv file and the user is responsible for making sure the two stay in sync.  The benefit of this is that the cvs loads several times faster and can be easily cached by the browser, while fetching all the geojson files takes much longer.  To use the second option, specify a link in the baseDataCSVUrl.
+
+With either method, the app will also need a baseDataLayerJoinKeys object, which specifies a key which is an attribute in the list of features and a value which is the layer for which that is a join key.  For instance, the attribute '_studyArea' could occur in the csv file and join the key of the 'Neighborhoods' layer.  In fact the '_studyArea' attribute is a special attribute that gets added to the features that are created in the first option above.  The id used to identify each study area will be added as a value of each feature under the key '_studyArea'.  Thus the use of _studyArea as the join key implies the overview map and join layer are one and the same.
+
+```javascript
+baseDataCSVUrl: "https://mapcraftlabs.github.io/seattle_parcels/seattle_base_data.csv",
+baseDataLayerJoinKeys: {
+    '_studyArea': 'Neighborhoods'
+},
+```
+
+analysisDefaultInputs and analysisFunction
+
+These two attributes are used as descibed in steps 5 and 6 above.
+
+```javascript
+analysisDefaultInputs: {
+    'Land Value': 1000000,
+    'Improvement Value': 1250000,
+    'Land Use': 'Text',
+    'Parcel Size': 10000,
+    'Residential Vacancy Rate': 10,
+    'Residential Market Rent': 4,
+    'HUD Median Family Income': 73900,
+    'Rent Restricted Units': 20,
+    'Depth of Affordability': 80,
+    'Surface parking': 7000,
+    'Integrated deck': 33000,
+    'Podium parking': 30000,
+    'Underground parking': 40000,
+    'Podium Residential': 150,
+    'Lobby construction cost': 165,
+    'Wood frame 3-story walkup': 125,
+    'Wood frame 3-story wrap w-green roof': 150,
+    'Low-rise wood frame on podium': 165,
+    'High-rise residential': 210,
+    'Landscaping': 5,
+    'Plaza-Active Courtyard': 30,
+    'Multifamily Operating Cost': 30,
+    'Hard Cost Contingency': 4,
+    'Soft Costs': 25,
+    'Developer Fee': 4,
+    'CAP Rate': 4.5,
+    'Return on Cost Spread over CAP': 1.5,
+    'Threshold for Feasibility': 10
+},
+analysisFunction: function (d) {
+    return proforma(d);
+},
+```
+
+### featureMergeFunction
+
+For bonus points, the app exposes a featureMergeFunction which allows the user to configure how data gets merged between the base places, the various layers, the defaults, and how types get converted when doing app-wide analysis.  This method might be moved into the app at some point if this becomes standard, but for now it is configurable by the user.  To accept default behavior just copy this function into the main config.  This method won't be documented as thoroughly as it's really an expert parameter.
+
+```javascript
+featureMergeFunction: function (f, layerData) {
+
+    _.each(f, function (v, k) {
+        // change null to undefined for _.defaults below
+        if(v == null) f[k] = undefined;
+    });
+
+    if(config.baseDataLayerJoinKeys) {
+        _.each(config.baseDataLayerJoinKeys, function(v, k) {
+
+            if(!layerData[v]) return;
+
+            var joinId = f[k];
+            var joinData = layerData[v]['places'][joinId];                    
+            // don't override parcel level data with layer data
+            f = _.defaults(f, joinData);
+
+            var globalData = layerData[v]['assumptions'];
+            // don't override parcel data with global data
+            f = _.defaults(f, globalData);                    
+        })
+    }
+
+    // merge defaults with anything else that's empty
+    if(config.analysisDefaultInputs)
+        f = _.defaults(f, config.analysisDefaultInputs);
+
+    if(config.typeMap) {
+        
+        typeMap = config.typeMap();
 
         _.each(f, function (v, k) {
-            // change null to undefined for _.defaults below
-            if(v == null) f[k] = undefined;
+            if(typeMap[k] == 'percent') f[k] = +v / 100;
+            if(typeMap[k] == 'float') f[k] = +v;
         });
+    }
 
-        if(config.baseDataLayerJoinKeys) {
-            _.each(config.baseDataLayerJoinKeys, function(v, k) {
-
-                if(!layerData[v]) return;
-
-                var joinId = f[k];
-                var joinData = layerData[v]['places'][joinId];                    
-                // don't override parcel level data with layer data
-                f = _.defaults(f, joinData);
-
-                var globalData = layerData[v]['assumptions'];
-                // don't override parcel data with global data
-                f = _.defaults(f, globalData);                    
-            })
-        }
-
-        // merge defaults with anything else that's empty
-        if(config.analysisDefaultInputs)
-            f = _.defaults(f, config.analysisDefaultInputs);
-
-        if(config.typeMap) {
-            
-            typeMap = config.typeMap();
-
-            _.each(f, function (v, k) {
-                if(typeMap[k] == 'percent') f[k] = +v / 100;
-                if(typeMap[k] == 'float') f[k] = +v;
-            });
-        }
-
-        return f;
-    },
-
-    analysisFunction: function (d) {
-        return proforma(d);
-    },
+    return f;
+},
+```

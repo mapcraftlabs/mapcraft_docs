@@ -375,6 +375,19 @@ The defaultTheme should be the name of the theme which should be applied by defa
 defaultTheme: 'Most Feasible Option',
 ```
 
+### formatLabel
+
+formatLabel is used to specify a handlebars.js wrapper for formatting the popup label on the map, which displays the value that is current being themed when hovering over a shape.  The format can vary by attribute and thus the attribute name is passed in and the function should return the appropriate format for the attribute passed in.  The same handlebars helpers are available that are available in the discussion below on HTML templates.  As below, the context when rendering the template includes an attribute called `p` which contains the properties for the shape over which the mouse is currently hovering.
+
+```javascript
+formatLabel: function (attr) {
+    return {
+        'total_job_spaces': 'Job Spaces: {{formatNumber p.total_job_spaces '0,0' default=0}}',
+        // other attributes
+    }[attr];
+},
+```
+
 ### tableColumns
 
 This describes how attributes of the shapes show up in the table.  This also uses an open source project called React Data Grid and so documentation for this spec is available [here](https://github.com/adazzle/react-data-grid).
