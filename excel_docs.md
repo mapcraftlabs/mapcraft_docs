@@ -13,6 +13,6 @@ The multiformajs output looks a lot like [this](https://github.com/mapcraftlabs/
 * Group - the name of the group for this attribute - the attributes get placed into an "accordion" with this header in the form that edits the attributes - e.g. "Affordable Housing"
 * Type - the type of attribute - e.g. string, float, percent
 * "Theme?" - whether or not to theme this attribute in the app - e.g. Yes or No
-* Layer - the name of the layer which will edit this attribute - in other words, some attributes are edited on the primary layer and some get edited on secondary layers and joined to the primary layer.
+* Layer - the name of the layer which will edit this attribute - in other words, some attributes are edited on the primary layer and some get edited on secondary layers and joined to the primary layer.  If not present, it's assumed that the attribute will part of the primary layer.  Only the inputs list should have this attribute, not globals or outputs.
 
 
