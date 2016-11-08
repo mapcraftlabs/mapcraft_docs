@@ -15,7 +15,7 @@ csvLngLatcols: ["x", "y"],
 
 ### customMapAddFunction
 
-The customMapAddFunction shoudl also be used to make circles using the leaflet API.  If you want standard circles just copy the code below, but anything supported by the Leaflet API should work.  The function will be passed a list of shapes and a Leaflet feature layer.  Simply build a representation of each shape using the Leaflet API and add it to the feature layer.
+The customMapAddFunction should also be used to make circles using the leaflet API.  If you want standard circles just copy the code below, but anything supported by the Leaflet API should work.  The function will be passed a list of shapes and a Leaflet feature layer.  Simply build a representation of each shape using the Leaflet API and add it to the feature layer.
 
 ```javascript
 customMapAddFunction: function(shapes, featureLayer) {
@@ -88,15 +88,15 @@ typeMap: function () {
 
 ## Charts
 
-Charts are an integral part of the Labs app, but they're not built-in.  The hooks are there, but the user of the app still has to use Javascript libraries to create the charts.  A common choice is the [nvd3](http://nvd3.org/) library used in the example below, but this is by no means the only way to make charts.  
+Charts are an integral part of the Labs app, but they're not built-in.  The hooks are there, but the user of the app still has to use Javascript libraries to create the charts.  A common choice is the [nvd3](http://nvd3.org/) library used in the example below.  
 
 This example is probably not the only way to build charts in the app, but it seems like a sensible workflow.  This example assumes the charts are designed to be placed on the analytics pane.
 
-First of all, the values to be charted should be computed within the aggregateAnalytics method.  After that is done, the object which contains that data should be passed to another method which generates the chart.  Here that method is called addFeasibilityChart, which uses the nvd3 API to build a chart.  Finally, the chart is set on the DOM element with the id `FeasibilityChart`.  Note that id created as part of the analyticsTemplate.
+First of all, the values to be charted should be computed within the aggregateAnalytics method.  After that is done, the object which contains that data should be passed to another method which generates the chart.  Here that method is called addFeasibilityChart, which uses the nvd3 API to build a chart.  Finally, the chart is set on the DOM element with the id `FeasibilityChart`.  Note that id has geen created as part of the analyticsTemplate.
 
-To summarize, make a div in one of the HTML templates with a given ID.  Then in one of the callbacks, likely aggregateAnalytics, compute the data to go into the chart and use the charting API to build the chart.  It is not common to have several charts in the analytics pane, and this process can be repeated for each chart.
+To summarize, make a div in one of the HTML templates with a given id.  Then in one of the callbacks, likely aggregateAnalytics, compute the data to go into the chart and use the charting API to build the chart.  It is common to have several charts in the analytics pane, and this process can be repeated for each chart.
 
-The use of nvd3 in charts int he config file is also the reason why the nvd3 js and css are frequently included in the html page.  If you don't need charts, you can remove those includes to speed up load times.
+The use of nvd3 in charts in the config file is also the reason why the nvd3 js and css are frequently included in the html page.  If you don't need charts, you can remove those includes to speed up load times.
 
 ```javascript
 addFeasibilityChart: function (analytics) {
@@ -167,7 +167,7 @@ The next set of features is generally used in the Tier 3 App.
 
 Layers are used to associate attributes with higher-level shapes like neighborhoods, cities, block groups, zoning areas, etc.  One or more other layers can be configured, and the app will switch between the primary layer and each of the secondary layers.  Other than that, each layer will look exactly like a study area and provide the exact same functionality (a layer is essentially the same as a study area in the code).
 
-Thus to configure a second layer, specify a shapeUrl which is the geojson for the shapes, and many of the same attributes from the main config object as shown below.  This will likely include which attributes to theme, which to edit, and so forth.  Once an object is built for the secondary layer, that object should be included in the main configuration object using the extraLayers attribute, which is an object where keys are layer names and values are layer configuration objects.  You should also provide a defaultLayerName, which is the name of the layer represented by the main configuration object, and will be used in the UI to switch back to the main overview map.
+Thus to configure a second layer, specify a shapeUrl which is the geojson for the shapes and many of the same attributes from the main config object as shown below.  This will likely include which attributes to theme, which to edit, and so forth.  Once an object is built for the secondary layer, that object should be included in the main configuration object using the extraLayers attribute, which is an object where keys are layer names and values are layer configuration objects.  You should also provide a defaultLayerName, which is the name of the layer represented by the main configuration object, and will be used in the UI to switch back to the main overview map.
 
 ```javascript
 
@@ -212,15 +212,15 @@ config = {
 
 ## App-wide Analysis
 
-A key feature of the Tier 3 app is to do regional-level analysis.  This involves collating data from potentially several places.  The data is layered on in a certain order, although the featureMergeFunction below allows the user to change the default priority.  By default, data is merged in the following way:
+A key feature of the Tier 3 app is to do regional-level analysis.  This involves collating data from several places.  The data is layered on in a certain order, although the featureMergeFunction below allows the user to change the default priority.  By default, data is merged in the following way:
 
 1.  Start with the feature from the original geojson data.  
 
 2.  Override any attributes that have been edited within the app by the user using the latest value for each attribute.
 
-3.  Iterate though each extra layer and include any attributes that have been set in that layer.  If any attributes are already present, use the value from the layer rather than the value from the feature (more specific value wins).
+3.  Iterate though each extra layer and include any attributes that have been set in that layer.  If any attributes are already present, use the value from the feature rather than the value from the layer (more specific value wins).
 
-4.  Add any global attributes to the feature.  As above, if any attributes are already present, use the value from the layer rather than the value from the feature (more specific value wins).
+4.  Add any global attributes to the feature.  As above, if any attributes are already present, use the value from the feature rather than the value from the globals (more specific value wins).
 
 5.  If the analysisDefaultInputs object is set, use these values to fill in additional defaults, but do not override existing values.
 
@@ -228,11 +228,13 @@ A key feature of the Tier 3 app is to do regional-level analysis.  This involves
 
 ### baseDataCSVUrl and baseDataLayerJoinKeys
 
-There are two ways the base data can be attained.  The first is to iterate through the overview shapefile and to fetch the geojson for every study area that's identified in the overview.  The app will then merge all the "properties" objects of all the features is all the study area geojson files into one big list of features, and then iterate through the steps above.
+There are two ways the base data can be attained.  The first is to iterate through the overview shapefile and to fetch the geojson for every study area that's identified in the overview.  The app will then merge all the "properties" objects of all the features in all the study area geojson files into one big list of features, and then iterate through the steps above.
 
-The second option is do go ahead and cache the list of all features as a separate csv file.  This file can actually be generated in the app using the export all menu, and then hosted somewhere on the internet (like github.io).  Note that this will actually duplicate data, with data occuring once in the study area geojson file and once in the csv file and the user is responsible for making sure the two stay in sync.  The benefit of this is that the cvs loads several times faster and can be easily cached by the browser, while fetching all the geojson files takes much longer.  To use the second option, specify a link in the baseDataCSVUrl.
+The second option is do go ahead and cache the list of all features as a separate csv file.  This file can actually be generated in the app using the export all menu, and then hosted somewhere on the internet (like github.io).  Note that this will actually duplicate data, with data occuring once in the study area geojson file and once in the csv file and the user is responsible for making sure the two stay in sync.  The benefit of this is that the csv loads several times faster and can be easily cached by the browser, while fetching all the geojson files takes much longer.  To use the second option, specify a link in the baseDataCSVUrl.
 
-With either method, the app will also need a baseDataLayerJoinKeys object, which specifies a key which is an attribute in the list of features and a value which is the layer for which that is a join key.  For instance, the attribute '_studyArea' could occur in the csv file and join the key of the 'Neighborhoods' layer.  In fact the '_studyArea' attribute is a special attribute that gets added to the features that are created in the first option above.  The id used to identify each study area will be added as a value of each feature under the key '_studyArea'.  Thus the use of _studyArea as the join key implies the overview map and join layer are one and the same.
+With either method, the app will also need a baseDataLayerJoinKeys object, which specifies a key which is an attribute in the list of features and a value which is the layer for which that is a join key.  For instance, the attribute '_studyArea' could occur in the csv file and join the attribute of the 'Neighborhoods' layer (e.g. one record could have Ballard in the _studyArea field and there would be a Neighborhood with a value of Ballard).
+
+In fact the '_studyArea' attribute is a special attribute that gets added to the features that are created in the first option above.  The id used to identify each study area will be added as a value of each feature under the key '_studyArea'.  Thus the use of _studyArea as the join key implies the overview map and join layer are one and the same.
 
 ```javascript
 baseDataCSVUrl: "https://mapcraftlabs.github.io/seattle_parcels/seattle_base_data.csv",
@@ -241,7 +243,7 @@ baseDataLayerJoinKeys: {
 },
 ```
 
-analysisDefaultInputs and analysisFunction
+### analysisDefaultInputs and analysisFunction
 
 These two attributes are used as descibed in steps 5 and 6 above.
 
