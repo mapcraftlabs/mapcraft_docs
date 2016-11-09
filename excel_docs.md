@@ -59,4 +59,6 @@ getThemes: function (obj) {
 },
 ```
 
+That's pretty much it.  There are also helpers to configure attribute editing forms, the table view, the hover feature template and the helpers are free to be expanded for other configuration as required too, or configuration can always occur in a hard-coded fashion - whatever is appropriate for the job.
 
+To expand on the current set of functionality, we have for instance discussed allowing slider bars to be configured in the Excel files.  To do that we might add "Min" and "Max" columns for all the inputs in the Excel file, these would then become attributes on the inputs objects in the js (that comes out of multiformajs).  We would then implement a helper for the `editableAttributesFormat` method and create objects which follow the configuration described [here](https://github.com/mapcraftlabs/labs_examples/#editableattributesformat).  I don't know off the top of my head what that configuration would look like, but it's described in gory detail on the open source project [here](https://github.com/mozilla-services/react-jsonschema-form).  Thus it does require a few layers in order to add this feature, but this allows for, we hope, an *extremely* flexible app configuration process and keeps as much power in the configurer's hands as possible.
