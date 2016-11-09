@@ -87,7 +87,7 @@ One of the most confusing things about the app is how it stitches together all t
 
 We can then join the parcels to other layers, like maybe a city-wide layer and census tract layer, and then apply any global attributes to all parcels.  In the end there can be dozens and dozens of attributes associated with each parcel which have come from different places in the app.
 
-The data all gets passed into the spreadsheet and then results come out and the analytical reuslts are *also* added to the parcels.  This process can take a few seconds per 100k parcels, and the user can download pretty large csv files of inputs and outputs and explore the results in Tableau or Excel (and also inside the app).  And that's pretty much what the app does.
+The data all gets passed into the spreadsheet and then results come out and the analytical results are *also* added to the parcels.  This process can take a few seconds per 100k parcels, and the user can download pretty large csv files of inputs and outputs and explore the results in Tableau or Excel (and also inside the app).  And that's pretty much what the app does.
 
 ## And now here is a description of each of the keys in the config file
 
@@ -143,7 +143,7 @@ aboutUrl: 'usr/about.md',
 
 ### radioThemeChoice
 
-This is usually used, and it allows the user to theme the map using radio buttons rather than a drop down menu, which is prettier (the radio button version is).  (Technically I don't think they're radio buttons anymore, but the theming interface usually seen in the app comes from this option.)  Should this be made the default and removed?  Maybe.
+This is usually used, and it allows the user to theme the map using radio buttons rather than a drop down menu (the radio button version is prttier).  (Technically I don't think they're radio buttons anymore, but the theming interface usually seen in the app comes from this option.)  Should this be made the default and removed?  Maybe.
 
 ```javascript
 radioThemeChoice: true,
@@ -377,7 +377,7 @@ defaultTheme: 'Most Feasible Option',
 
 ### formatLabel
 
-formatLabel is used to specify a handlebars.js wrapper for formatting the popup label on the map, which displays the value that is current being themed when hovering over a shape.  The format can vary by attribute and thus the attribute name is passed in and the function should return the appropriate format for the attribute passed in.  The same handlebars helpers are available that are available in the discussion below on HTML templates.  As below, the context when rendering the template includes an attribute called `p` which contains the properties for the shape over which the mouse is currently hovering.
+formatLabel is used to specify a handlebars.js wrapper for formatting the popup label on the map, which displays the value that is currently being themed when hovering over a shape.  The format can vary by attribute and thus the attribute name is passed in and the function should return the appropriate format for the attribute passed in.  The same handlebars helpers are available that are available in the discussion below on HTML templates.  As below, the context when rendering the template includes an attribute called `p` which contains the properties for the shape over which the mouse is currently hovering.
 
 ```javascript
 formatLabel: function (attr) {
@@ -519,7 +519,7 @@ The paradigm for the app is that analytics will be run per place and then aggreg
 
 ### runAnalytics
 
-For instance, attributes on a parcel may be edited, that data will be passed to a pro forma (which has been converted from Excel to Javascript), and certain attributes will be computed by the pro forma and added to the place.
+For instance, attributes on a parcel may be edited, that data will be passed to a pro forma, and certain attributes will be computed by the pro forma and added to the place.
 
 The runAnalytics method is passed in the feature for which to calculate analytics (which will have any edits the user has made already applied), and a second object which is the global attributes for the current study area.  The method should return an object which is new attributes that will be added to this place (technically they will be added under the properties key as is standard with geojson).
 
@@ -587,7 +587,7 @@ aggregateAnalytics: function (features, callback) {
 
 ## HTML Templates
 
-The following parameters actually define how to display different parts of the app.  They do this by using a [handlebars.js](http://handlebarsjs.com/) template and passing in some data as context.  There are also some helper functions that can be used in these templates, like the formatNumber helper which, you guessed it, is used format numbers.
+The following parameters actually define how to display different parts of the app.  They do this by using a [handlebars.js](http://handlebarsjs.com/) template and passing in some data as context.  There are also some helper functions that can be used in these templates, like the formatNumber helper which, you guessed it, is used to format numbers.
 
 The `formatNumber` helper used [numeral.js](http://numeraljs.com/) format strings.  You can also pass in a default value using `default=` and the helper will divide by 1,000 if `inThousands=1` is passed or by 1,000,000 if `inMillions=1` is passed.
 
@@ -617,7 +617,7 @@ analyticsTemplate: "\
 
 ### placeHeadingTemplate
 
-The placeHeadingTemplate is the templat used above the form which edits place attributes.  It is usually very short and might just display the place name or id attribute.  The object called `p` has all the place properties for the place currently being edited.
+The placeHeadingTemplate is the template used above the form which edits place attributes.  It is usually very short and might just display the place name or id attribute.  The object called `p` has all the place properties for the place currently being edited.
 
 ```javascript
 placeHeadingTemplate: "\
