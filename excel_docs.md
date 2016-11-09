@@ -34,7 +34,7 @@ getRows: function () {
 },
 ```
 
-The configuration for themes is described [here](https://github.com/mapcraftlabs/labs_examples#themes).  That is the documentation for how themes work, and so we need to make the result of this function look like that.  In this case we take each object that was passed in and turn them info theme configuration obecjts using internal and external names and quite a few hard-coded attributes.  This is why the color scheme will be the same for every input.  If you don't like that, feel free to change the config after it gets returned (above) or just change the code in the helper.
+The configuration for themes is described [here](https://github.com/mapcraftlabs/labs_examples#themes).  That is the documentation for how themes work, and so we need to make the result of this function look like that.  In this case we take each object that was passed in and turn them into theme configuration obecjts using internal and external names and quite a few hard-coded attributes.  This is why the color scheme will be the same for every input.  If you don't like that, feel free to change the config after it gets returned (above) or just change the code in the helper.  There's no right or wrong way to do this, just use good coding principles and develop best practives over time.
 
 ```javascript
 getThemes: function (obj) {
@@ -59,6 +59,8 @@ getThemes: function (obj) {
 },
 ```
 
-That's pretty much it.  There are also helpers to configure attribute editing forms, the table view, the hover feature template and the helpers are free to be expanded for other configuration as required too, or configuration can always occur in a hard-coded fashion - whatever is appropriate for the job.
+That's pretty much it.  There are also helpers to configure attribute editing forms, the table view, the hover feature template and the helpers are able to be expanded for other configuration as required, or configuration can always occur in a hard-coded fashion - whatever is appropriate for the job at hand.
 
-To expand on the current set of functionality, we have for instance discussed allowing slider bars to be configured in the Excel files.  To do that we might add "Min" and "Max" columns for all the inputs in the Excel file, these would then become attributes on the inputs objects in the js (that comes out of multiformajs).  We would then implement a helper for the `editableAttributesFormat` method and create objects which follow the configuration described [here](https://github.com/mapcraftlabs/labs_examples/#editableattributesformat).  I don't know off the top of my head what that configuration would look like, but it's described in gory detail on the open source project [here](https://github.com/mozilla-services/react-jsonschema-form).  Thus it does require a few layers in order to add this feature, but this allows for, we hope, an *extremely* flexible app configuration process and keeps as much power in the configurer's hands as possible.
+### A Parting Example
+
+To expand on the current set of functionality, we have discussed allowing slider bars to be configured in the Excel files.  To do that we might add "Min" and "Max" columns for all the inputs in the Excel file.  These would then become attributes on the inputs objects in the js (that comes out of multiformajs).  We would then implement a helper for the `editableAttributesFormat` method and create objects which follow the configuration described [here](https://github.com/mapcraftlabs/labs_examples/#editableattributesformat).  I don't know off the top of my head what that configuration would look like, but it's described in gory detail on the open source project [here](https://github.com/mozilla-services/react-jsonschema-form).  Thus it does require a few layers in order to add this feature, but this allows for, we hope, an *extremely* flexible app configuration process and keeps as much power in the configurer's hands as possible.
