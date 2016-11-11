@@ -2,7 +2,9 @@
 
 ### Demo
 
-First poke around the live demo at the link above - this is one example configuration of the Labs app.  Since this is the gh-pages branch, the code in this repo is actually the code running at that link.
+First poke around a live demo of Labs.  A good first example is the "Puget" demo [here](http://mapcraftlabs.github.io/labs/puget.html).
+
+The example in this repo is actually a little bit simpler.  Since this is the gh-pages branch, the code in this repo is actually running live on github pages [here](https://mapcraftlabs.github.io/labs_examples/).
 
 ### What's the point of all this?
 
