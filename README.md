@@ -1,5 +1,9 @@
 # MapCraft Labs
 
+### Demo
+
+First poke around the live demo at the link above - this is one example configuration of the Labs app.  Since this is the gh-pages branch, the code in this repo is actually the code running at that link.
+
 ### What's the point of all this?
 
 Put simply, the Labs app is a way to take workflows that were traditionally performed in Excel and move them to a multi-user modern website.  Since most of our use cases are spatial, users can go back and forth between interacting with the data on a map and in a table.  Oh, and we try and organize edits into scenarios so that different sets of input assumptions can be checked to see how they affect the output.
