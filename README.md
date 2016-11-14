@@ -381,6 +381,22 @@ The defaultTheme should be the name of the theme which should be applied by defa
 defaultTheme: 'Most Feasible Option',
 ```
 
+### Custom theme icons
+
+Custom icons (which are just small images) can be added by specifying a path to the image as the `icon` attribute of each theme.  These icons will be placed beside the theme name on the theme selector.  An `icon` attribute can also be added on the defaultStyle config to be placed next to the Default item on the theme selector.   The `themeIconHeight` is also used to scale the icons to the appropriate height in pixels (default is 16).
+
+```javascript
+themeIconHeight: 24,
+themes: {
+    'Job Spaces': {
+        icon: 'img/icons/jobs.png'
+    }
+},
+defaultStyle: {
+    icon: 'img/icons/default.jpg'
+}
+```
+
 ### formatLabel
 
 formatLabel is used to specify a handlebars.js wrapper for formatting the popup label on the map, which displays the value that is currently being themed when hovering over a shape.  The format can vary by attribute and thus the attribute name is passed in and the function should return the appropriate format for the attribute passed in.  The same handlebars helpers are available that are available in the discussion below on HTML templates.  As below, the context when rendering the template includes an attribute called `p` which contains the properties for the shape over which the mouse is currently hovering.
