@@ -527,6 +527,65 @@ editableAttributesFormat: function (mobile) {
 },
 ```
 
+### Validation
+
+To enable validation using the form package, set `formNoValidate` to false.  Yes it's a double negative, sorry.  
+
+With the forms package you can set the widgets to updown or range/slider as described above, as well as set min, max, and step values.  If the min and max values are violated an error will be shown.
+
+You can also set whether the value is required or not, as shown below.  This seems to add an asterix but not a validation step, so you might want to add a minLength attribute too in order to get an error message.
+
+For now we're using version 0.14 of React so we can only use up to .34 of react-jsonschema-form, so keep that in mind when looking at the docs.
+
+You also can't use fractional numbers in the HTML5 spec, so it's hard to do 0.0 to 1.0 with a step of .1.  Just can't be done sorry.
+
+Finally, one other thing that might come in handy when validating is the [modifyGeojsonFeatures](https://github.com/mapcraftlabs/labs_examples/blob/2faf76e46c90fe9d7b617fe9ade758ea3b5ed847/advanced_features.md#modifygeojsonfeatures) attribute in case your geojson starts out with the wrong types or formats.  Of course you could fix the geojson directly, but if you're lazy it might be easier to just write a little method to do type conversion on the fly.
+
+```javascript
+formNoValidate: false,
+editableAttributesFormat: function (mobile) {
+    return {
+        sqftPerUnit: {
+            "ui:widget": "updown"
+        },
+        constructionCostSqft: {
+            "ui:widget": "range"
+        }
+    }
+},
+
+editableAttributes: function () {
+    // use react-jsonschema-form style syntax
+    // https://github.com/mozilla-services/react-jsonschema-form
+    return {
+        type: "object",
+        header: "Globals",
+        required: ['maxDuaOverride'],
+        properties: {
+            sqftPerUnit: {
+                type: 'number',
+                title: 'Sqft Per Unit',
+                minimum: 250,
+                maximum: 2500,
+                multipleOf: 250
+            },
+            constructionCostSqft: {
+                type: 'number',
+                title: 'Construction Cost / Sqft',
+                minimum: 20,
+                maximum: 1000,
+                multipleOf: 100
+            },
+            maxDuaOverride: {
+                minLength: 1,
+                type: 'string',
+                title: 'Max Dua Override'
+            }
+        }
+    }
+},
+```
+
 ### globalAttributes
 
 This is the exact same format as the editableAttributes but these are attributes that apply for all the shapes - we call them "global" to all the shapes.  They are edited by the user in a different tab.  They are optional - to not have global attributes for a layer, just leave this undefined.
