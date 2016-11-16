@@ -224,7 +224,7 @@ A key feature of the Tier 3 app is to do regional-level analysis.  This involves
 
 5.  If the analysisDefaultInputs object is set, use these values to fill in additional defaults, but do not override existing values.
 
-6.  Run the analysisFunction on the object that results from the above steps.  Keep track of the results.  Allow the user to download separate csvs of the input and output attributes.  The separate csvs are only necessary because of memory limitations in the browser.
+6.  Run the runAnalytics function on the object that results from the above steps.  Keep track of the results.  Allow the user to download separate csvs of the input and output attributes.  The separate csvs are only necessary because of memory limitations in the browser.
 
 ### baseDataCSVUrl and baseDataLayerJoinKeys
 
@@ -243,9 +243,9 @@ baseDataLayerJoinKeys: {
 },
 ```
 
-### analysisDefaultInputs and analysisFunction
+### analysisDefaultInputs
 
-These two attributes are used as descibed in steps 5 and 6 above.
+These is the attribute descibed in steps 5 above.
 
 ```javascript
 analysisDefaultInputs: {
@@ -277,54 +277,5 @@ analysisDefaultInputs: {
     'CAP Rate': 4.5,
     'Return on Cost Spread over CAP': 1.5,
     'Threshold for Feasibility': 10
-},
-analysisFunction: function (d) {
-    return proforma(d);
-},
-```
-
-### featureMergeFunction
-
-For bonus points, the app exposes a featureMergeFunction which allows the user to configure how data gets merged between the base places, the various layers, the defaults, and how types get converted when doing app-wide analysis.  This method might be moved into the app at some point if this becomes standard, but for now it is configurable by the user.  To accept default behavior just copy this function into the main config.  This method won't be documented as thoroughly as it's really an expert parameter.
-
-```javascript
-featureMergeFunction: function (f, layerData) {
-
-    _.each(f, function (v, k) {
-        // change null to undefined for _.defaults below
-        if(v == null) f[k] = undefined;
-    });
-
-    if(config.baseDataLayerJoinKeys) {
-        _.each(config.baseDataLayerJoinKeys, function(v, k) {
-
-            if(!layerData[v]) return;
-
-            var joinId = f[k];
-            var joinData = layerData[v]['places'][joinId];                    
-            // don't override parcel level data with layer data
-            f = _.defaults(f, joinData);
-
-            var globalData = layerData[v]['assumptions'];
-            // don't override parcel data with global data
-            f = _.defaults(f, globalData);                    
-        })
-    }
-
-    // merge defaults with anything else that's empty
-    if(config.analysisDefaultInputs)
-        f = _.defaults(f, config.analysisDefaultInputs);
-
-    if(config.typeMap) {
-        
-        typeMap = config.typeMap();
-
-        _.each(f, function (v, k) {
-            if(typeMap[k] == 'percent') f[k] = +v / 100;
-            if(typeMap[k] == 'float') f[k] = +v;
-        });
-    }
-
-    return f;
 },
 ```
