@@ -600,38 +600,13 @@ The paradigm for the app is that analytics will be run per place and then aggreg
 
 ### runAnalytics
 
-For instance, attributes on a parcel may be edited, that data will be passed to a pro forma, and certain attributes will be computed by the pro forma and added to the place.
+For instance, attributes on a parcel may be edited, that data can be passed to a pro forma, and certain attributes will be computed by the pro forma and added to the place.
 
-The runAnalytics method is passed in the feature for which to calculate analytics (which will have any edits the user has made already applied), and a second object which is the global attributes for the current study area.  The method should return an object which is new attributes that will be added to this place (technically they will be added under the properties key as is standard with geojson).
+The runAnalytics method is passed in the feature for which to calculate analytics (which will have any edits the user has made already applied).  The feature will also merge in global attributes and will merge in attributes from other layers if you have layers defined.  The method should return an object which is new attributes that will be added to this place.
 
 ```javascript
-runAnalytics(f, assumptions) {
-
-    // global assumptions, hard coded for now, but
-    // will be entered by the user
-    var defaultGlobals = {
-        constructCost: 185, // $/SqFt hard cost
-        softCost: 40, // % of hard cost
-        capRate: 4.5,
-        goInCapSpread: 20, // % over blended CAP
-        inclusionary: 20, // % of Res sq ft
-        affDepth: 60 // % of AMI
-    };
-
-    var defaults = {
-        rentSqftRes: 4, // $/SqFt/month
-        rentSqftComm: 20, // $/SqFt/year NNN
-        maxDua: 0,
-        maxFar: 0,
-        landPrep: 0
-    };
-
-    assumptions = _.extend(defaultGlobals, assumptions); 
-
-    var p = f.properties;
-
-    // do the pro forma
-    return ROCpencil(p, assumptions);
+runAnalytics(f) {
+    return ROCpencil(f);
 },
 ```
 
