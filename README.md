@@ -16,60 +16,33 @@ NOTE: this document expects some familiarity with how the app works - it doesn't
 
 ### Installation
 
-Installation is pretty trivial.  A typical html file that leverages the app generally looks like the html below.  There are a few resources that get fetched over the web as these were hard to build into the app (usually they didn't have a good npm build).  Thus a lot of these includes are just kind of boilerplate and come from a CDN out there on the internet somewhere.
+Installation is pretty trivial.  A typical html file that leverages the app generally looks like the html below.  The app now includes all of its necessary dependencies.  If the configuration has dependencies they can be included here.  
 
-The exceptions are these:
+Additional files are required or often used:
 
-* builds/bundle-v\*.js - this is the app - use the latest version or an appropriate version for your case.  It will be *minified* so won't be human readable.
+* dist/mapcraftlabs-v*.js - this is the app - use the latest version or an appropriate version for your case.  It will be *minified* so won't be human readable.
 * usr/sea_proforma.js - this is optional but is common - it's the real reason the app is built.  This is the translation of an Excel spreadsheet into Javascript for use within the website.
-* lib/formula.standalone.js - this is a build we use of the open source [project](https://github.com/sutoiku/formula.js/) which implements all Excel formulas in Javascript.
-* usr/sea_config.js - this is the configuration file which has a variable called `config` which is a configuration object which has keys which will be described one by one in this file.
+* lib/formula.standalone.js (sometimes required, depends on the proforma) - this is a build we use of the open source [project](https://github.com/sutoiku/formula.js/) which implements all Excel formulas in Javascript.
+* usr/sea_config.js - this is the configuration file which has a variable called `config` which is a configuration object which has keys which will be described one by one in this documentation.
 
-Thus you only need the html file and these 4 files (and really two of the files are optional - the bundle and config are essential).  Thus you have 3 to 5 files on your local machine and all you need to test and edit the configuration is a web server.  I usually just run `python -m SimpleHTTPServer` and open up a browser and go to `http://localhost.com:800/whatever.html` - read more about it [here](http://www.2ality.com/2014/06/simple-http-server.html).
+Thus you only need the html file and these 4 files (and really two of the files are optional - the bundle and config are essential).  Thus you have 3 to 5 files on your local machine and all you need to test and edit the configuration is a web server.  I usually just run `python -m SimpleHTTPServer` and open up a browser and go to `http://localhost.com:8000/whatever.html` - read more about it [here](http://www.2ality.com/2014/06/simple-http-server.html).
 
 ```html
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset=utf-8 />
-
 <title>MapCraft Labs</title>
-
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-
-<link href='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css' rel='stylesheet' />
-
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
-
-<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css' rel='stylesheet' />
-
-<link href="https://bootswatch.com/cosmo/bootstrap.min.css" rel="stylesheet" />
-
-<link href="http://adazzle.github.io/react-data-grid/build/react-data-grid.css" rel="stylesheet" />
-
 </head>
 
 <body>
 <div id="app"></div>
 
-<script src="https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js"></script>
-
-<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js'></script>
-
-<script src="http://leaflet-extras.github.io/leaflet-providers/leaflet-providers.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-
-<script src="lib/formula.standalone.js"></script>
-
-<script src="http://cdn.jsdelivr.net/alasql/0.3/alasql.min.js"></script>
-
 <script src="usr/sea_proforma.js"></script>
 <script src="usr/sea_config.js"></script>
-<script src="builds/bundle-v13.js"></script>
+<script src="dist/mapcraftlabs-v0.16-pre.js"></script>
 
 </body>
 </html>
@@ -105,33 +78,9 @@ First and foremost, each instance of Labs needs a unique firebasePath.  This is 
 firebasePath: 'studyareas',
 ```
 
-### firebase
-
-This is all the info Firebase needs to connect.  If you're using the MapCraft Firebase instance, you can just copy paste this everytime.
-
-```javascript
-firebase(raw) {
-
-    var config = {
-        apiKey: "AIzaSyA3hpj39ADed_d0B4XnCBNMTtVndS0naj4",
-        authDomain: "treasureisland.firebaseapp.com",
-        databaseURL: "https://treasureisland.firebaseio.com",
-        storageBucket: "project-4176592181288763552.appspot.com"
-    };
-
-    if(!this.firebaseConn)
-        this.firebaseConn = firebase.initializeApp(config);
-
-    if(raw)
-        return this.firebaseConn;
-
-    return this.firebaseConn.database().ref().child(this.firebasePath);
-},
-```
-
 ### setUnderscore
 
-If you're gong to use underscore in the config files anywhere, this is a good way to make sure it gets set.  Outside of the object make sure to add a `_ = null;` in order to make `_` globally accessible to the config object.  I suppose you could also just include underscore somewhere, but this keeps from having to fetch it twice since it's included in the app.
+If you're gong to use underscore in the config files anywhere, this is a good way to make sure it gets set.  Outside of the object make sure to add a `_ = null;` in order to make `_` globally accessible to the config object.  I suppose you could also just include underscore from a cdn, but this keeps from having to fetch it twice since it's included in the app.
 
 ```javascript
 setUnderscore (underscore) {
@@ -243,6 +192,14 @@ Change the appName if the app should not be branded as MapCraft Labs (i.e. it ca
 ```javascript
 appName: 'MTC UrbanSim',
 noBranding: true,
+```
+
+### displayAttrForComments
+
+If you want to use a different attribute of each feature on the "recent comments" page beside the id, specify it here.  These attributes are in the heading above each set of comments and used to identify the feature the comments apply to.
+
+```javascript
+displayAttrForComments: 'ADDR_FULL',
 ```
 
 ### noScenarioEdits
