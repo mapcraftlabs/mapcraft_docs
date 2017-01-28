@@ -210,6 +210,55 @@ config = {
 }
 ```
 
+## Non-spatial Layers
+
+Layers may also be non-spatial.  Here is an example of a working non-spatial layer.  The canonical use case is for zoning lookup data, which has attributes associated with it but which is not spatial until joined to parcels.  This works exactly the same way as all the other joined layers, except there are no shapes and so all data viewing and edits happen in the table.  In the config, set the nonSpatialLayer attribute to true and the UI will be configured to alert the user that there will be no shapes to view.  The data in this case will always be a csv.  For now, make sure to include "x" and "y" columns so the csv can be parsed the same way as csv files that contain point data, but for non-spatial layers the content of these columns will be ignored. 
+
+```
+config3 = {
+  // study areas are selected via a dropdown of via map - if via map leave this empty
+  shapeUrl: 'https://mapcraftlabs.github.io/seattle_parcels/seattle_zoning.csv',
+  // property of the features which should be unique amont all features
+  keyAttr: 'Zoning Name',
+  csvLngLatcols: ["x", "y"],
+
+  nonSpatialLayer: true,
+
+  customMapAddFunction: function(shapes, featureLayer) {},
+
+  typeMap: function () {
+    return {
+      'Max Dua': 'float',
+      'Max Far': 'float'
+    };
+  },
+  
+  cols: [{
+    InternalName: "Zoning Name",
+    Variable: "Zoning Name",
+    Group: "Zoning Attributes"
+  }, {
+    InternalName: "Max Dua",
+    Variable: "Max Dua",
+    Group: "Zoning Attributes"
+  }, {
+    InternalName: "Max Far",
+    Variable: "Max Far",
+    Group: "Zoning Attributes"
+  }],
+
+  tableColumns: function () {
+    return helpers.getTableColumns(this.cols);
+  },
+
+  editableAttributes: function () {
+    return helpers.inputGroupsFromJson(this.cols);
+  },
+
+  placeHeadingTemplate: "<h3 style='margin-top: 0px;'>{{p.name}}</h3>",
+};
+```
+
 ## App-wide Analysis
 
 A key feature of the Tier 3 app is to do regional-level analysis.  This involves collating data from several places.  The data is layered on in a certain order, although the featureMergeFunction below allows the user to change the default priority.  By default, data is merged in the following way:
