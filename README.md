@@ -303,7 +303,7 @@ highlightStyle: {
 
 This describes the themes that can be applied on the visible shape layer.  They are specified as an object where keys are the name of the theme (and will show up in the UI) and values are a spec used to define themes (which is Leaflet inspired but could also be used outside of Leaflet).  The themes should be familiar to anyone who has used GIS, but the spec is long enough that it has its own open source repo, and the docs can be found as the [README](https://github.com/mapcraftlabs/mapcraftjs) of that repo.
 
-Two new attributes have been added to the themes, which are specific to the Labs app (they are not part of mapcraftjs).  The first is the "group," which is similar to the group for form inputs in that is splits themes up into separate categories which are accessibile with an accordion.  The second is the "notes" attribute which is used to describe a theme so the user of the app knows what she is looking at.
+Two new attributes have been added to the themes, which are specific to the Labs app (they are not part of mapcraftjs).  The first is the "group," which is similar to the group for form inputs in that is splits themes up into separate categories which are accessibile with an accordion.  The second is the "notes" attribute which is used to describe a theme so the user of the app knows what she is looking at.  Notes may be formatted using markdown.
 
 ```javascript
 themes: {
