@@ -78,6 +78,20 @@ First and foremost, each instance of Labs needs a unique firebasePath.  This is 
 firebasePath: 'studyareas',
 ```
 
+### firebaseConfig
+
+You can optionally set Firebase connection information to tell Labs the db to use.  If this is not set, the default MapCraft location will be used.
+
+```javascript
+{
+    apiKey: "<API_KEY>",
+    authDomain: "<PROJECT_ID>.firebaseapp.com",
+    databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
+    storageBucket: "<BUCKET>.appspot.com",
+    messagingSenderId: "<SENDER_ID>",
+}
+```
+
 ### setUnderscore
 
 If you're gong to use underscore in the config files anywhere, this is a good way to make sure it gets set.  Outside of the object make sure to add a `_ = null;` in order to make `_` globally accessible to the config object.  I suppose you could also just include underscore from a cdn, but this keeps from having to fetch it twice since it's included in the app.
@@ -289,6 +303,7 @@ highlightStyle: {
 
 This describes the themes that can be applied on the visible shape layer.  They are specified as an object where keys are the name of the theme (and will show up in the UI) and values are a spec used to define themes (which is Leaflet inspired but could also be used outside of Leaflet).  The themes should be familiar to anyone who has used GIS, but the spec is long enough that it has its own open source repo, and the docs can be found as the [README](https://github.com/mapcraftlabs/mapcraftjs) of that repo.
 
+Two new attributes have been added to the themes, which are specific to the Labs app (they are not part of mapcraftjs).  The first is the "group," which is similar to the group for form inputs in that is splits themes up into separate categories which are accessibile with an accordion.  The second is the "notes" attribute which is used to describe a theme so the user of the app knows what she is looking at.
 
 ```javascript
 themes: {
@@ -299,6 +314,7 @@ themes: {
         outlineColor: '#000000',
         highlightColor: '#ffffcc',
         scaleType: 'linear',
+        group: 'group1',
         interpolate: ['#fff5eb', '#7f2704']
     },
     'Job Spaces': {
@@ -308,6 +324,7 @@ themes: {
         outlineColor: '#000000',
         highlightColor: '#ffffcc',
         scaleType: 'linear',
+        group: 'group1',
         interpolate: ['#f7fbff', '#08306b']
     },
     'Land Use': {
@@ -316,6 +333,8 @@ themes: {
         outlineColor: '#000000',
         highlightColor: '#ffffcc',
         scaleType: 'categorical',
+        group: 'group2',
+        notes: 'The land use for this *parcel*.',
         categories: {
             'Office': '#ff9999',
             'Hotel': '#ff9933',
