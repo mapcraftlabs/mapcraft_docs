@@ -305,6 +305,8 @@ This describes the themes that can be applied on the visible shape layer.  They 
 
 Two new attributes have been added to the themes, which are specific to the Labs app (they are not part of mapcraftjs).  The first is the "group," which is similar to the group for form inputs in that is splits themes up into separate categories which are accessibile with an accordion.  The second is the "notes" attribute which is used to describe a theme so the user of the app knows what she is looking at.  Notes may be formatted using markdown.
 
+New in version 0.19, the attribute displayName can be used for any theme and will be used in both the "theme selector" and in the legend.
+
 ```javascript
 themes: {
     'Residential Units': {
