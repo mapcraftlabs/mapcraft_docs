@@ -1,5 +1,9 @@
 # Advanced Features
 
+## Two-level App
+
+The app may be configured so as not to use an overview map, if those overview shapes are actually used as a layer (in other words, to edit inputs that the disaggregate shapes join to).  So if you have parcels and tracts, and are currently using the tracts both as the overview map and also as a join layer, the preferred UI is to drop the overview map.  This is done by removing the `overviewShapes` and `overviewShapesIdAttr` from the config file (leave the `overViewIdAttrToGeojson` function as this is still used).  Then add the parameter `dblClickSwitchStudyArea` to the config for the layer which is the same as the overview shapes.  When `dblClickSwitchStudyArea` is set, double clicking will switch the study area (it will do the same thing that was previously done by clicking on the overview shapes).
+
 ## Circles
 
 ### csvLngLatcols
