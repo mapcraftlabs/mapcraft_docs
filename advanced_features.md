@@ -19,6 +19,23 @@ overViewIdAttrToGeojson: function (attr) {
 csvLngLatcols: ["x", "y"],
 ```
 
+### Context Points
+
+Context points display a point geojson file in the app for context.  The relevant attributes are below, which specify the geojson file, the style to use, the radius to use, and an attribute in the geojson properties array to use to the label the points on hover (e.g. to identify the name of the transit stop).
+
+```javascript
+contextPoints: 'shps/seattle_basketball.geojson',
+contextStyle: {
+    color: '#2262CC', 
+    weight: 2,
+    opacity: 0.6,
+    fillOpacity: 0.25,
+    fillColor: '#2262CC'
+},
+contextRadius: 5,
+contextLabelAttr: 'sport_type',
+```
+
 ### customMapAddFunction
 
 The customMapAddFunction should also be used to make circles using the leaflet API.  If you want standard circles just copy the code below, but anything supported by the Leaflet API should work.  The function will be passed a list of shapes and a Leaflet feature layer.  Simply build a representation of each shape using the Leaflet API and add it to the feature layer.
