@@ -199,13 +199,10 @@ disableThemeIcons: true,
 
 ### Branding
 
-Set noBranding to remove the "Build by MapCraft" item on the Navbar.
-
 Change the appName if the app should not be branded as MapCraft Labs (i.e. it can be whitelabeled for the client).
 
 ```javascript
 appName: 'MTC UrbanSim',
-noBranding: true,
 ```
 
 ### displayAttrForComments
@@ -216,12 +213,23 @@ If you want to use a different attribute of each feature on the "recent comments
 displayAttrForComments: 'ADDR_FULL',
 ```
 
-### noScenarioEdits
+### Menu Configuration / Simulation Layer
 
-Set noScenarioEdits to remove the items to create a new scenario, or a copy of an existing scenario.
+For e.g. a Simulation layer, you can change the name of the Scenarios dropdown using `scenariosDropdownName`.  You can also hide the paint and changelog menu items if no edits will take place on a layer (e.g. a simulation layer).
+
+```javascript
+hidePaint: true,
+hideChangeLog: true,
+scenariosDropdownName: 'Simulations',
+```
+
+### noScenarioEdits / noNewScenarios
+
+Set noNewScenarios to remove the items to create a new scenario, or a copy of an existing scenario.  Set `noScenarioEdits` to remove the rename and delete menu items.  Each of these applies only to the currently selected layer.
 
 ```javascript
 noScenarioEdits: true,
+noNewScenarios: true,
 ```
 
 ### onlySeeMyScenarios
@@ -242,7 +250,7 @@ playgroundScenario: true,
 
 ### debounceThemeEvery
 
-This is the amount of time to wait before re-theming or re-computing the analytics.  It should be made longer if there are more shapes (and more computations), and shorter to keep things snappy if there are only a few shapes.  The debounceMaxWait option makes is passed to the debounce method as the maxWait option, which forces the theme and analytics to recompute at least that often.
+This is the amount of time to wait before re-theming or re-computing the analytics.  It should be made longer if there are more shapes (and more computations), and shorter to keep things snappy if there are only a few shapes.  The `debounceMaxWait` option makes is passed to the debounce method as the `maxWait` option, which forces the theme and analytics to recompute at least that often.
 
 ```javascript
 debounceThemeEvery: 500,
@@ -352,12 +360,13 @@ themes: {
 },
 ```
 
-### defaultTheme
+### defaultTheme / hideDefaultThemeOption
 
-The defaultTheme should be the name of the theme which should be applied by default if the Default theme is not preferred.
+The defaultTheme should be the name of the theme which should be applied by default if the Default theme is not preferred.  If you want to also hide the default theme so it can't be selected at all, use `hideDefaultThemeOption`.  `defaultTheme` must be set per layer, while `hideDefaultThemeOption` is set for the global configuration.
 
 ```javascript
 defaultTheme: 'Most Feasible Option',
+hideDefaultThemeOption: true,
 ```
 
 ### Custom theme icons
