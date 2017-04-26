@@ -242,11 +242,12 @@ playgroundScenario: true,
 
 ### debounceThemeEvery
 
-This is the amount of time to wait before re-theming or re-computing the analytics.  It should be made longer if there are more shapes (and more computations), and shorter to keep things snappy if there are only a few shapes.
+This is the amount of time to wait before re-theming or re-computing the analytics.  It should be made longer if there are more shapes (and more computations), and shorter to keep things snappy if there are only a few shapes.  The debounceMaxWait option makes is passed to the debounce method as the maxWait option, which forces the theme and analytics to recompute at least that often.
 
 ```javascript
 debounceThemeEvery: 500,
 debounceAnalyticsEvery: 500,
+debounceMaxWait: 1000,
 ```
 
 ### studyAreas
