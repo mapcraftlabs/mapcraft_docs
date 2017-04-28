@@ -174,6 +174,67 @@ analyticsTemplate: function () {
 },
 ```
 
+## Double Charts
+
+Starting in version v0.24, charts can be compared side-by-side for two scenarios.  When you're looking at a chart for one scenario, this is still displayed in the sidebar under analytics, but the double map (comparison map) hides the analytic pane and adds a new menu item in the scenario drop down which lets you open up a modal to show side-by-side charts, one for each scenario.  To set up side-by-side charts, a few of the calls from above have to be aware of which panel they're being called from.
+
+* chart configuration is split into `makeCharts` and `aggregateAnalytics` will be called twice with different sets of features.  if a `makeCharts` method is not present, then double charts will be hidden.
+* `analyticsTemplate` should have a `{{panelNo}}` identifier to identify separate divs for each of the side-by-side charts
+* `makeChart` will be called twice, once for each of the two charts.  It will be called with `agg`, `panelNo`, and `agg2` as parameters.  `agg` is the result from this panel's aggregation, `panelNo` is this panel number and can be used to find the right div from the template, and `agg2` is the result from the other panel's aggregation.  Both aggregations are passed so that results can be normalized between the panels, e.g. the scales can be set based on the ranges in both charts.
+
+``` javascript
+  makeCharts: function (agg, panelNo, agg2) {
+    var data = [{
+      key: "Building Types",
+      values: [{
+        label: "Garden Walkups",
+        value: agg["Feasibility of Garden Walkups"]
+      }, {
+        label: "4 over 1",
+        value: agg["Feasibility of 4 over 1 Podium"]
+      }, {
+        label: "Tower",
+        value: agg["Feasibility of Tower"]
+      }]
+    }];
+
+    // this sets the range to the max of both scenarios when doing a comparison
+    var maxVal = Math.max(agg["Feasibility of Tower"], agg2["Feasibility of Tower"]);
+
+    nv.addGraph(function() {
+      var chart = nv.models.discreteBarChart()
+        .x(function(d) { return d.label })
+        .y(function(d) { return d.value })
+        .forceY([0, maxVal])
+        .staggerLabels(false);
+
+      chart.yAxis
+        .axisLabel('Count of Feasible Parcels');
+
+      d3.select('#FeasibilityChart' + panelNo + ' svg')
+        .datum(data)
+        .call(chart);
+
+      nv.utils.windowResize(chart.update);
+
+      return chart;
+    });
+
+    return agg;
+  },
+
+  aggregateAnalytics: function aggregate(features) {
+    var cols = ['Feasibility of Tower', 'Feasibility of 4 over 1 Podium', 'Feasibility of Garden Walkups'];
+    return _.object(_.map(cols, c => [
+      c, d3.sum(features, o => o[c])
+    ]));
+  },
+
+  analyticsTemplate: function () {
+    return '<div id="FeasibilityChart{{panelNo}}"><h3 align="center"><b>Feasible Neighborhoods by Building Type</b></h3><svg style="height: 400px; width: 370px;"></svg></div>';
+  },
+```
+
 ## The Three "Tiers" of App
 
 * A Tier 1 App has exactly one study area (set of shapes).  The number of shapes which can be in each study area is limited by what Leaflet can render in the browser comfortably and is about 5,000 shapes.
