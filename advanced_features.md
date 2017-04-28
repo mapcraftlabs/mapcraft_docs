@@ -315,6 +315,14 @@ baseDataLayerJoinKeys: {
 },
 ```
 
+### Cloud Simulations
+
+Starting around version v0.23 or so, we started using Amazon Lambda to allow running all of these computations on the server side.  The code and documentation for how that works are [here](https://github.com/mapcraftlabs/excelerator/tree/master/serverless), but the summary is that you can run all the analysis for each high level shape in a Lambda instance, and then can run hundreds of parallel instances to do all the calculations for an urban region.  From the Labs app perspective, all you need is the url to call, like so:
+
+```
+mapcraftCloudLink: "https://uflaubv3c8.execute-api.us-west-2.amazonaws.com/dev/austin",
+```
+
 ### analysisDefaultInputs
 
 These is the attribute descibed in steps 5 above.
