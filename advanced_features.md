@@ -1,5 +1,45 @@
 # Advanced Features
 
+## Filtering
+
+First, enable filtering by setting one or both of the following attributes to true - filters can either be placed in the sidebar or in a pop-up modal (or both).
+
+```
+filtersInModal: false,
+filtersInSidebar: true,
+```
+
+Then configure which attributes get filtered using code like the following.  The result should be a dictionary where the attribute name is the key and the value is either an object with `type` equal to `numeric` or `categorical`.  The numeric type will automatically allow less then, greater than, or between type operations, while the categorical must include an `enum` attribute with a list of possible values which will be used in the filtering, e.g. one could filter to counties in a region, and the user would be able to select the counties they want to view in Labs. 
+
+```javascript
+filterAttributes: function () {
+  var ret = {};
+  _.each(_.map(schema, function (fname) {
+    switch (_.get(schemaTypes, fname)) {
+      case 'categorical':
+        ret[fname] = { type: 'categorical', enum: _.get(categories, fname) };
+        break;
+      case 'numeric':
+        ret[fname] = { type: 'numeric' };
+        break;
+    }
+  }));
+  return ret;
+},
+
+// or 
+
+filterAttributes: {
+  Counties: {
+    type: 'categorical',
+    enum: ['San Francisco', 'San Mateo', 'Santa Clara']
+  },
+  'Building Sqft': {
+    type: 'numeric'
+  }
+}
+```
+
 ## Two-level App
 
 The app may be configured so as not to use an overview map, if those overview shapes are actually used as a layer (in other words, to edit inputs that the disaggregate shapes join to).  So if you have parcels and tracts, and are currently using the tracts both as the overview map and also as a join layer, the preferred UI is to drop the overview map.  This is done by removing the `overviewShapes` and `overviewShapesIdAttr` from the config file (leave the `overViewIdAttrToGeojson` function as this is still used).  Then add the parameter `dblClickSwitchStudyArea` to the config for the layer which is the same as the overview shapes.  When `dblClickSwitchStudyArea` is set, double clicking will switch the study area (it will do the same thing that was previously done by clicking on the overview shapes).
