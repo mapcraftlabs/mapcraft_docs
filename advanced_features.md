@@ -9,7 +9,7 @@ filtersInModal: false,
 filtersInSidebar: true,
 ```
 
-Then configure which attributes get filtered using code like the following.  The result should be a dictionary where the attribute name is the key and the value is either an object with `type` equal to `numeric` or `categorical`.  The numeric type will automatically allow less then, greater than, or between type operations, while the categorical must include an `enum` attribute with a list of possible values which will be used in the filtering, e.g. one could filter to counties in a region, and the user would be able to select the counties they want to view in Labs. 
+Then configure which attributes get filtered using code like the following.  The result should be a dictionary where the attribute name is the key and the value is either an object with `type` equal to `numeric`, `string`, or `categorical`.  The numeric type will automatically allow less then, greater than, or between type operations, while the categorical must include an `enum` attribute with a list of possible values which will be used in the filtering, e.g. one could filter to counties in a region, and the user would be able to select the counties they want to view in Labs.  The string option will allow the user to enter text and apply a filter based on a substring match.
 
 ```javascript
 filterAttributes: function () {
