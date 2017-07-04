@@ -22,6 +22,9 @@ filterAttributes: function () {
       case 'numeric':
         ret[fname] = { type: 'numeric' };
         break;
+      default:
+        ret[fname] = { type: 'string' };
+        break;        
     }
   }));
   return ret;
@@ -36,6 +39,9 @@ filterAttributes: {
   },
   'Building Sqft': {
     type: 'numeric'
+  },
+  'Building Name': {
+    type: 'string'
   }
 }
 ```
