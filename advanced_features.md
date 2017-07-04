@@ -405,23 +405,6 @@ A key feature of the Tier 3 app is to do regional-level analysis.  This involves
 
 6.  Run the runAnalytics function on the object that results from the above steps.  Keep track of the results.  Allow the user to download separate csvs of the input and output attributes.  The separate csvs are only necessary because of memory limitations in the browser.
 
-### baseDataCSVUrl and baseDataLayerJoinKeys
-
-There are two ways the base data can be attained.  The first is to iterate through the overview shapefile and to fetch the geojson for every study area that's identified in the overview.  The app will then merge all the "properties" objects of all the features in all the study area geojson files into one big list of features, and then iterate through the steps above.
-
-The second option is do go ahead and cache the list of all features as a separate csv file.  This file can actually be generated in the app using the export all menu, and then hosted somewhere on the internet (like github.io).  Note that this will actually duplicate data, with data occuring once in the study area geojson file and once in the csv file and the user is responsible for making sure the two stay in sync.  The benefit of this is that the csv loads several times faster and can be easily cached by the browser, while fetching all the geojson files takes much longer.  To use the second option, specify a link in the baseDataCSVUrl.
-
-With either method, the app will also need a baseDataLayerJoinKeys object, which specifies a key which is an attribute in the list of features and a value which is the layer for which that is a join key.  For instance, the attribute '_studyArea' could occur in the csv file and join the attribute of the 'Neighborhoods' layer (e.g. one record could have Ballard in the _studyArea field and there would be a Neighborhood with a value of Ballard).
-
-In fact the '_studyArea' attribute is a special attribute that gets added to the features that are created in the first option above.  The id used to identify each study area will be added as a value of each feature under the key '_studyArea'.  Thus the use of _studyArea as the join key implies the overview map and join layer are one and the same.
-
-```javascript
-baseDataCSVUrl: "https://mapcraftlabs.github.io/seattle_parcels/seattle_base_data.csv",
-baseDataLayerJoinKeys: {
-    '_studyArea': 'Neighborhoods'
-},
-```
-
 ### Cloud Simulations
 
 Starting around version v0.23 or so, we started using Amazon Lambda to allow running all of these computations on the server side.  The code and documentation for how that works are [here](https://github.com/mapcraftlabs/excelerator/tree/master/serverless), but the summary is that you can run all the analysis for each high level shape in a Lambda instance, and then can run hundreds of parallel instances to do all the calculations for an urban region.  From the Labs app perspective, all you need is the url to call, like so:
