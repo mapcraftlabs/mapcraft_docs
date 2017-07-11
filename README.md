@@ -286,6 +286,23 @@ overViewIdAttrToGeojson: function (attr) {
 },
 ```
 
+### studyAreaSwitcher
+
+If you don't want an overview map but want a dropdown menu instead...
+
+```javascript
+studyAreaSwitcher: true
+```
+
+### Filters
+
+To use filters set one of both of these to true:
+
+```javascript
+filtersInModal: false,
+filtersInSidebar: true,
+```
+
 ### defaultStyle and highlightStyle
 
 These are the two most basic style specifications, one is the default style which will be shown when no theme is selected, and the highlightStyle which is applied to a shape that is selected or hovered over when no shape is selected.
