@@ -258,6 +258,17 @@ debounceAnalyticsEvery: 500,
 debounceMaxWait: 1000,
 ```
 
+### setActiveStudyArea
+
+Sometimes it's handy in some of these callback to know what study area you're on.  If so, use this callback to store the current study area in a global variable.
+
+```javascript
+var activeStudyArea;
+setActiveStudyArea: function (studyArea) {
+  activeStudyArea = studyArea;
+},
+```
+
 ### studyAreas
 
 If you **don't** want to use an overview map, you can use a dropdown list of study areas instead.  Just make a dictionary of key value pairs where keys are the study area names and values are the urls for the geojson.  
@@ -272,6 +283,7 @@ studyAreas: {
     "Fremont": "http://fscottfoti.github.io/pda_parcels/fremont.json"
 },
 defaultStudyArea: "Ballard",
+studyAreaSwitcher: true
 ```
 
 ### overviewShapes
@@ -284,23 +296,6 @@ overviewShapesIdAttr: 'joinkey',
 overViewIdAttrToGeojson: function (attr) {
     return 'http://fscottfoti.github.io/pda_parcels/' + attr.toLowerCase() + '.json';
 },
-```
-
-### studyAreaSwitcher
-
-If you don't want an overview map but want a dropdown menu instead...
-
-```javascript
-studyAreaSwitcher: true
-```
-
-### Filters
-
-To use filters set one of both of these to true:
-
-```javascript
-filtersInModal: false,
-filtersInSidebar: true,
 ```
 
 ### defaultStyle and highlightStyle
