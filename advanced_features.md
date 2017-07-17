@@ -127,19 +127,25 @@ modifyGeoJsonFeatures: function (features) {
 ```
 ### typeMap
 
-Setting the typeMap is not required, but it can make the behavior more consistent for the types of the attributes.  The function should return an object where the keys are the names of the attributes and the values are strings describing the types.  Right now type values are 'float', 'string', 'categorical', and 'percent'.  These types are used to convert attributes to the appropriate types before performing analysis, to save them as appropriate types after the user enters data in the input forms, etc.  The percent type is used so that the user can enter a number between 1 and 100 and the app will divide that number so it is in a range of .01 to 1.0 for analysis (which is what the Excel converter usually expects).  Categorical types will be used as boolean filters and will be counted on the summary page.
+Setting the typeMap is not required, but it can make the behavior more consistent for the types of the attributes.  The function should return an object where the keys are the names of the attributes and the values are objects describing the types (previous versions of this configuration used strings rather than objects).  The type attribute shoudl always be set for each object.  Right now type values are 'float', 'string', 'categorical', and 'percent'.
+
+These types are used to convert attributes to the appropriate types before performing analysis, to save them as appropriate types after the user enters data in the input forms, etc.  The percent type is used so that the user can enter a number between 1 and 100 and the app will divide that number so it is in a range of .01 to 1.0 for analysis (which is what the Excel converter usually expects).  Categorical types will be used as boolean filters and will be counted on the summary page.
 
 ```javascript
 typeMap: function () {
     return {
-        residential_units: 'float',
-        job_spaces: 'float',
-        land_use: 'string',
-        interest_rate: 'percent',
-        building_type: 'categorical'
+        residential_units: {type: 'float'},
+        job_spaces: {type: 'float'},
+        land_use: {type: 'string'},
+        interest_rate: {type: 'percent'},
+        building_type: {type: 'categorical'}
     }
 },
 ```
+
+A `dontSummarize` attribute may be added to any object to remove it from the summary page (e.g. if there are too many values to display counts for it).
+
+The vision for this attribute is to use typeMap as a schema-style attribute, but so far these are the only configuration options which are available.
 
 ## Charts
 
