@@ -92,13 +92,13 @@ You can optionally set Firebase connection information to tell Labs the db to us
 }
 ```
 
-### setUnderscore
+### setLodash
 
-If you're gong to use underscore in the config files anywhere, this is a good way to make sure it gets set.  Outside of the object make sure to add a `_ = null;` in order to make `_` globally accessible to the config object.  I suppose you could also just include underscore from a cdn, but this keeps from having to fetch it twice since it's included in the app.
+If you're gong to use lodash in the config files anywhere, this is a good way to make sure it gets set.  Outside of the object make sure to add a `_ = null;` in order to make `_` globally accessible to the config object.  I suppose you could also just include underscore from a cdn, but this keeps from having to fetch it twice since it's included in the app.
 
 ```javascript
-setUnderscore (underscore) {
-    _ = underscore;
+setLodash (lodash) {
+    _ = lodash;
 },
 ```
 
@@ -108,14 +108,6 @@ An about page for each deployment can be written in Markdown - this tells the ap
 
 ```javascript
 aboutUrl: 'usr/about.md',
-```
-
-### radioThemeChoice
-
-This is usually used, and it allows the user to theme the map using radio buttons rather than a drop down menu (the radio button version is prttier).  (Technically I don't think they're radio buttons anymore, but the theming interface usually seen in the app comes from this option.)  Should this be made the default and removed?  Maybe.
-
-```javascript
-radioThemeChoice: true,
 ```
 
 ### mapboxToken
@@ -132,36 +124,6 @@ You can change the name of the default scenario.  By default the default scenari
 
 ```javascript
 defaultScenario: 'Baseline',
-```
-
-### keepShapeEdges
-
-Normally when you zoom out beyond a certain zoom level, the outlines of the shapes will disappear.  This is appropriate for small shapes like parcels, but less appropriate for large shapes like city boundaries.  To keep shapes edges at all zoom levels, enable this attribute.
-
-```javascript
-keepShapeEdges: true,
-```
-
-### initialize
-
-Hopefully this one is obvious.  Do anything you want to initialize your data in this method.  This is expected to take a while, so it's asynchronous and you need to call the callback when you're done with the initialization.  This is often used to load data and process it and store it in a global variable that would be accessible e.g. in the analytics methods.
-
-```javascript
-initialize (readyCallback) {
-
-    var url = "https://oaklandanalytics.github.io/scratchpad/data/parcels.csv";
-
-    d3.csv(url, function (data) {
-
-        nestedParcels = d3.nest()
-            .key(function (p) {
-                return p.juris;
-            })
-            .entries(data);
-
-        readyCallback();
-    })
-},
 ```
 
 ### center and zoom
@@ -412,36 +374,15 @@ formatLabel: function (attr) {
 
 ### tableColumns
 
-This describes how attributes of the shapes show up in the table.  This also uses an open source project called React Data Grid and so documentation for this spec is available [here](https://github.com/adazzle/react-data-grid).
-
-This particular example runs a for loop over the attributes that are used in each theme and makes sure they are included in the table, but that is mainly used a default automatic specification.
+This describes how attributes of the shapes show up in the table, and uses the column spec format of the open source project HandsonTable.  The most common attributes are key (name of the attribute), title (what to display), and width.
 
 ```javascript
 tableColumns: function () {
-    var a = [
-        {
-            key: "geom_id",
-            name: "GEOMID",
-            locked : true,
-            width: 200
-        }
-    ];
-
-    var that = this;
-    // just add all the attributes from the themes to the table
-    _.each(_.keys(this.themes), function (key) {
-        a.push({
-            key: that.themes[key].attr,
-            name: key,
-            resizable: true,
-            width: 200,
-            sortable : true,
-            filterable: true,
-            editable : true                
-        })
-    });
-
-    return a;
+    return _.map(schema, fname => ({
+      key: fname,
+      title: fname,
+      width: _.includes(['Building Name', 'Address', 'City'], fname) ? 300 : 100,
+    }));
 },
 ```
 
