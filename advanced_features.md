@@ -9,42 +9,7 @@ filtersInModal: false,
 filtersInSidebar: true,
 ```
 
-Then configure which attributes get filtered using code like the following.  The result should be a dictionary where the attribute name is the key and the value is either an object with `type` equal to `numeric`, `string`, or `categorical`.  The numeric type will automatically allow less then, greater than, or between type operations, while the categorical must include an `enum` attribute with a list of possible values which will be used in the filtering, e.g. one could filter to counties in a region, and the user would be able to select the counties they want to view in Labs.  The string option will allow the user to enter text and apply a filter based on a substring match.
-
-```javascript
-filterAttributes: function () {
-  var ret = {};
-  _.each(_.map(schema, function (fname) {
-    switch (_.get(schemaTypes, fname)) {
-      case 'categorical':
-        ret[fname] = { type: 'categorical', enum: _.get(categories, fname) };
-        break;
-      case 'numeric':
-        ret[fname] = { type: 'numeric' };
-        break;
-      default:
-        ret[fname] = { type: 'string' };
-        break;        
-    }
-  }));
-  return ret;
-},
-
-// or 
-
-filterAttributes: {
-  Counties: {
-    type: 'categorical',
-    enum: ['San Francisco', 'San Mateo', 'Santa Clara']
-  },
-  'Building Sqft': {
-    type: 'numeric'
-  },
-  'Building Name': {
-    type: 'string'
-  }
-}
-```
+For now, all attributes are automatically filtered, and filters are based on the types of the variables in the typeMap.  Any attributes of type string will have substring and exact matches available, and attributes of type float will have numeric comparisons available (less than, greater than, between, etc), and categorical variables will have categories automatically detected and are added and subtracted via select box.
 
 ## New places
 
@@ -162,7 +127,7 @@ modifyGeoJsonFeatures: function (features) {
 ```
 ### typeMap
 
-Setting the typeMap is not required, but it can make the behavior more consistent for the types of the attributes.  The function should return an object where the keys are the names of the attributes and the values are strings describing the types.  Right now type values are 'float', 'string', and 'percent'.  These types are used to convert attributes to the appropriate types before performing analysis, to save them as appropriate types after the user enters data in the input forms, etc.  The percent type is used so that the user can enter a number between 1 and 100 and the app will divide that number so it is in a range of .01 to 1.0 for analysis (which is what the Excel converter usually expects).
+Setting the typeMap is not required, but it can make the behavior more consistent for the types of the attributes.  The function should return an object where the keys are the names of the attributes and the values are strings describing the types.  Right now type values are 'float', 'string', 'categorical', and 'percent'.  These types are used to convert attributes to the appropriate types before performing analysis, to save them as appropriate types after the user enters data in the input forms, etc.  The percent type is used so that the user can enter a number between 1 and 100 and the app will divide that number so it is in a range of .01 to 1.0 for analysis (which is what the Excel converter usually expects).  Categorical types will be used as boolean filters and will be counted on the summary page.
 
 ```javascript
 typeMap: function () {
@@ -170,7 +135,8 @@ typeMap: function () {
         residential_units: 'float',
         job_spaces: 'float',
         land_use: 'string',
-        interest_rate: 'percent'
+        interest_rate: 'percent',
+        building_type: 'categorical'
     }
 },
 ```
