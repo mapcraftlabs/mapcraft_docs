@@ -35,7 +35,7 @@ addPlacesDefaultAttributes: {
 
 The app may be configured so as not to use an overview map, if those overview shapes are actually used as a layer (in other words, to edit inputs that the disaggregate shapes join to).  So if you have parcels and tracts, and are currently using the tracts both as the overview map and also as a join layer, the preferred UI is to drop the overview map.  This is done by removing the `overviewShapes` and `overviewShapesIdAttr` from the config file (leave the `overViewIdAttrToGeojson` function as this is still used).  Then add the parameter `dblClickSwitchStudyArea` to the config for the layer which is the same as the overview shapes.  When `dblClickSwitchStudyArea` is set, double clicking will switch the study area (it will do the same thing that was previously done by clicking on the overview shapes).
 
-Also a message is added to the layer menu to inform the user that double clicking on shapes will go to the default layer, and when the user logs in, they get sent to the first layer in the extraLayers list.
+Also a message is added to the layer menu to inform the user that double clicking on shapes will go to the default layer, and when the user logs in, they get sent to the first layer in the layerMap list.
 
 ## Circles
 
@@ -277,7 +277,7 @@ Starting in version v0.24, charts can be compared side-by-side for two scenarios
 
 Layers are used to associate attributes with higher-level shapes like neighborhoods, cities, block groups, zoning areas, etc.  One or more other layers can be configured, and the app will switch between the primary layer and each of the secondary layers.  Other than that, each layer will look exactly like a study area and provide the exact same functionality (a layer is essentially the same as a study area in the code).
 
-Thus to configure a second layer, specify a shapeUrl which is the geojson for the shapes and many of the same attributes from the main config object as shown below.  This will likely include which attributes to theme, which to edit, and so forth.  Once an object is built for the secondary layer, that object should be included in the main configuration object using the extraLayers attribute, which is an object where keys are layer names and values are layer configuration objects.  You should also provide a defaultLayerName, which is the name of the layer represented by the main configuration object, and will be used in the UI to switch back to the main overview map.
+Thus to configure a second layer, specify a shapeUrl which is the geojson for the shapes and many of the same attributes from the main config object as shown below.  This will likely include which attributes to theme, which to edit, and so forth.  Once an object is built for the secondary layer, that object should be included in the main configuration object using the layerMap attribute, which is an object where keys are layer names and values are layer configuration objects.  You should also provide a defaultLayerName, which is the name of the layer represented by the main configuration object, and will be used in the UI to switch back to the main overview map.
 
 ```javascript
 
@@ -314,7 +314,7 @@ config2 = {
 config = {
     // add many other configuration attributes here
     defaultLayerName: "Parcels",
-    extraLayers: {
+    layerMap: {
         "Neighborhoods": config2
     }
 }
