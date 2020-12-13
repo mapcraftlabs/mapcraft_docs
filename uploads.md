@@ -31,3 +31,9 @@ apn,taz,dnt,zone_id,landval,impval,ceval,totval,comm_tot_s,res_tot_sq,condo_avg_
 ### Shape count limits for single layers and splitting
 
 Only roughly 7k shapes or so can be rendered in a single shapefile or study area.  However Labs supports much larger files than this by splitting files based on a `split_key` attribute in the file.  All shapes with the same `split_key` will be put into a study area together.  Labs now splits files for you - simply set the switch to "Multiple study areas" when creating a layer and include an attribute that can serve as the split key (you will be asked to pick the attribute name to split on).
+
+There is no practical limit to the number of total shapes that can be included in a split Lab - the largest shapefile to date included most of the parcels in the state of California.
+
+### Lookup tables
+
+Small non-spatial lookup tables are also supported for csv upload.  These files do not need to contain a geometry column and will not be rendered on the map.  Set the switch to "Lookup table" to upload a file of this type.
