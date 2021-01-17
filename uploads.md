@@ -4,7 +4,7 @@ This is where documentation on shapefile uploads is kept.
 
 ### Shapefile types and limits
 
-For small shapefiles, currently limited to 250MB (though subject to change), you may upload standard geojson files or geocsv files.
+For small shapefiles, you may upload standard geojson files (200MB limit) or unsorted geocsv files (50MB limit).
 
 For larger shapefiles, you must upload sorted csv files so that the file can be streamed after uploading (geojson files require parsing the entire file into memory, while csv files are line-by-line).  The sort order does not matter, but all split_key values must be contiguous in the file and an error will be returned if they are not.  Zip files are also not uploadable as they are also not streamable.
 
