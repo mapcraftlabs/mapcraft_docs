@@ -4,11 +4,7 @@ This is where documentation on shapefile uploads is kept.
 
 ### Shapefile types and limits
 
-For small shapefiles, you may upload standard geojson files (200MB limit) or unsorted geocsv files (50MB limit).
-
-For larger shapefiles, you must upload sorted csv files so that the file can be streamed after uploading (geojson files require parsing the entire file into memory, while csv files are line-by-line).  The sort order does not matter, but all split_key values must be contiguous in the file and an error will be returned if they are not.  Zip files are also not uploadable as they are also not streamable.
-
-Sorted geocsv files up to 500MB are allowed by any user in the app, but the hard limit is much higher than this.  A MapCraft employee can work with you to upload larger files.
+For small shapefiles, you may upload standard geojson files (500MB limit) and anything supported by [geopandas.from_file](https://geopandas.readthedocs.io/en/latest/docs/reference/api/geopandas.GeoDataFrame.from_file.html).  For larger shapefiles, up to 4GB or so uncompressed, a zipped csv file is recommended.
 
 ### Geocsv format
 
