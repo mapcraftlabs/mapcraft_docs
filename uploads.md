@@ -4,7 +4,7 @@ This is where documentation on shapefile uploads is kept.
 
 ### Shapefile types and limits
 
-For small shapefiles, you may upload standard geojson files and anything supported by [geopandas.from_file](https://geopandas.readthedocs.io/en/latest/docs/reference/api/geopandas.GeoDataFrame.from_file.html), up to about 500MB.  For larger shapefiles, up to 2-3GB or so uncompressed (400-500MB compressed), a zipped csv file is recommended.
+For small shapefiles, up to about 500MB, you may upload standard geojson files and anything supported by [geopandas.from_file](https://geopandas.readthedocs.io/en/latest/docs/reference/api/geopandas.GeoDataFrame.from_file.html).  For larger shapefiles, up to 2-3GB or so uncompressed (400-500MB compressed), a zipped geocsv file is recommended.
 
 ### Geocsv format
 
