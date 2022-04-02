@@ -3,7 +3,7 @@ import time
 
 
 BASE_URL = "https://api.mapcraftlabs.com"
-# this API_KEY is not private - it's used to identiy MapCraft accounts
+# this API_KEY is not private - it's used to identify MapCraft accounts
 API_KEY = "AIzaSyAkHpE1XXujzAQyqAGbI3P6jl31nnT3adA"
 
 
