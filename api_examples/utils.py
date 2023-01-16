@@ -20,37 +20,37 @@ def get_user_token(email: str, password: str) -> str:
 
 
 def make_post_request(endpoint: str, token: str, body: dict) -> dict:
-    response = requests.post(f"{BASE_URL}/{endpoint}", json=body, headers=dict(Authorization=f"Bearer {token}"))
+    response = requests.post(
+        f"{BASE_URL}/{endpoint}",
+        json=body,
+        headers=dict(Authorization=f"Bearer {token}"),
+    )
     assert response.status_code == 200
     return response.json()
 
 
 def make_get_request(endpoint: str, token: str) -> dict:
-    response = requests.get(f"{BASE_URL}/{endpoint}", headers=dict(Authorization=f"Bearer {token}"))
+    response = requests.get(
+        f"{BASE_URL}/{endpoint}", headers=dict(Authorization=f"Bearer {token}")
+    )
     assert response.status_code == 200
     return response.json()
 
 
 def poll_simulation_status_until_complete(lab_id: str, simulation_id: str, token: str):
     while 1:
-        resp = make_get_request(f"simulations/status/{lab_id}/{simulation_id}", token)
-        data = resp["data"]
+        data = make_get_request(f"simulations/status/{lab_id}/{simulation_id}", token)
 
-        complete_study_areas = data["completeStudyAreaCount"]
-        total_study_areas = data["totalStudyAreaCount"]
-        errors = data["errors"]
+        if data["error"]:
+            raise Exception("Simulation failed:", data["error"])
 
-        if errors:
-            raise Exception("Simulation failed:", errors)
+        print("Simulation status:", data["currentStep"])
 
-        print(f"{complete_study_areas} of {total_study_areas} study areas complete")
-
-        # we could also wait for simulationConcatenationCompleteTime if we wanted the concatenated results
-        if data["simulationStudyAreasCompleteTime"]:
-            elapsed_time = (data["simulationStudyAreasCompleteTime"] - data["simulationStartTime"]) / 1000
+        if data["currentStep"] == "Simulation Complete":
+            elapsed_time = (
+                data["simulationCompleteTime"] - data["simulationStartTime"]
+            ) / 1000
             print(f"Simulation complete in {round(elapsed_time, 1)}s")
             return
 
         time.sleep(5)
-
-
