@@ -1,7 +1,6 @@
 import click
 from datetime import datetime
 import json
-import time
 import utils
 
 
@@ -16,11 +15,15 @@ def run_simulation(email, password):
 
     lab_id = "wsble2"
 
-    response = utils.make_post_request(f"simulations/start/{lab_id}", token, dict(
-        simulationName=f"API_SIM_{date_str}",
-        simulationDescription="Test simulation using API",
-        activeLayerScenarios={"Stations": "Baseline"},
-    ))
+    response = utils.make_post_request(
+        f"simulations/start/{lab_id}",
+        token,
+        dict(
+            simulationName=f"API_SIM_{date_str}",
+            simulationDescription="Test simulation using API",
+            activeLayerScenarios={"Stations": "Baseline"},
+        ),
+    )
 
     simulation_id = response["simulationId"]
     print(f"Simulation started with id: {simulation_id}")
