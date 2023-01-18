@@ -1,3 +1,8 @@
+/**
+ * Add this script id to your project to get the MapCraft lib
+ * 1fXX4Ww_onXV6oGgAO7kTR8LlFKWkaYPyHtj4_uCchGDOYGr1J8cu1vSZ
+ */
+
 function main() {
   const authentication = MapCraft.sheetAsObjectArray("Authorization")[0]
   const token = MapCraft.getUserToken(authentication["email"], authentication["password"])
