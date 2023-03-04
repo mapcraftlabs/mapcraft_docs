@@ -76,7 +76,7 @@ def download_layer_data_to_file(lab_id: str, file_name: str, token: str):
     file_name: full file path where will be downloaded.
     """
     url = get_layer_data_url(lab_id, token)
-    open("input.geojson", "wb").write(url)
+    open(file_name, "wb").write(url)
 
 
 def upload_base_data_from_file(lab_id: str, layer_id: str, file_name: str, token: str):
