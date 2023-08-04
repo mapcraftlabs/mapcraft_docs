@@ -1,6 +1,6 @@
 # Upload Documentation
 
-This is where documentation on shapefile uploads is kept.  Major changes on Labs best practices have occurred in summer of 2023.
+This is where documentation on shapefile uploads is kept.  Major changes for Labs best practices have occurred in the summer of 2023.
 
 ### Shapefile types and limits
 
@@ -12,7 +12,7 @@ The change in best practices has happened in order to encode types natively in a
 
 ### What is parquet?
 
-Support for [parquet](https://www.linkedin.com/pulse/perfect-file-format-unveiled-parquet-vs-csv-shailendra-prajapati/) is now ubiquitous and it's clear it will take over in use cases where csv used to be popular.  In short, it's a tabular format that encodes data types in the file (mainly numeric vs. string).  When using python/pandas you can also encode columns as categorical and set the index appropriately, and Labs will use this information to configure the Lab.  Parquet is smaller (and includes compression in the file format, which is supported), and parses faster than csv and zipped csv.
+Support for [parquet](https://www.linkedin.com/pulse/perfect-file-format-unveiled-parquet-vs-csv-shailendra-prajapati/) is now ubiquitous and it's clear it will take over in use cases where csv used to be popular.  In short, it's a tabular format that encodes data types in the file (mainly numeric vs. string, but other types as well).  When using python/pandas you can also encode columns as categorical and set the index appropriately, and Labs will use this information to configure the Lab.  Parquet is smaller (and includes compression in the file format, which is supported), and parses faster than csv and zipped csv.
 
 Geoparquet is a flavor of parquet which we support, but is not required.  In short, we require parquet files to have a column named geometry which is either in WKT or WKB format (either is fine, we will autodetect).
 
@@ -33,7 +33,7 @@ apn,taz,dnt,zone_id,landval,impval,ceval,totval,comm_tot_s,res_tot_sq,condo_avg_
 
 ### Conversion from csv to parquet
 
-To convert from csv to parquet in python/pandas, simply run `pandas.read_csv(in_filename).to_parquet(out_filename)`.  It's often smart to *set the data types* between the two steps, which will then be consistently stored in the parquet file, i.e. to pass dtype to read_csv, or to convert certain columns to categorical and to set the index as appropriate.
+To convert from csv to parquet in python/pandas, simply run `pandas.read_csv(in_filename).to_parquet(out_filename)`.  It's often smart to *set the data types* between the two steps, which will then be consistently stored in the parquet file, i.e. to pass dtype to `read_csv` and to convert certain columns to categorical and to set the index as appropriate.
 
 **Conversion from other spatial formats**
 
