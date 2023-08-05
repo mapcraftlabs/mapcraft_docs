@@ -20,7 +20,7 @@ Geoparquet is a flavor of parquet which we support, but is not required.  In sho
 
 R also supports parquet, but the indication of categorical column and index values is specific to the language.  It's not something we've tested much, but we encourage someone to try it and fill out this section of the documentation.  We're happy to increase our support for R parquet files where appropriate.
 
-### GeoCSV format (deprecated but not removed until 2024)
+### GeoCSV format (deprecated but will not be removed until 2024)
 
 GeoCSV is a standard csv file where one of the columns is titled "geometry". This column should contain a WKT geometry column named "geometry" in WGS 84 coordinate system (EPSG:4326). Others are not currently supported.
 
