@@ -8,18 +8,19 @@
 | Modify unlocked global inputs in unlocked <br> global scenarios storing values              |   ❌   |   ✅   |   ✅   |   ✅   |
 | About modal                                                                                 |   ❌   |   ✅   |   ✅   |   ✅   |
 | Hide Lab elements for non-admins                                                            |   ❌   |   ❌   |   ❌   |   ✅   |
-| Data dropdown                                                                               |   ❌   |  🔑[^1]| 🔑[^1] |   ✅   |
 | Double-map toggle                                                                           |   ❌   |  🔑[^1]| 🔑[^1] |   ✅   |
 | Simulations dropdown                                                                        |   ❌   |   ✅   |   ✅   |   ✅   |
-| Download sims                                                                               |   ❌   |   ✅   |   ✅   |   ✅   |
+| Download simulation results                                                                 |   ❌   |   ✅   |   ✅   |   ✅   |
+| Run simulations                                                                             |   ❌   |   ❌   |   ✅   |   ✅   |
+| Delete simulations                                                                          |   ❌   |   ❌   |   ✅   |   ✅   |
+| Show archived simulations                                                                   |   ❌   |   ❌   |   ❌   |   ✅   |
+| Archive/unarchive simulations                                                               |   ❌   |   ❌   |   ❌   |   ✅   |
 | Scenarios dropdown                                                                          |   ❌   |   ✅   |   ✅   |   ✅   |
 | Bookmarks panel                                                                             |   ❌   |   ❌   |   ✅   |   ✅   |
 | Create scenarios                                                                            |   ❌   |   ❌   |   ✅   |   ✅   |
 | Edit scenarios                                                                              |   ❌   |   ❌   |   ✅   |   ✅   |
 | Delete scenarios                                                                            |   ❌   |   ❌   |   ✅   |   ✅   |
 | Duplicate scenarios                                                                         |   ❌   |   ❌   |   ✅   |   ✅   |
-| Run sims                                                                                    |   ❌   |   ❌   |   ✅   |   ✅   |
-| Delete sims                                                                                 |   ❌   |   ❌   |   ✅   |   ✅   |
 | Edit themes                                                                                 |   ❌   |   ❌   |   ✅   |   ✅   |
 | Copy/Delete Attributes                                                                      |   ❌   |   ❌   |   ✅   |   ✅   |
 | Delete owned bookmarks                                                                      |   ❌   |   ❌   |   ✅   |   ✅   |
@@ -28,7 +29,5 @@
 | Export non-Simulation layers                                                                |   ❌   |   ❌   |   ❌   |   ✅   |
 | Configurer modal                                                                            |   ❌   |   ❌   |   ❌   |   ✅   |
 | Download all scenarios                                                                      |   ❌   |   ❌   |   ❌   |   ✅   |
-| Show archived filters                                                                       |   ❌   |   ❌   |   ❌   |   ✅   |
-| Archive/unarchive filters                                                                   |   ❌   |   ❌   |   ❌   |   ✅   |
 
 [^1]: Only when enabled by admin users.
