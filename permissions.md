@@ -7,6 +7,9 @@
 | Modify unlocked global inputs in unlocked <br> global scenarios **without** app storing values  |   ✅   |   ❌   |   ❌   |   ❌   |
 | Modify unlocked global inputs in unlocked <br> global scenarios storing values              |   ❌   |   ✅   |   ✅   |   ✅   |
 | About modal                                                                                 |   ❌   |   ✅   |   ✅   |   ✅   |
+| Hide Lab elements for non-admins                                                            |   ❌   |   ❌   |   ❌   |   ✅   |
+| Data dropdown                                                                               |   ❌   |  🔑[^1]| 🔑[^1] |   ✅   |
+| Double-map toggle                                                                           |   ❌   |  🔑[^1]| 🔑[^1] |   ✅   |
 | Simulations dropdown                                                                        |   ❌   |   ✅   |   ✅   |   ✅   |
 | Download sims                                                                               |   ❌   |   ✅   |   ✅   |   ✅   |
 | Scenarios dropdown                                                                          |   ❌   |   ✅   |   ✅   |   ✅   |
@@ -27,3 +30,5 @@
 | Download all scenarios                                                                      |   ❌   |   ❌   |   ❌   |   ✅   |
 | Show archived filters                                                                       |   ❌   |   ❌   |   ❌   |   ✅   |
 | Archive/unarchive filters                                                                   |   ❌   |   ❌   |   ❌   |   ✅   |
+
+[^1]: Only when enabled by admin users.
