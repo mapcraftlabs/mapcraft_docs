@@ -12,14 +12,16 @@
 | Simulations dropdown                                                                        |   ❌   |   ✅   |   ✅   |   ✅   |
 | Download simulation results                                                                 |   ❌   |   ✅   |   ✅   |   ✅   |
 | Run simulations                                                                             |   ❌   |   ❌   |   ✅   |   ✅   |
-| Delete simulations                                                                          |   ❌   |   ❌   |   ✅   |   ✅   |
+| Delete own simulations (created by the user)                                                |   ❌   |   ❌   |   ✅   |   ✅   |
+| Delete any simulation                                                                       |   ❌   |   ❌   |   ❌   |   ✅   |
 | Show archived simulations                                                                   |   ❌   |   ❌   |   ❌   |   ✅   |
 | Archive/unarchive simulations                                                               |   ❌   |   ❌   |   ❌   |   ✅   |
 | Scenarios dropdown                                                                          |   ❌   |   ✅   |   ✅   |   ✅   |
 | Bookmarks panel                                                                             |   ❌   |   ❌   |   ✅   |   ✅   |
 | Create scenarios                                                                            |   ❌   |   ❌   |   ✅   |   ✅   |
 | Edit scenarios                                                                              |   ❌   |   ❌   |   ✅   |   ✅   |
-| Delete scenarios                                                                            |   ❌   |   ❌   |   ✅   |   ✅   |
+| Delete own scenarios (created by the user)                                                  |   ❌   |   ❌   |   ✅   |   ✅   |
+| Delete any scenario                                                                         |   ❌   |   ❌   |   ❌   |   ✅   |
 | Duplicate scenarios                                                                         |   ❌   |   ❌   |   ✅   |   ✅   |
 | Edit themes                                                                                 |   ❌   |   ❌   |   ✅   |   ✅   |
 | Copy/Delete Attributes                                                                      |   ❌   |   ❌   |   ✅   |   ✅   |
