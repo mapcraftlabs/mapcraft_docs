@@ -1,6 +1,6 @@
-# Mapcraft Web API with Google Sheets and Apps Script
+# MapCraft Web API with Google Sheets and Apps Script
 
-MapcraftLabs web API provides a way to easily launch several simulations at a time.
+MapCraft web API provides a way to easily launch several simulations at a time.
 
 This API can be used from any language and library which communicates through HTTP(S) protocols, and with tools like wget, curl, Postman, Insomnia, among others.
 
@@ -70,8 +70,7 @@ function main() {
           RentApprToggle: row["rent_appr_toggle"],
           AbsorbRateToggle: row["absorb_rate_toggle"]
         },
-        parcelFilter: row["parcel_filter"],
-        partitionZoomLevel: 0
+        parcelFilter: row["parcel_filter"]
       }
 
       if (row["workspace"].length > 0) {
