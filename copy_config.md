@@ -2,24 +2,6 @@
 
 Copy configurations between projects, from one to one or many other projects.
 
-Configurations to be copied:
-
-- Default layer name
-- Default visible map labels
-- Missing input warning toggle
-- Globals schema
-- Parcels inputs
-    - Schema
-    - Theme
-- Parcels outputs
-    - Theme
-- Parcels aggregation specs
-- Simulations
-    - Order of outputs
-    - Schema
-    - Themes
-
-
 ## Permissions
 
 Admin on source and destination projects.
