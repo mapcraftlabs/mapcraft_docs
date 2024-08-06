@@ -1,12 +1,10 @@
 # MapCraft Web API with Google Sheets and Apps Script
 
-MapCraft web API provides a way to easily launch several simulations at a time.
+MapCraft web API provides a way to interact with the app programmatically, including easily launching several simulations at a time.
 
-This API can be used from any language and library which communicates through HTTP(S) protocols, and with tools like wget, curl, Postman, Insomnia, among others.
+Google Sheets, combined with Google Apps Script, is a useful tool to automate calling the api.  This repository contains a Google Sheets + Apps Script template to launch several simulations at a time, iterating over all rows and sending an API request for each one.
 
-Google Sheets, combined with Google Apps Script, configures a useful tool to automating tasks. Google Apps Script is a JavaScript-based scripting language that enables you to extend the functionality of Google Sheets. We provide a Google Sheets + Apps Script template to launch several simulations at a time, iterating over all rows and sending an API request for each one.
-
-Script code and sheets columns should be customized to fit specific needs on layers, global overrides and parcel filters.
+Script code and sheets columns should be customized to fit specific user needs e.g. setting active scenarios, global inputs, and parcel filters.
 
 ## Steps
 
@@ -18,13 +16,9 @@ Script code and sheets columns should be customized to fit specific needs on lay
 4. 	Run the Script:
     Click the Run button in the Apps Script editor to execute the script.
 
-## MapCraft Sheets Library
+## MapCraft Sheets Library versioning
 
-We provide a set of Google Apps Script functions to hide communication details between Google Sheets and MapCraft Web API. Also removing the need of writing it by yourself and having to mantain that code afterwards.
-There are two ways to use AppScript versioning system, both with its pros and cons:
-- Setting a specific version number will keep the same exact code unless you set a different library version on your Google Sheet. Important: Library version is not modified on other Sheets from which it could have been copied. A negative aspect of this could be MapCraft adding features or fixes to the library and the Sheet will not be using it unless you manually set the new version number.
-- `HEAD (development mode)` will always use the latest version of the library, with the positive aspect that all fixes and updates will be applied instantly on all Sheets using this mode. A downside of this could be AppScript code using a specific function name or parameters that, if library footprint (function names and/or parameters) change, all Sheets will stop working instantly as well.
-
+The user can pin to a specific version of the MapCraft AppScript library, or always use the latest.  If you're using the latest, MapCraft does not guarantee reverse compatibility in all cases, so your Sheet may break when the library is updated.
 
 ## Changelog
 
@@ -93,34 +87,8 @@ function main() {
         payload.workspace = row["workspace"]
       }
 
-      const response = MapCraft.makeLabsAPIRequest(url, payload, token)
+      const response = MapCraft.makeAPIRequest(url, payload, token)
       Logger.log(response)
     }
   })
-}
-
-function getSimName(iteration) {
-  var date = new Date();
-
-  const month = ('0' + (date.getMonth() + 1)).slice(-2);
-  const day = ('0' + date.getDate()).slice(-2);
-  
-  const hour = ('0' + date.getHours()).slice(-2);
-  const minutes = ('0' + date.getMinutes()).slice(-2);
-
-  let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const base = alphabet.length
-  
-  let letter = ''
-
-  while (iteration >= 0) {
-    letter = alphabet[iteration % base] + letter;
-    iteration = Math.floor(iteration / base) - 1; // decrement to handle cases where number=26^x
-  }
-
-  // Generate the string with the date and the letter
-  const generatedString = 'SIM_' + month + day + '_' + hour + minutes + '-' + letter;
-
-  return generatedString
-}
 ```
