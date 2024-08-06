@@ -1,4 +1,4 @@
-# MapCraft Python API Examples
+# MapCraft API Examples
 
 This directory contains example scripts to interact with MapCraft API. This is a public repo and we encourage user contributions. Pull Requests are welcomed!
 
