@@ -62,7 +62,7 @@ function main() {
   MapCraft.sheetAsObjectArray("Simulations to Run").forEach(row => {
     if (row["skip"] !== true) {
       if (row["simulation_name"].length === 0) {  
-        simulationName = getSimName(iteration)
+        simulationName = MapCraft.getSimulationName(iteration)
         iteration++
       } else {
         simulationName = row["simulation_name"]
