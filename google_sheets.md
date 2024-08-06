@@ -92,3 +92,7 @@ function main() {
     }
   })
 ```
+
+## Link to full MapCraft AppScript code
+
+[MapCraft Library for Google Sheets](mapcraft_sheets_library.md)
