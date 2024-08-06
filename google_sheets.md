@@ -18,6 +18,22 @@ Script code and sheets columns should be customized to fit specific needs on lay
 4. 	Run the Script:
     Click the Run button in the Apps Script editor to execute the script.
 
+## MapCraft Sheets Library
+
+We provide a set of Google Apps Script functions to hide communication details between Google Sheets and MapCraft Web API. Also removing the need of writing it by yourself and having to mantain that code afterwards.
+There are two ways to use AppScript versioning system, both with its pros and cons:
+- Setting a specific version number will keep the same exact code unless you set a different library version on your Google Sheet. Important: Library version is not modified on other Sheets from which it could have been copied. A negative aspect of this could be MapCraft adding features or fixes to the library and the Sheet will not be using it unless you manually set the new version number.
+- `HEAD (development mode)` will always use the latest version of the library, with the positive aspect that all fixes and updates will be applied instantly on all Sheets using this mode. A downside of this could be AppScript code using a specific function name or parameters that, if library footprint (function names and/or parameters) change, all Sheets will stop working instantly as well.
+
+
+## Changelog
+
+- v3
+  - `MapCraft.makeLabsAPIRequest()` renamed to MapCraft.makeAPIRequest()
+  - `getSimName()` moved from user code to MapCraft.getSimulationName()
+  - Base URL changed from `https://api.mapcraftlabs.com/` to `https://api.mapcraft.io/`
+
+
 ### Apps Script code
 
 ```js
