@@ -2,7 +2,7 @@
 
 This directory contains example scripts to interact with MapCraft API. This is a public repo and we encourage user contributions. Pull Requests are welcomed!
 
-## Minimal test script to test communication with MapCraft API
+## Minimal example script to demonstrate communication with MapCraft API
 
 1. Install dependencies (use of isolated environment tools like `virtualenv` or `conda` are recommended)
 
@@ -16,7 +16,7 @@ pip install -r requirements.txt
 python quick_test.py YOUR_EMAIL YOUR_PASSWORD
 ```
 
-## Functions on [utils.py](./utils.py)
+## Functions in [utils.py](./utils.py)
 
 - Authentication
 
