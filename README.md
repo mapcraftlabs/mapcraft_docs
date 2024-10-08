@@ -6,4 +6,4 @@ This repo is used to collaboratively build user documentation.  Pull Requests we
 - [Uploading shape data](uploads.md)
 - [Use Simulations API via curl](curl.md)
 - [Use Simulations API via simple python wrapper](python_example/README.md)
-- [Use Simulations API via Google Sheets](google_sheets.md)
+- [Use Simulations API via Google Sheets](google_sheets/README.md)
