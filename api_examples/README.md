@@ -6,7 +6,7 @@ MapCraft Web API auth is done via a Bearer Token provided by Firebase.
 
 ```sh
 curl --request POST \
-  --url 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAkHpE1XXujzAQyqAGbI3P6jl31nnT3adA' \
+  --url 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={{API_KEY}}' \
   --header 'Content-Type: application/json' \
   --data '{
   "email": "{{FIREBASE_USERNAME_OR_EMAIL}}",
@@ -67,7 +67,7 @@ MapCraft Web API auth is done via a Bearer Token provided by Firebase.
 
 ```sh
 curl --request POST \
-  --url 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAkHpE1XXujzAQyqAGbI3P6jl31nnT3adA' \
+  --url 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={{API_KEY}}' \
   --header 'Content-Type: application/json' \
   --data '{
   "email": "{{FIREBASE_USERNAME_OR_EMAIL}}",
