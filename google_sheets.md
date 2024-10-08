@@ -124,8 +124,7 @@ function main() {
           RentApprToggle: row["rent_appr_toggle"],
           AbsorbRateToggle: row["absorb_rate_toggle"]
         },
-        parcelFilter: row["parcel_filter"],
-        partitionZoomLevel: 0
+        parcelFilter: row["parcel_filter"]
       }
 
       if (row["workspace"].length > 0) {
