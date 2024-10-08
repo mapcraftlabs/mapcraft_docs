@@ -70,3 +70,6 @@ The user can pin to a specific version of the MapCraft AppScript library, or alw
 
 - `sheetAsObjectArray(Object sheetName)`
   Takes Sheet data and returns it as an array.
+
+Full source code is available [here](google_sheets/src)
+
