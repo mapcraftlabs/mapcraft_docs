@@ -42,13 +42,15 @@ curl --request POST \
 
 ## FAQ / Notes
 
-- `INVALID_PASSWORD` error when trying to obtain a token can be due to two reasons:
+### Invalid password error when obtaining a token
 
   - **An invalid password**
 
     Note that the password isn't the one from your Google Account, and different environments (like dev and prod) could have different passwords as well.
 
   - **A Firebase user not associated to an email account provider**
-    The Mapcraft app has two different options for logins. One, using email and password; the other one using Google Authentication. Using the latter doesn't mean you can use your Google Account password to login using the API. For this kind of usage you need to set email as the default login provider and associate a password to that. Going to [this section of the Firebase Console](https://console.firebase.google.com/u/1/project/mapcraftlabs-dev/authentication/users) you can ask for a password reset on the desired user. This could be misleading. If the icon on the `Providers` column for that user is a Google "G" that means that your user doesn't have _email_ as the default login provider. Asking for a password reset (and actually resetting password) will set email as the default provider. That doesn't mean that your other logins on Google sites will change. It will just affect this specific application on this specific environment. In case you have an email-like envelope icon then you already have email as the default provider. Asking for a password reset will just do that.
+    The MapCraft app has two different options for logins. The first uses email and password and the other one uses Google Authentication. Using the latter doesn't mean you can use your Google Account password to login using the API. For this kind of usage you need to set email as the default login provider and associate a password to that.
 
-- Layer name to be used on the API could not be the same as `Layer Display Name` on the application. Layer name as seen on the API is the name of when layer was created. Modifying Layer display name on the application will not affect Layer name from the API.
+### Layer name used by the API may not be the same as the `Layer Display Name` 
+
+The layer name used by the API is the name used when the layer was created. Modifying the layer display name using the application will not affect the layer name used by the API.
