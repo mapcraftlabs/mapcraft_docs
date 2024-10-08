@@ -23,7 +23,7 @@ Authorization credentials are obtained from the `Authorization` sheet.
     Click the Run button in the Apps Script editor to execute the script.
 
 
-## Simulations To Run' Schema
+## Columns from the Google Sheet
 
 | Column name | Description |
 | -- | -- |
@@ -31,12 +31,12 @@ Authorization credentials are obtained from the `Authorization` sheet.
 | simulation_name | Required by API, although AppScript launcher has a small function to add a placeholder name if the cell is empty with a name `SIM_{YYMMDD}_{ITERATION_CHAR}` |
 | simulation_description | Not required. Default: empty. Helpful to find specific simulations on batches where all simulation settings are similar |
 | {layer_name}_scenario [^1]	| Required. `{layer_name}` scenario name to be used in the simulation. Case sensitive. [^2] [^3] |
-| parcel_filter | Not required. Default: empty, no filter. This columns can take a filter name as it is specified in Lab. If the filter name is not found the syntax will be executed over parcel dataset. If it's not a name and there's an error in the syntax, simulation will fail
+| parcel_filter | Not required. Default: empty, no filter. This columns can take a filter name as it is specified in the project. If the filter name is not found the syntax will be executed over parcel dataset. If it's not a name and there's an error in the syntax, simulation will fail
 | {global_name} [^4] | Not required. Default: global value from MapCraft. One-time substitution value for `{global_name}` global defined in MapCraft.
 
 [^1]: Lists are not supported in layer names, every cell should contain only one layer name.
 [^2]: `Baseline` is the default base scenario name
-[^3]: Every layer defined in MapCraft must be specified on a Sheets column.  i.e: for a Lab with `Parcels` and `Block Groups` layers `parcels_scenario` and `block_groups_scenario` columns should be present and not empty.
+[^3]: Every layer defined in MapCraft must be specified on a Sheets column.  i.e: for a project with `Parcels` and `Block Groups` layers `parcels_scenario` and `block_groups_scenario` columns should be present and not empty.
 [^4]: Lists are not supported in globals names, each global to be substituted should be on its own column.
 
 

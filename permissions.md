@@ -7,7 +7,7 @@
 | Modify unlocked global inputs in unlocked <br> global scenarios **without** app storing values |   ✅   |   ❌   |   ❌   |   ❌   |
 | Modify unlocked global inputs in unlocked <br> global scenarios storing values                 |   ❌   |   ✅   |   ✅   |   ✅   |
 | About modal                                                                                    |   ❌   |   ✅   |   ✅   |   ✅   |
-| Hide Lab elements for non-admins                                                               |   ❌   |   ❌   |   ❌   |   ✅   |
+| Hide project elements for non-admins                                                           |   ❌   |   ❌   |   ❌   |   ✅   |
 | Double-map toggle                                                                              |   ❌   |  🔑[^1]| 🔑[^1] |   ✅   |
 | Simulations dropdown                                                                           |   ❌   |   ✅   |   ✅   |   ✅   |
 | Download simulation results                                                                    |   ❌   |   ✅   |   ✅   |   ✅   |

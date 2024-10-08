@@ -12,7 +12,7 @@ Removing spatial csv has happened in order to encode types natively in all encou
 
 ### What is parquet?
 
-Support for [parquet](https://www.linkedin.com/pulse/perfect-file-format-unveiled-parquet-vs-csv-shailendra-prajapati/) is now ubiquitous and it's clear it will take over in use cases where csv used to be popular.  In short, it's a tabular format that encodes data types in the file (mainly numeric vs. string, but other types as well).  When using python/pandas you can also encode columns as categorical and set the index appropriately, and the app will use this information to configure the Lab.  Parquet is smaller (and includes compression in the file format, which is supported), and parses faster than csv and zipped csv.
+Support for [parquet](https://www.linkedin.com/pulse/perfect-file-format-unveiled-parquet-vs-csv-shailendra-prajapati/) is now ubiquitous and it's clear it will take over in use cases where csv used to be popular.  In short, it's a tabular format that encodes data types in the file (mainly numeric vs. string, but other types as well).  When using python/pandas you can also encode columns as categorical and set the index appropriately, and the app will use this information to configure the project.  Parquet is smaller (and includes compression in the file format, which is supported), and parses faster than csv and zipped csv.
 
 Geoparquet is a flavor of parquet which we support, but is not required.  In short, we require parquet files to have a column named geometry which is either in WKT or WKB format (either is fine, we will autodetect).
 
