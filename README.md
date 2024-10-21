@@ -4,6 +4,11 @@ This repo is used to collaboratively build user documentation.  Pull Requests we
 
 - [Permissions](permissions.md)
 - [Uploading shape data](uploads.md)
-- [Use Simulations API via curl](curl.md)
-- [Use Simulations API via simple python wrapper](python_example/README.md)
-- [Use Simulations API via Google Sheets](google_sheets/README.md)
+
+## Simulations API
+- [Use via curl](curl.md)
+- [Use via simple python wrapper](python_example/README.md)
+- [Use via Google Sheets](google_sheets/README.md)
+
+## MapCraft API
+- [Create, update, delete layer themes](api_themes.md)
