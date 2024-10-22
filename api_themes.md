@@ -141,15 +141,16 @@ This endpoint accepts a JSON payload with a well-defined and strict structure, e
     ```json
     {
       "categories": [
-      {
-        "category": "C1-40",
-        "color": "#5254A3"
-      },
-      {
-        "category": "C2-55 (M)",
-        "color": "#637939"
-      }
-    ]
+        {
+          "category": "C1-40",
+          "color": "#5254A3"
+        },
+        {
+          "category": "C2-55 (M)",
+          "color": "#637939"
+        }
+      ]
+    }
     ```
 
   - **scaleType**: `"categorical"` (required)
