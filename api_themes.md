@@ -11,10 +11,206 @@ This endpoint accepts a JSON payload with a well-defined and strict structure, e
 •	Method: POST
 •	Content-Type: application/json
 
+## Theme scale types
 
-## Request body schema definition and example 
+### Common attributes (all scale types)
+  - **scaleType**: string (required)
+    
+    Determines how the data will be visualized.
+     
+    #### Options
+      
+      -	`linear`: Linear scale
+      - `manual`: User-defined breaks
+      - `categorical`: Categories with defined color scheme
+      - `autocategorical`: Auto-generates categories
+      - `boolean`: For boolean data
+    
+    *Example: `"scaleType": "linear"`*
 
-[Detailed schema definition and example from MapCraft API documentation.](https://api.mapcraft.io/docs#/default/set_layer_theme_endpoint_layer__project_id___layer_name__set_theme_post)
+  - **highlightColor**: string (required)
+    
+    Defines the color used to highlight selected regions or areas.
+    
+    *Example: `"highlightColor": "#393B79"`*
+  
+  - **opacity**: number (required)
+
+    Opacity level of the layer, ranging from 0.0 (fully transparent) to 1.0 (fully opaque).
+    
+    *Example: `"opacity": 0.5`*
+
+  - **outlineColor**: string [Hex code] (required)
+  
+     Color used for outlining the visualized areas.
+     
+    *Example: `"outlineColor": "#393B79"`*
+
+  - **isFlipped**: boolean
+
+    Indicates if the color scheme is inverted.
+    
+    Default: `false`
+    
+    *Example: `"isFlipped": true`*
+
+  - **hide**: boolean
+
+    Marks the theme as hidden. Default: `false`.
+    
+    *Example: `"hide": true`*
+
+  - **forceNumeric**: boolean
+      
+      Forces the values to be treated as numeric for better visual rendering,
+
+      *Example: `"forceNumeric": true`
+
+### Manual Theme
+  - **scaleType**: `"manual"` (required)
+  
+  - **colorScheme**: string (required)
+  
+    Specifies the color scheme for the layer. Follows common ColorBrewer color scales like RdYlBu, PuBuGn, etc.
+
+    *Example**: `"colorScheme": "RdYlBu"`*
+    
+  - **breaks**: list[float] (required)
+    
+    Specifies break points for manual scaling.
+
+### Boolean Theme
+  
+  - **scaleType**: `"boolean"` (required)
+  
+  - **colorScheme**: str (required) ([Details](#color-scheme))
+  
+### Continuous Theme
+  
+  - **scaleType**: `"continuous"` (required)
+  
+  - **colorScheme**: str (required)
+  
+  - **interpolate**:list[string] (required)
+    
+    Sets colors to be interpolated.
+    
+    Using two points color interpolation will be shown between those two colors. With three items color interpolation will go from color 1 to 3 but passing through the middle color.
+
+    Min length: 2
+    
+    Max length: 3
+
+    *Example: `"interpolate":["#FF0000","#FFFFFF","#215C0D"]`
+
+  - **middleValue**: float (required)
+    
+    Specifies middle value for continous scale.
+
+    *Example: `"middleValue": 4.32`
+  
+
+### Graduated Theme
+  
+  - **scaleType**: `"jenks"` or `"quantile"` (required)
+  
+  - **colorScheme**: str (required)
+  
+  - **numBins**: int (required)
+    
+    Number of bins to be used in the linear scale.
+
+    *Example: `"numBins": 6`*
+  
+### Linear Theme
+
+  - **scaleType**: `"linear"` (required)
+
+  - **colorScheme**: str (required)
+  
+#### Attributes
+  
+  - **colorScheme**: string (required) ([Details](#color-scheme))
+
+### Categorical Theme
+  - **categories**: JSON (required)
+    
+    Defines categories and corresponding colors for categorical layers.
+
+    *Example:*
+    ```json
+    {
+      "categories": [
+      {
+        "category": "C1-40",
+        "color": "#5254A3"
+      },
+      {
+        "category": "C2-55 (M)",
+        "color": "#637939"
+      }
+    ]
+    ```
+
+  - **scaleType**: `"categorical"` (required)
+
+### Autocategorical Theme
+  - **scaleType**: `"autocategorical"` (required)
+
+## Schema definition and example
+
+Detailed schema definition and example from MapCraft API documentation [here](https://api.mapcraft.io/docs#/default/set_layer_theme_endpoint_layer__project_id___layer_name__set_theme_post).
+
+## <a name="color-scheme"></a> Color scheme details
+  
+  ### Diverging
+
+  - Spectral
+  - RdYlGn
+  - RdBu
+  - PiYG
+  - PRGn
+  - RdYlBu
+  - BrBG
+  - RdGy
+  - PuOr
+
+  ### Qualitative 
+
+  - Set2
+  - Accent
+  - Set1
+  - Set3
+  - Dark2
+  - Paired
+  - Pastel2
+  - Pastel1
+
+  ### Sequential
+
+  - OrRd
+  - PuBu
+  - BuPu
+  - Oranges
+  - BuGn
+  - YlOrBr
+  - YlGn
+  - Reds
+  - RdPu
+  - Greens
+  - YlGnBu
+  - Purples
+  - GnBu
+  - Greys
+  - YlOrRd
+  - PuRd
+  - Blues
+  - PuBuGn
+  
+  Color Brewer playground [here](https://colorbrewer2.org/).
+  
+  Full colors details [here](https://github.com/axismaps/colorbrewer/blob/master/colorbrewer_schemes.js).
+  
 
 ## cURL request example
 
