@@ -7,9 +7,9 @@ This endpoint accepts a JSON payload with a well-defined and strict structure, e
 
 ## Endpoint
 
-•	URL: /layer/{{PROJECT_ID}}/{{LAYER_ID}}/set_theme
-•	Method: POST
-•	Content-Type: application/json
+-	URL: `/layer/{{PROJECT_ID}}/{{LAYER_ID}}/set_theme`
+-	Method: `POST`
+-	Content-Type: `application/json`
 
 ## Theme scale types
 
