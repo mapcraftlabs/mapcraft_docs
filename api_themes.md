@@ -56,9 +56,9 @@ This endpoint accepts a JSON payload with a well-defined structure, ensuring tha
 
   - **forceNumeric**: boolean
       
-      Forces the values to be treated as numeric for more consistent rendering,
+    Forces the values to be treated as numeric for more consistent rendering,
 
-      *Example: `"forceNumeric": true`
+    *Example: `"forceNumeric": true`*
 
 ### Manual Theme
 
@@ -96,13 +96,13 @@ This endpoint accepts a JSON payload with a well-defined structure, ensuring tha
     
     Max length: 3
 
-    *Example: `"interpolate":["#FF0000","#FFFFFF","#215C0D"]`
+    *Example: `"interpolate":["#FF0000","#FFFFFF","#215C0D"]`*
 
   - **middleValue**: float (required)
     
     Specifies middle value for continous scale.
 
-    *Example: `"middleValue": 4.32`
+    *Example: `"middleValue": 4.32`*
   
 
 ### Graduated Theme
@@ -161,47 +161,47 @@ Detailed schema definition and example from MapCraft API documentation [here](ht
   
   ### Diverging
 
-  - Spectral
-  - RdYlGn
-  - RdBu
+  - BrBG
   - PiYG
   - PRGn
-  - RdYlBu
-  - BrBG
-  - RdGy
   - PuOr
+  - RdBu
+  - RdGy
+  - RdYlBu
+  - RdYlGn
+  - Spectral
+  
+  ### Qualitative
 
-  ### Qualitative 
-
-  - Set2
   - Accent
-  - Set1
-  - Set3
   - Dark2
   - Paired
-  - Pastel2
   - Pastel1
-
+  - Pastel2
+  - Set1
+  - Set2
+  - Set3
+  
   ### Sequential
 
+  - Blues
+  - Greens
+  - Greys
+  - Oranges
+  - Purples
+  - Reds
+  - BuGn
+  - BuPu
+  - GnBu
   - OrRd
   - PuBu
-  - BuPu
-  - Oranges
-  - BuGn
-  - YlOrBr
-  - YlGn
-  - Reds
-  - RdPu
-  - Greens
-  - YlGnBu
-  - Purples
-  - GnBu
-  - Greys
-  - YlOrRd
-  - PuRd
-  - Blues
   - PuBuGn
+  - PuRd
+  - RdPu
+  - YlGn
+  - YlGnBu
+  - YlOrBr
+  - YlOrRd
   
   Color Brewer playground [here](https://colorbrewer2.org/).
   
