@@ -1,8 +1,8 @@
-# MapCraft API: Set Theme
+# MapCraft API: Theming
 
-Set Theme API endpoint is used to create, update and delete layer themes.
-Layers should be configured one at a time, on separated requests.
-This endpoint accepts a JSON payload with a well-defined and strict structure, ensuring that only valid themes will be processed.
+The `set_theme` API endpoint is used to create, update and delete themes.
+Layers should be configured one at a time, using separated requests.
+This endpoint accepts a JSON payload with a well-defined structure, ensuring that only valid themes will be processed.
 
 
 ## Endpoint
@@ -16,7 +16,7 @@ This endpoint accepts a JSON payload with a well-defined and strict structure, e
 ### Common attributes (all scale types)
   - **scaleType**: string (required)
     
-    Determines how the data will be visualized.
+    Determines how the data will be visualized on the map.
      
     #### Options
       
@@ -30,13 +30,13 @@ This endpoint accepts a JSON payload with a well-defined and strict structure, e
 
   - **highlightColor**: string (required)
     
-    Defines the color used to highlight selected regions or areas.
+    Defines the color used to highlight selected regions or areas (i.e. when you click on a shape).
     
     *Example: `"highlightColor": "#393B79"`*
   
   - **opacity**: number (required)
 
-    Opacity level of the layer, ranging from 0.0 (fully transparent) to 1.0 (fully opaque).
+    Opacity level of filled-in shapes, ranging from 0.0 (fully transparent) to 1.0 (fully opaque).
     
     *Example: `"opacity": 0.5`*
 
@@ -54,19 +54,14 @@ This endpoint accepts a JSON payload with a well-defined and strict structure, e
     
     *Example: `"isFlipped": true`*
 
-  - **hide**: boolean
-
-    Marks the theme as hidden. Default: `false`.
-    
-    *Example: `"hide": true`*
-
   - **forceNumeric**: boolean
       
-      Forces the values to be treated as numeric for better visual rendering,
+      Forces the values to be treated as numeric for more consistent rendering,
 
       *Example: `"forceNumeric": true`
 
 ### Manual Theme
+
   - **scaleType**: `"manual"` (required)
   
   - **colorScheme**: string (required)
