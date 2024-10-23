@@ -11,4 +11,4 @@ This repo is used to collaboratively build user documentation.  Pull Requests we
 - [Use via Google Sheets](google_sheets/README.md)
 
 ## MapCraft API
-- [Create, update, delete layer themes](api_themes.md)
+- [Create, update, delete themes](api_themes.md)
