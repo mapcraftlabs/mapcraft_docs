@@ -20,7 +20,9 @@ This endpoint accepts a JSON payload with a well-defined structure, ensuring tha
      
     #### Options
       
-      -	`linear`: Linear scale
+      -	`linear`: Linear scale (also known as equal-interval)
+      - `quantile`: Quantile scale
+      - `jenks`: Natural breakpoint scale (implementation [here](https://simple-statistics.github.io/docs/#ckmeans))
       - `manual`: User-defined breaks
       - `categorical`: Categories with defined color scheme
       - `autocategorical`: Auto-generates categories
@@ -105,28 +107,18 @@ This endpoint accepts a JSON payload with a well-defined structure, ensuring tha
     *Example: `"middleValue": 4.32`*
   
 
-### Graduated Theme
+### Graduated Themes
   
-  - **scaleType**: `"jenks"` or `"quantile"` (required)
+  - **scaleType**: `"linear"` or `"jenks"` or `"quantile"` (required)
   
   - **colorScheme**: str (required)
   
   - **numBins**: int (required)
     
-    Number of bins to be used in the linear scale.
+    Number of bins to be used in the graduated scale.
 
     *Example: `"numBins": 6`*
   
-### Linear Theme
-
-  - **scaleType**: `"linear"` (required)
-
-  - **colorScheme**: str (required)
-  
-#### Attributes
-  
-  - **colorScheme**: string (required) ([Details](#color-scheme))
-
 ### Categorical Theme
   - **categories**: JSON (required)
     
