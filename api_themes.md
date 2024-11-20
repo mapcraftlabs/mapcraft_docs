@@ -1,13 +1,13 @@
 # MapCraft API: Theming
 
-The `set_theme` API endpoint is used to create, update and delete themes.
+The `themes` API endpoint is used to create, update and delete themes.
 Layers should be configured one at a time, using separated requests.
 This endpoint accepts a JSON payload with a well-defined structure, ensuring that only valid themes will be processed.
 
 
 ## Endpoint
 
--	URL: `/layer/{{PROJECT_ID}}/{{LAYER_ID}}/set_theme`
+-	URL: `/layer/{{PROJECT_ID}}/{{LAYER_ID}}/themes`
 -	Method: `POST`
 -	Content-Type: `application/json`
 
@@ -20,7 +20,9 @@ This endpoint accepts a JSON payload with a well-defined structure, ensuring tha
      
     #### Options
       
-      -	`linear`: Linear scale
+      -	`linear`: Linear scale (also known as equal-interval)
+      - `quantile`: Quantile scale
+      - `jenks`: Natural breakpoint scale (implementation [here](https://simple-statistics.github.io/docs/#ckmeans))
       - `manual`: User-defined breaks
       - `categorical`: Categories with defined color scheme
       - `autocategorical`: Auto-generates categories
@@ -105,28 +107,18 @@ This endpoint accepts a JSON payload with a well-defined structure, ensuring tha
     *Example: `"middleValue": 4.32`*
   
 
-### Graduated Theme
+### Graduated Themes
   
-  - **scaleType**: `"jenks"` or `"quantile"` (required)
+  - **scaleType**: `"linear"` or `"jenks"` or `"quantile"` (required)
   
   - **colorScheme**: str (required)
   
   - **numBins**: int (required)
     
-    Number of bins to be used in the linear scale.
+    Number of bins to be used in the graduated scale.
 
     *Example: `"numBins": 6`*
   
-### Linear Theme
-
-  - **scaleType**: `"linear"` (required)
-
-  - **colorScheme**: str (required)
-  
-#### Attributes
-  
-  - **colorScheme**: string (required) ([Details](#color-scheme))
-
 ### Categorical Theme
   - **categories**: JSON (required)
     
@@ -212,7 +204,7 @@ Detailed schema definition and example from MapCraft API documentation [here](ht
 
 ```sh
 curl --request POST \
-  --url https://api.mapcraft.io/layer/{{PROJECT_ID}}/{{LAYER_ID}}/set_theme \
+  --url https://api.mapcraft.io/layer/{{PROJECT_ID}}/{{LAYER_ID}}/themes \
   --header 'Content-Type: application/json' \
   --data '{
     "EffRent_Flex": {
