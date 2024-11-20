@@ -155,7 +155,7 @@ This endpoint accepts a JSON payload with a well-defined structure, ensuring tha
 
 ## Schema definition and example
 
-Detailed schema definition and example from MapCraft API documentation [here](https://api.mapcraft.io/docs#/default/set_layer_theme_endpoint_layer__project_id___layer_name__set_theme_post).
+Detailed schema definition and example from MapCraft API documentation [here](https://api.mapcraft.io/docs#/default/set_themes_endpoint_layer__project_id___layer_name__themes_post).
 
 ## <a name="color-scheme"></a> Color scheme details
   
