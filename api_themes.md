@@ -1,13 +1,13 @@
 # MapCraft API: Theming
 
-The `set_theme` API endpoint is used to create, update and delete themes.
+The `themes` API endpoint is used to create, update and delete themes.
 Layers should be configured one at a time, using separated requests.
 This endpoint accepts a JSON payload with a well-defined structure, ensuring that only valid themes will be processed.
 
 
 ## Endpoint
 
--	URL: `/layer/{{PROJECT_ID}}/{{LAYER_ID}}/set_theme`
+-	URL: `/layer/{{PROJECT_ID}}/{{LAYER_ID}}/themes`
 -	Method: `POST`
 -	Content-Type: `application/json`
 
@@ -155,7 +155,7 @@ This endpoint accepts a JSON payload with a well-defined structure, ensuring tha
 
 ## Schema definition and example
 
-Detailed schema definition and example from MapCraft API documentation [here](https://api.mapcraft.io/docs#/default/set_layer_theme_endpoint_layer__project_id___layer_name__set_theme_post).
+Detailed schema definition and example from MapCraft API documentation [here](https://api.mapcraft.io/docs#/default/set_layer_theme_endpoint_layer__project_id___layer_name__themes_post).
 
 ## <a name="color-scheme"></a> Color scheme details
   
@@ -212,7 +212,7 @@ Detailed schema definition and example from MapCraft API documentation [here](ht
 
 ```sh
 curl --request POST \
-  --url https://api.mapcraft.io/layer/{{PROJECT_ID}}/{{LAYER_ID}}/set_theme \
+  --url https://api.mapcraft.io/layer/{{PROJECT_ID}}/{{LAYER_ID}}/themes \
   --header 'Content-Type: application/json' \
   --data '{
     "EffRent_Flex": {
