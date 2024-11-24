@@ -1,7 +1,7 @@
 # MapCraft API: Theming
 
 The `themes` API endpoint is used to create, update and delete themes.
-Layers should be configured one at a time, using separated requests.
+Layers should be configured one at a time, using separate requests.
 This endpoint accepts a JSON payload with a well-defined structure, ensuring that only valid themes will be processed.
 
 
@@ -212,5 +212,5 @@ curl --request POST \
 
 ## Response
 
-- 200 OK: Theme successfully configured.
-- 400 Bad Request: Error processing schema definition. Invalid or misssing fields and values.
+- 200: Theme successfully configured.
+- 422: Error processing theme definition. Invalid or misssing fields and values.  Format of error message is determined by pydantic and fastapi.
