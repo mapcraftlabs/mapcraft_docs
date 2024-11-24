@@ -12,3 +12,4 @@ This repo is used to collaboratively build user documentation.  Pull Requests we
 
 ## MapCraft API
 - [Create, update, delete themes](api_themes.md)
+- [Create, update, delete attribute schemas](api_schema.md)
