@@ -58,7 +58,7 @@ This endpoint accepts a JSON payload with a well-defined structure, ensuring tha
 
     Slider configuration parameters.  Must include all 3 parameters if one is included.  Sets the min, max and step of a slider.
 
-    Example*: `"minimum": 10, "maximum": 20, "multipleOf": 2`
+    *Example*: `"minimum": 10, "maximum": 20, "multipleOf": 2`
 
 ## cURL request example
 
