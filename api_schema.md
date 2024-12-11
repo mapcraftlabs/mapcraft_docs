@@ -4,6 +4,9 @@ The `schema` API endpoint is used to create, update and delete attribute schemas
 Layers should be configured one at a time, using separate requests.
 This endpoint accepts a JSON payload with a well-defined structure, ensuring that only valid schemas will be processed.
 
+## How to the schema of global inputs
+
+To edit globals, use a LAYER_ID of `Globals`.  Also note, `showInTable` does not apply to globals.
 
 ## Endpoint
 
@@ -13,19 +16,19 @@ This endpoint accepts a JSON payload with a well-defined structure, ensuring tha
 
 ### Schema attributes
 
-  - **editable**: boolean (optional)
+  - **editable**: boolean (optional, default true)
     
     Whether to include this attribute in the form
 
     *Example*: `"editable": False`
 
-  - **readOnly**: boolean (optional)
+  - **readOnly**: boolean (optional, default false)
 
     Similar to editable, but includes the value in the form but disables the input
 
     *Example*: `"readOnly": True`
 
-  - **showInTable**: boolean (optional)
+  - **showInTable**: boolean (optional, default true)
 
     Whether to show in the edit table at the bottom of the app
 
@@ -37,7 +40,7 @@ This endpoint accepts a JSON payload with a well-defined structure, ensuring tha
 
     *Example*: `"enum": ["a", "b", "c"]`
 
-  - **numberFormat**: string (optional)
+  - **numberFormat**: string (optional, default `0,0[.]0[0]a`)
     
     A format string used by [numeralJS](http://numeraljs.com/).
 
