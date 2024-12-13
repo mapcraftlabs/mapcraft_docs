@@ -55,12 +55,12 @@ A full example json file can be found [here](example.json)
 All requests take the general format below.  You may leave out any part of the
 request you don't want to update.
 
-The ThemeMap object is documented [here](themes.md)
-The ShemaMap object is documented [here](schema.md)
-The LayerSettings object is documented [here](layer_settings.md)
-The ProjectSettings object is documented [here](project_settings.md)
-The AggregationSpec and GroupBySpec objects are documented [here](aggregation_spec.md)
-The FilterSpec object is documented [here](filter_spec.md)
+- The ThemeMap object is documented [here](themes.md)
+- The ShemaMap object is documented [here](schema.md)
+- The LayerSettings object is documented [here](layer_settings.md)
+- The ProjectSettings object is documented [here](project_settings.md)
+- The AggregationSpec and GroupBySpec objects are documented [here](aggregation_spec.md)
+- The FilterSpec object is documented [here](filter_spec.md)
 
 ```json
 {
