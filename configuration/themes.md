@@ -1,17 +1,6 @@
-# MapCraft API: Theming
+# MapCraft Configuration: Theme object 
 
-The `themes` API endpoint is used to create, update and delete themes.
-Layers should be configured one at a time, using separate requests.
-This endpoint accepts a JSON payload with a well-defined structure, ensuring that only valid themes will be processed.
-
-
-## Endpoint
-
--	URL: `/layer/{{PROJECT_ID}}/{{LAYER_ID}}/themes`
--	Method: `POST`
--	Content-Type: `application/json`
-
-## Theme scale types
+The `theme` object is used to configure how the MapCraft themes (colors) an attribute on the map. 
 
 ### Common attributes (all scale types)
   - **scaleType**: string (required)
@@ -96,11 +85,11 @@ This endpoint accepts a JSON payload with a well-defined structure, ensuring tha
     }
     ```
 
-## Schema definition and example
+### Schema definition and example
 
 Detailed schema definition and example from MapCraft API documentation [here](https://api.mapcraft.io/docs#/default/set_themes_endpoint_layer__project_id___layer_name__themes_post).
 
-## <a name="color-scheme"></a> Color scheme details
+### Color scheme details
   
   ### Diverging
 
@@ -138,79 +127,72 @@ Detailed schema definition and example from MapCraft API documentation [here](ht
   Color Brewer playground [here](https://colorbrewer2.org/).
   
   Full colors details [here](https://github.com/axismaps/colorbrewer/blob/master/colorbrewer_schemes.js).
-  
 
-## cURL request example
+### Full example of a theme map 
 
-```sh
-curl --request POST \
-  --url https://api.mapcraft.io/layer/{{PROJECT_ID}}/{{LAYER_ID}}/themes \
-  --header 'Content-Type: application/json' \
-  --data '{
-    "EffRent_Flex": {
-      "colorScheme": "PuRd",
-      "highlightColor": "#ffffcc",
-      "opacity": 0.9,
-      "scaleType": "linear"
-    },
-    "HighestRLV": {
-      "breaks": [
-        0,
-        500,
-        1000,
-        1500,
-        2000,
-        25000,
-        3000
-      ],
-      "colorScheme": "PRGn",
-      "highlightColor": "#ffffcc",
-      "opacity": 0.9,
-      "scaleType": "manual"
-    },
-    "Owner_Area": {
-      "colorScheme": "Oranges",
-      "highlightColor": "#ffffcc",
-      "opacity": 0.9,
-      "scaleType": "linear"
-    },
-    "ZONING": {
-      "categories": [
-        {
-          "category": "C1-40",
-          "color": "#5254A3"
-        },
-        {
-          "category": "C1-65",
-          "color": "#6B6ECF"
-        },
-        {
-          "category": "C1-30",
-          "color": "#393B79"
-        },
-        {
-          "category": "C2-40",
-          "color": "#9C9EDE"
-        },
-        {
-          "category": "SM-D 40-85",
-          "color": "#9F0CB0"
-        }
-      ],
-      "highlightColor": "#ffffcc",
-      "opacity": 0.9,
-      "scaleType": "categorical"
-    },
-    "zoned_capacity": {
-      "colorScheme": "YlGnBu",
-      "highlightColor": "#ffffcc",
-      "opacity": 0.9,
-      "scaleType": "linear"
-    }
-  }'
+A theme map is used to map attribute names to theme objects 
+
+```json
+{
+  "EffRent_Flex": {
+    "colorScheme": "PuRd",
+    "highlightColor": "#ffffcc",
+    "opacity": 0.9,
+    "scaleType": "linear"
+  },
+  "HighestRLV": {
+    "breaks": [
+      0,
+      500,
+      1000,
+      1500,
+      2000,
+      25000,
+      3000
+    ],
+    "colorScheme": "PRGn",
+    "highlightColor": "#ffffcc",
+    "opacity": 0.9,
+    "scaleType": "manual"
+  },
+  "Owner_Area": {
+    "colorScheme": "Oranges",
+    "highlightColor": "#ffffcc",
+    "opacity": 0.9,
+    "scaleType": "linear"
+  },
+  "ZONING": {
+    "categories": [
+      {
+        "category": "C1-40",
+        "color": "#5254A3"
+      },
+      {
+        "category": "C1-65",
+        "color": "#6B6ECF"
+      },
+      {
+        "category": "C1-30",
+        "color": "#393B79"
+      },
+      {
+        "category": "C2-40",
+        "color": "#9C9EDE"
+      },
+      {
+        "category": "SM-D 40-85",
+        "color": "#9F0CB0"
+      }
+    ],
+    "highlightColor": "#ffffcc",
+    "opacity": 0.9,
+    "scaleType": "categorical"
+  },
+  "zoned_capacity": {
+    "colorScheme": "YlGnBu",
+    "highlightColor": "#ffffcc",
+    "opacity": 0.9,
+    "scaleType": "linear"
+  }
+}
 ```
-
-## Response
-
-- 200: Theme successfully configured.
-- 422: Error processing theme definition. Invalid or misssing fields and values.  Format of error message is determined by pydantic and fastapi.

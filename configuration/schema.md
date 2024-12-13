@@ -1,18 +1,10 @@
-# MapCraft API: Schema 
+# MapCraft Configuration: Schema object 
 
-The `schema` API endpoint is used to create, update and delete attribute schemas.
-Layers should be configured one at a time, using separate requests.
-This endpoint accepts a JSON payload with a well-defined structure, ensuring that only valid schemas will be processed.
+The `schema` object is used to configure how the MapCraft app edits and displays a data attribute. 
 
-## How to the schema of global inputs
+## How to edit the schema of global inputs
 
 To edit globals, use a LAYER_ID of `Globals`.  Also note, `showInTable` does not apply to globals.
-
-## Endpoint
-
--	URL: `/layer/{{PROJECT_ID}}/{{LAYER_ID}}/schema`
--	Method: `POST`
--	Content-Type: `application/json`
 
 ### Schema attributes
 
@@ -63,29 +55,23 @@ To edit globals, use a LAYER_ID of `Globals`.  Also note, `showInTable` does not
 
     *Example*: `"minimum": 10, "maximum": 20, "multipleOf": 2`
 
-## cURL request example
+### Full example of a schema map
 
-```sh
-curl --request POST \
-  --url https://api.mapcraft.io/layer/{{PROJECT_ID}}/{{LAYER_ID}}/schema \
-  --header 'Content-Type: application/json' \
-  --data '{
-    "hotel_occ": {"readOnly": True},
-    "sf_sales_p": {
-      "numberFormat": "0,0",
-      "minimum": 380,
-      "maximum": 460,
-      "multipleOf": 20,
-    },
-    "a1_acqtyp": {
-      "editable": True,
-      "enum": ["Full", "Partial", "Easement", "None", "Unknown"],
-      "showInTable": True,
-    },
-  }'
+A schema map is used to map attribute names to schema objects
+
+```json
+{
+  "hotel_occ": {"readOnly": true},
+  "sf_sales_p": {
+    "numberFormat": "0,0",
+    "minimum": 380,
+    "maximum": 460,
+    "multipleOf": 20
+  },
+  "a1_acqtyp": {
+    "editable": true,
+    "enum": ["Full", "Partial", "Easement", "None", "Unknown"],
+    "showInTable": true
+  }
+}
 ```
-
-## Response
-
-- 200: Theme successfully configured.
-- 422: Error processing schema definition. Invalid or misssing fields and values.  Format of error message is determined by pydantic and fastapi.

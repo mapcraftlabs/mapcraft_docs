@@ -10,6 +10,5 @@ This repo is used to collaboratively build user documentation.  Pull Requests we
 - [Use via simple python wrapper](python_example/README.md)
 - [Use via Google Sheets](google_sheets/README.md)
 
-## MapCraft API
-- [Create, update, delete themes](api_themes.md)
-- [Create, update, delete attribute schemas](api_schema.md)
+## Project Configuration
+- [Configure projects using the API](configuration/README.md) 
