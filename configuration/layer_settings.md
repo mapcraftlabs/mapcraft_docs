@@ -1,4 +1,4 @@
-# MapCraft Configuration: LayerSettings object
+# MapCraft Configuration: Layer Settings
 
 LayerSettings - do not set any settings you don't want to update
 
