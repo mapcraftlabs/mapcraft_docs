@@ -1,0 +1,2449 @@
+{
+  "layerMap": {
+    "Globals": {
+      "schema": {
+        "tod_premium_maxdist_mi": {
+          "readOnly": false,
+          "minimum": 0,
+          "maximum": 2,
+          "multipleOf": 0.25
+        }
+      }
+    },
+    "Parcels": {
+      "themes": {
+        "Current Use AV": {
+          "highlightColor": "#ffc",
+          "colorScheme": "OrRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Duplex_LR1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Purples",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Duplex_LR2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Oranges",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "EffPrice_SF": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "EffPrice_TH": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdPu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "EffRate_Hotel": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "EffRent_Flex": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "EffRent_Ind": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Reds",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "EffRent_MF": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBuGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "EffRent_Off": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdYlBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "EffRent_Ret": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBuGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "HighRLVNoZone": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "HighestRLV": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "isFlipped": false,
+          "colorScheme": "PRGn",
+          "breaks": [
+            0,
+            500,
+            1000,
+            1500,
+            2000,
+            2500,
+            3000
+          ],
+          "scaleType": "manual"
+        },
+        "IndustrialMU1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuOr",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "IndustrialMU2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "BrBG",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Lmanf": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Low-Rise Office": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Greens",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Podium 1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Blues",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Podium 10": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGnBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Podium 2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Purples",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Podium 3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlOrBr",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Podium 4": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlOrRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Podium 5": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "OrRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Podium 6": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Podium 7": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdPu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Podium 8": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "BuPu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Podium 9": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Tower 1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Reds",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Tower 2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Oranges",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Tower 3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Greens",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Tower 4": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Blues",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Tower 5": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Purples",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Tower 6": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlOrBr",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Tower 7": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlOrRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Tower 8": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "OrRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "MU Tower 9": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Medium_Hotel": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Reds",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Mid-Rise Office 1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "BuGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Mid-Rise Office 2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "GnBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Mid-Rise Office 3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGnBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Owner_Area": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Oranges",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "ProtoNmNoZone": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "ProtoSFNoZone": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlOrRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "ProtoUnNoZone": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuOr",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "PrototypeComSF": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "PrototypeName": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "PrototypeUnits": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdGy",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Quadplex LR2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlOrRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Quadplex LR3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlOrBr",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Podium 1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "OrRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Podium 10": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdGy",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Podium 2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Podium 3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdPu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Podium 4": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "BuPu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Podium 5": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Podium 6": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBuGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Podium 7": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "BuGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Podium 8": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "GnBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Podium 9": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGnBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Tower 1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBuGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Tower 2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "BuGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Tower 3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "GnBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Tower 4": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGnBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Tower 5": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Res Tower 6": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdYlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Single-family Large": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Single-family Medium": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdYlBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Single-family Small": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBuGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Small_Hotel": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBuGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Stacked Flat 1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdYlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Stacked Flat 2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Stacked Flat 3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGnBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Storage": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PiYG",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "SubgComSFNet": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "SubgUnitsNet": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "SubgeogComSF": {
+          "highlightColor": "#ffc",
+          "colorScheme": "Purples",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "SubgeogDen": {
+          "highlightColor": "#ffc",
+          "colorScheme": "PuBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "SubgeogFAR": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdPu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "SubgeogUnits": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Oranges",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "TH_LR1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Purples",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "TH_LR2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlOrBr",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Tilt-up Office": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Greys",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Tower Office 1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Greens",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Tower Office 2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Oranges",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Tower Office 3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Reds",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Tower_Hotel": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PRGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Triplex LR1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Greys",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Triplex LR2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Reds",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "Warehouse": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "BuGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "ZONING": {
+          "highlightColor": "#ffc",
+          "categories": [
+            {
+              "category": "C1-40",
+              "color": "#5254a3"
+            },
+            {
+              "category": "C1-65",
+              "color": "#6b6ecf"
+            },
+            {
+              "category": "C1-30",
+              "color": "#393b79"
+            },
+            {
+              "category": "C2-40",
+              "color": "#9c9ede"
+            },
+            {
+              "category": "C2-55 (M)",
+              "color": "#637939"
+            },
+            {
+              "category": "C2-65",
+              "color": "#8ca252"
+            },
+            {
+              "category": "IB U/45",
+              "color": "#b5cf6b"
+            },
+            {
+              "category": "IB U/85",
+              "color": "#cedb9c"
+            },
+            {
+              "category": "IC-45",
+              "color": "#8c6d31"
+            },
+            {
+              "category": "IC-65",
+              "color": "#bd9e39"
+            },
+            {
+              "category": "IG1 U/45",
+              "color": "#e7ba52"
+            },
+            {
+              "category": "IG1 U/65",
+              "color": "#e7cb94"
+            },
+            {
+              "category": "IG1 U/85",
+              "color": "#843c39"
+            },
+            {
+              "category": "IG2 U/45",
+              "color": "#ad494a"
+            },
+            {
+              "category": "IG2 U/65",
+              "color": "#d6616b"
+            },
+            {
+              "category": "IG2 U/85",
+              "color": "#e7969c"
+            },
+            {
+              "category": "LR1",
+              "color": "#7b4173"
+            },
+            {
+              "category": "LR2",
+              "color": "#a55194"
+            },
+            {
+              "category": "LR2 RC",
+              "color": "#ce6dbd"
+            },
+            {
+              "category": "LR3",
+              "color": "#de9ed6"
+            },
+            {
+              "category": "LR3 (M)",
+              "color": "#71d424"
+            },
+            {
+              "category": "LR3 RC",
+              "color": "#c4874b"
+            },
+            {
+              "category": "MIO-105-MR",
+              "color": "#b699ea"
+            },
+            {
+              "category": "MIO-105-NC3-65",
+              "color": "#5f25f4"
+            },
+            {
+              "category": "MIO-65-MR",
+              "color": "#594bb3"
+            },
+            {
+              "category": "MIO-65-NC3-65",
+              "color": "#824df5"
+            },
+            {
+              "category": "MIO-65-NC3-85",
+              "color": "#c04df5"
+            },
+            {
+              "category": "MR",
+              "color": "#a50900"
+            },
+            {
+              "category": "MR (M)",
+              "color": "#a9daf7"
+            },
+            {
+              "category": "MR-RC",
+              "color": "#590b63"
+            },
+            {
+              "category": "NC1-30",
+              "color": "#ae1ce1"
+            },
+            {
+              "category": "NC1-40",
+              "color": "#cd1ce1"
+            },
+            {
+              "category": "NC2-30",
+              "color": "#0d91e1"
+            },
+            {
+              "category": "NC2-40",
+              "color": "#2c91e1"
+            },
+            {
+              "category": "NC2-65",
+              "color": "#6f91e1"
+            },
+            {
+              "category": "NC2P-40",
+              "color": "#b66360"
+            },
+            {
+              "category": "NC2P-65",
+              "color": "#f96360"
+            },
+            {
+              "category": "NC3-40",
+              "color": "#8b05e2"
+            },
+            {
+              "category": "NC3-65",
+              "color": "#ce05e2"
+            },
+            {
+              "category": "NC3-85",
+              "color": "#0c06e2"
+            },
+            {
+              "category": "NC3-85 (4.75)",
+              "color": "#bd1975"
+            },
+            {
+              "category": "NC3P-40",
+              "color": "#377b6e"
+            },
+            {
+              "category": "NC3P-65",
+              "color": "#7a7b6e"
+            },
+            {
+              "category": "NC3P-85",
+              "color": "#b87b6e"
+            },
+            {
+              "category": "NC3P-85 (4.75)",
+              "color": "#912a35"
+            },
+            {
+              "category": "SF 5000",
+              "color": "#8833f4"
+            },
+            {
+              "category": "SF 7200",
+              "color": "#c823f5"
+            },
+            {
+              "category": "SF 9600",
+              "color": "#8a1bf6"
+            },
+            {
+              "category": "SM-D 40-85",
+              "color": "#9f0cb0"
+            }
+          ],
+          "scaleType": "categorical"
+        },
+        "a1_acqtyp": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "a1_aq_1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "a1_sf_atg": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "BrBG",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a1_sf_ele": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a1_sf_tun": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a1offpct": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a1stgpct1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a2_acqtyp": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "a2_aq_1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "a2_sf_atg": {
+          "highlightColor": "#ffc",
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a2_sf_ele": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a2_sf_tun": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a2offpct": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a2stgpct1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3_acqtyp": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "a3_aq_1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "a3_sf_atg": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3_sf_ele": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3_sf_tun": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3a_acqtyp": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "a3a_aq_1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "a3a_sf_atg": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3a_sf_ele": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3a_sf_tun": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3aoffpct": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3astgpct1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3b_acqtyp": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "a3b_aq_1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "a3b_sf_atg": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3b_sf_ele": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3b_sf_tun": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3boffpct": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3bstgpct1": {
+          "highlightColor": "#ffc",
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3d_acqtyp": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "a3d_aq_1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "a3d_sf_atg": {
+          "highlightColor": "#ffc",
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3d_sf_ele": {
+          "highlightColor": "#ffc",
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3d_sf_tun": {
+          "highlightColor": "#ffc",
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3doffpct": {
+          "highlightColor": "#ffc",
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3dstgpct1": {
+          "highlightColor": "#ffc",
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3offpct": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "a3stgpct1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "abvground_row_footprint_pct": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Greys",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "address": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "aff_hous": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdPu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "agency_tod_assembly": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBuGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "agency_tod_large": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Greys",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "avoid_historic": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Oranges",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "avoid_pub_own": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Purples",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "avoid_slidearea": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Reds",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "bldg_av": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "bldg_prmts": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuOr",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "block_area": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "c_bldg_gsf": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "c_bldg_nsf": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "BrBG",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "community": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdYlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "community_tod_norezone": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "BuPu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "community_tod_rezone": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdPu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_ak_Alt1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_ak_Alt2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_ak_Alt3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_ak_Alt3a": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_ak_Alt3b": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_ava_Alt1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_ava_Alt2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_ava_Alt3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_bl_Alt1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_bl_Alt2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_bl_Alt3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_bl_Alt3d": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_del_Alt1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_del_Alt2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_del_Alt3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_int_Alt1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_int_Alt2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_int_Alt3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_smi_Alt1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_smi_Alt2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "d_smi_Alt3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "disp_risk": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "etod_category_auto": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "etod_category_final": {
+          "highlightColor": "#ffc",
+          "categories": [
+            {
+              "category": "AGENCY TOD: CONSOLIDATION REQ",
+              "color": "#4ebfdd"
+            },
+            {
+              "category": "AGENCY TOD: HIGH PRIORITY",
+              "color": "#2c2a7b"
+            },
+            {
+              "category": "AVOID IF POSSIBLE",
+              "color": "#f8ee4d"
+            },
+            {
+              "category": "COMMUNITY TOD: JOBS FOCUS",
+              "color": "#ce592e"
+            },
+            {
+              "category": "COMMUNITY TOD: MIXED-USE FOCUS",
+              "color": "#a13895"
+            },
+            {
+              "category": "NO CATEGORY",
+              "color": "white"
+            },
+            {
+              "category": "NONE",
+              "color": "white"
+            },
+            {
+              "category": "POTENTIAL PRESERVATION TARGET",
+              "color": "#9fc13b"
+            }
+          ],
+          "scaleType": "categorical"
+        },
+        "etod_category_paint": {
+          "highlightColor": "#ffc",
+          "categories": [
+            {
+              "category": "AGENCY TOD: CONSOLIDATION REQ",
+              "color": "#4ebfdd"
+            },
+            {
+              "category": "AGENCY TOD: HIGH PRIORITY",
+              "color": "#2c2a7b"
+            },
+            {
+              "category": "AVOID IF POSSIBLE",
+              "color": "#f8ee4d"
+            },
+            {
+              "category": "COMMUNITY TOD: JOBS FOCUS",
+              "color": "#ce592e"
+            },
+            {
+              "category": "COMMUNITY TOD: MIXED-USE FOCUS",
+              "color": "#a13895"
+            },
+            {
+              "category": "NO CATEGORY",
+              "color": "#ccc"
+            },
+            {
+              "category": "NONE",
+              "color": "white"
+            },
+            {
+              "category": "POTENTIAL PRESERVATION TARGET",
+              "color": "#9fc13b"
+            }
+          ],
+          "scaleType": "categorical"
+        },
+        "etod_paint": {
+          "highlightColor": "#4d4d4d",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "existing_community_amenity": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdGy",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "existing_etod": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "existing_transitsupportive": {
+          "highlightColor": "#ffc",
+          "colorScheme": "Purples",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "has_condo": {
+          "colorScheme": "Greens",
+          "scaleType": "boolean"
+        },
+        "in_mic": {
+          "highlightColor": "#ffc",
+          "isFlipped": false,
+          "colorScheme": "YlGn",
+          "scaleType": "boolean"
+        },
+        "in_urbcent": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "isFlipped": false,
+          "colorScheme": "YlGn",
+          "scaleType": "boolean"
+        },
+        "in_urbvill": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "isFlipped": false,
+          "colorScheme": "RdPu",
+          "scaleType": "boolean"
+        },
+        "is_histori": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdGy",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "is_port": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuOr",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "is_pub_own": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PiYG",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "is_railrd": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "isFlipped": false,
+          "colorScheme": "OrRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "is_singlef": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "is_undvpbl": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdYlBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "land_av": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlOrBr",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "lu_permits": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Purples",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "n_ownrs_bk": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "n_units": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Reds",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "near_sta": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGnBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "offline_permanent_pct": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Reds",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "opp_acc": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdGy",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "parcel_acquisition_status_offline1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "RdPu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "parcel_acquisition_status_row": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "pin": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "pres_use_d": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "categories": [
+            {
+              "category": "4-Plex",
+              "color": "#393b79"
+            },
+            {
+              "category": "Apartment",
+              "color": "#5254a3"
+            },
+            {
+              "category": "Apartment(Mixed Use)",
+              "color": "#6b6ecf"
+            },
+            {
+              "category": "Apartment(Subsidized)",
+              "color": "#9c9ede"
+            },
+            {
+              "category": "Art Gallery/Museum/Soc Srvc",
+              "color": "#637939"
+            },
+            {
+              "category": "Auto Showroom and Lot",
+              "color": "#8ca252"
+            },
+            {
+              "category": "Bank",
+              "color": "#b5cf6b"
+            },
+            {
+              "category": "Bowling Alley",
+              "color": "#cedb9c"
+            },
+            {
+              "category": "Car Wash",
+              "color": "#8c6d31"
+            },
+            {
+              "category": "Church/Welfare/Relig Srvc",
+              "color": "#bd9e39"
+            },
+            {
+              "category": "Club",
+              "color": "#e7ba52"
+            },
+            {
+              "category": "Condominium(Mixed Use)",
+              "color": "#e7cb94"
+            },
+            {
+              "category": "Condominium(Residential)",
+              "color": "#843c39"
+            },
+            {
+              "category": "Conv Store with Gas",
+              "color": "#ad494a"
+            },
+            {
+              "category": "Conv Store without Gas",
+              "color": "#d6616b"
+            },
+            {
+              "category": "Daycare Center",
+              "color": "#e7969c"
+            },
+            {
+              "category": "Duplex",
+              "color": "#7b4173"
+            },
+            {
+              "category": "Golf Course",
+              "color": "#a55194"
+            },
+            {
+              "category": "Governmental Service",
+              "color": "#ce6dbd"
+            },
+            {
+              "category": "Grocery Store",
+              "color": "#de9ed6"
+            },
+            {
+              "category": "Group Home",
+              "color": "#2076b7"
+            },
+            {
+              "category": "Health Club",
+              "color": "#fac7e6"
+            },
+            {
+              "category": "Hospital",
+              "color": "#5a62c1"
+            },
+            {
+              "category": "Hotel/Motel",
+              "color": "#de5ec9"
+            },
+            {
+              "category": "Industrial Park",
+              "color": "#311186"
+            },
+            {
+              "category": "Industrial(Gen Purpose)",
+              "color": "#0a40b6"
+            },
+            {
+              "category": "Industrial(Heavy)",
+              "color": "#d17902"
+            },
+            {
+              "category": "Industrial(Light)",
+              "color": "#62bf10"
+            },
+            {
+              "category": "Marina",
+              "color": "#de79f1"
+            },
+            {
+              "category": "Medical/Dental Office",
+              "color": "#0cb73e"
+            },
+            {
+              "category": "Mini Lube",
+              "color": "#b559f2"
+            },
+            {
+              "category": "Mini Warehouse",
+              "color": "#3a2e25"
+            },
+            {
+              "category": "Movie Theater",
+              "color": "#e16adf"
+            },
+            {
+              "category": "Nursing Home",
+              "color": "#e5b009"
+            },
+            {
+              "category": "Office Building",
+              "color": "#98a3b2"
+            },
+            {
+              "category": "Open Space(Curr Use-RCW 84.34)",
+              "color": "#4caf83"
+            },
+            {
+              "category": "Park, Private(Amuse Ctr)",
+              "color": "#f03da9"
+            },
+            {
+              "category": "Park, Public(Zoo/Arbor)",
+              "color": "#8b97b3"
+            },
+            {
+              "category": "Parking(Assoc)",
+              "color": "#64be35"
+            },
+            {
+              "category": "Parking(Commercial Lot)",
+              "color": "#7e6cd6"
+            },
+            {
+              "category": "Parking(Garage)",
+              "color": "#32d81b"
+            },
+            {
+              "category": "Post Office/Post Service",
+              "color": "#28cc89"
+            },
+            {
+              "category": "Restaurant(Fast Food)",
+              "color": "#721df1"
+            },
+            {
+              "category": "Restaurant/Lounge",
+              "color": "#4c803f"
+            },
+            {
+              "category": "Retail Store",
+              "color": "#845336"
+            },
+            {
+              "category": "Retail(Discount)",
+              "color": "#230d79"
+            },
+            {
+              "category": "Retail(Line/Strip)",
+              "color": "#0722bd"
+            },
+            {
+              "category": "Retirement Facility",
+              "color": "#eac2d6"
+            },
+            {
+              "category": "Right of Way/Utility, Road",
+              "color": "#5b3d56"
+            },
+            {
+              "category": "Rooming House",
+              "color": "#a706a8"
+            },
+            {
+              "category": "School(Private)",
+              "color": "#3a46be"
+            },
+            {
+              "category": "School(Public)",
+              "color": "#2ca9ff"
+            },
+            {
+              "category": "Service Building",
+              "color": "#ff8f6e"
+            },
+            {
+              "category": "Service Station",
+              "color": "#892e5d"
+            },
+            {
+              "category": "Shell Structure",
+              "color": "#438b99"
+            },
+            {
+              "category": "Single Family(C/I Use)",
+              "color": "#d1553e"
+            },
+            {
+              "category": "Single Family(C/I Zone)",
+              "color": "#8e31d1"
+            },
+            {
+              "category": "Single Family(Res Use/Zone)",
+              "color": "#a9b124"
+            },
+            {
+              "category": "Sport Facility",
+              "color": "#0f7aa7"
+            },
+            {
+              "category": "Tavern/Lounge",
+              "color": "#11c234"
+            },
+            {
+              "category": "Terminal(Auto/Bus/Other)",
+              "color": "#7cbf8d"
+            },
+            {
+              "category": "Terminal(Marine)",
+              "color": "#fb5f3c"
+            },
+            {
+              "category": "Terminal(Marine/Comm Fish)",
+              "color": "#7e1d9c"
+            },
+            {
+              "category": "Terminal(Rail)",
+              "color": "#2ba1e0"
+            },
+            {
+              "category": "Townhouse Plat",
+              "color": "#814489"
+            },
+            {
+              "category": "Triplex",
+              "color": "#ba1710"
+            },
+            {
+              "category": "Utility, Private(Radio/T.V.)",
+              "color": "#beb49a"
+            },
+            {
+              "category": "Utility, Public",
+              "color": "#49da13"
+            },
+            {
+              "category": "Vacant(Commercial)",
+              "color": "#46e610"
+            },
+            {
+              "category": "Vacant(Industrial)",
+              "color": "#f77499"
+            },
+            {
+              "category": "Vacant(Multi-family)",
+              "color": "#184beb"
+            },
+            {
+              "category": "Vacant(Single-family)",
+              "color": "#393340"
+            },
+            {
+              "category": "Vet/Animal Control Srvc",
+              "color": "#6980c8"
+            },
+            {
+              "category": "Warehouse",
+              "color": "#a35a61"
+            }
+          ],
+          "scaleType": "categorical"
+        },
+        "preservation_target": {
+          "highlightColor": "#ffc",
+          "colorScheme": "PuRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "redev_propensity_currentzoning": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "BuGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "redev_propensity_unconstrained": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlOrRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "slide_area": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Greys",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "staging_acres_1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "GnBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "staging_pct1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "station": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "surplus_acres1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "BuPu",
+          "numBins": 5,
+          "scaleType": "quantile"
+        },
+        "taxpayer": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "tl_area_sf": {
+          "highlightColor": "#fda1ff",
+          "opacity": 0.9,
+          "isFlipped": false,
+          "colorScheme": "YlGnBu",
+          "numBins": 8,
+          "scaleType": "quantile"
+        },
+        "tod_opportunity_cost": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Oranges",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "tod_use": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "tot_appr_v": {
+          "highlightColor": "#fa28ff",
+          "opacity": 0.9,
+          "colorScheme": "GnBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "unconstr_sf": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlOrRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "unconstr_units": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "GnBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "unconstr_units_surplus1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Greens",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "wsble_area": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "xcoord": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "ycoord": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "yr_built": {
+          "opacity": 0.9,
+          "isFlipped": false,
+          "colorScheme": "PuBu",
+          "breaks": [
+            1900,
+            1920,
+            1940,
+            1960,
+            1980,
+            2000,
+            2020
+          ],
+          "scaleType": "manual"
+        },
+        "zoned_capacity": {
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        }
+      },
+      "schema": {
+        "a1_acqtyp": {
+          "editable": true,
+          "enum": [
+            "Full",
+            "Partial",
+            "Easement",
+            "None",
+            "Unknown"
+          ],
+          "showInTable": true
+        },
+        "a1_aq_1": {
+          "showInTable": true
+        },
+        "etod_paint": {
+          "showInTable": true
+        },
+        "in_urbvill": {
+          "showInTable": true
+        },
+        "land_av": {
+          "showInTable": true
+        },
+        "taxpayer": {
+          "showInTable": true
+        },
+        "tl_area_sf": {
+          "showInTable": true
+        },
+        "tot_appr_v": {
+          "showInTable": true
+        }
+      },
+      "layerSettings": {
+        "placeHeadingField": "OBJECTID",
+        "defaultTheme": "ZONING",
+        "hideScenariosMenu": false,
+        "displayName": "Parcels"
+      }
+    },
+    "Simulations": {
+      "themes": {
+        "RES PODIUM 6": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGnBu",
+          "breaks": [
+            250,
+            500,
+            750,
+            1000,
+            1250
+          ],
+          "scaleType": "manual"
+        },
+        "SINGLE-FAMILY LARGE": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 6,
+          "scaleType": "linear"
+        },
+        "STACKED FLAT 1": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGnBu",
+          "breaks": [
+            250,
+            500,
+            750,
+            1000,
+            1250
+          ],
+          "scaleType": "manual"
+        },
+        "STACKED FLAT 2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGnBu",
+          "breaks": [
+            250,
+            500,
+            750,
+            1000
+          ],
+          "scaleType": "manual"
+        },
+        "STACKED FLAT 3": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGnBu",
+          "breaks": [
+            250,
+            500,
+            750,
+            1000
+          ],
+          "scaleType": "manual"
+        },
+        "TOWNHOME LR2": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGnBu",
+          "breaks": [
+            250,
+            500,
+            750,
+            1000,
+            1250
+          ],
+          "scaleType": "manual"
+        },
+        "highestrlv-mean": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "highrlvnozone-median": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        }
+      },
+      "schema": {
+        "RES PODIUM 6": {
+          "showInTable": true
+        },
+        "highestrlv-mean": {
+          "readOnly": true
+        },
+        "highrlvnozone-median": {
+          "readOnly": true
+        }
+      },
+      "layerSettings": {}
+    },
+    "Stations": {
+      "themes": {
+        "alternative_id": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        },
+        "flex_rent": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "isFlipped": false,
+          "colorScheme": "PuBuGn",
+          "numBins": 4,
+          "scaleType": "jenks"
+        },
+        "flex_vac": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Purples",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "hotel_occ": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Purples",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "hotel_rent": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "isFlipped": false,
+          "colorScheme": "Oranges",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "ind_rent": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "OrRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "ind_vac": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "isFlipped": false,
+          "colorScheme": "Purples",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "mf_rent": {
+          "highlightColor": "#e617b5",
+          "opacity": 0.8,
+          "isFlipped": false,
+          "colorScheme": "YlOrBr",
+          "breaks": [
+            2.6,
+            2.7,
+            2.8000000000000003,
+            2.9000000000000004
+          ],
+          "scaleType": "manual"
+        },
+        "mf_vac": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "PuRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "off_rent": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "isFlipped": false,
+          "colorScheme": "YlGnBu",
+          "numBins": 4,
+          "scaleType": "linear"
+        },
+        "off_vac": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlOrRd",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "ret_rent": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Blues",
+          "numBins": 6,
+          "scaleType": "quantile"
+        },
+        "ret_vac": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "isFlipped": false,
+          "colorScheme": "Blues",
+          "numBins": 6,
+          "scaleType": "linear"
+        },
+        "sf_sales_p": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "isFlipped": true,
+          "colorScheme": "YlGnBu",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "tod_pre_ho": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Blues",
+          "numBins": 6,
+          "scaleType": "quantile"
+        },
+        "tod_pre_in": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "BuGn",
+          "numBins": 5,
+          "scaleType": "linear"
+        },
+        "tod_pre_mf": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "isFlipped": false,
+          "colorScheme": "Blues",
+          "numBins": 6,
+          "scaleType": "linear"
+        },
+        "tod_pre_of": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "isFlipped": false,
+          "colorScheme": "Blues",
+          "numBins": 6,
+          "scaleType": "linear"
+        },
+        "tod_pre_re": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "Blues",
+          "numBins": 6,
+          "scaleType": "quantile"
+        },
+        "tod_pre_sf": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "colorScheme": "YlGn",
+          "numBins": 6,
+          "scaleType": "linear"
+        },
+        "twnh_sales": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "isFlipped": false,
+          "colorScheme": "PRGn",
+          "scaleType": "continuous"
+        },
+        "wsble_area": {
+          "highlightColor": "#ffc",
+          "opacity": 0.9,
+          "scaleType": "autocategorical"
+        }
+      },
+      "schema": {
+        "hotel_occ": {
+          "readOnly": true
+        },
+        "mf_rent": {
+          "showInTable": true
+        },
+        "off_rent": {
+          "showInTable": true
+        },
+        "sf_sales_p": {
+          "numberFormat": "0,0",
+          "minimum": 380,
+          "maximum": 460,
+          "multipleOf": 20
+        },
+        "twnh_sales": {
+          "showInTable": true
+        }
+      },
+      "layerSettings": {
+        "placeHeadingField": "wsble_area",
+        "defaultTheme": "flex_rent",
+        "displayName": "Station Areas"
+      }
+    }
+  },
+  "projectSettings": {
+    "labName": "Seattle Light Rail",
+    "aboutUrl": "https://docs.google.com/document/d/e/2PACX-1vRp_Y75cgQY7gIWLRt5mg4udDyopT8TNedD5TxC8YU5RIyqtp_7CfSVbcCWnDlk1ec95BmaUpaGUlLt/pub?embedded=true",
+    "zoom": 10.7887150695485,
+    "center": {
+      "lng": -122.3761141535,
+      "lat": 47.61449775885288
+    },
+    "showAboutModalEveryTime": false,
+    "enableSimulations": true,
+    "defaultBordersVisible": true,
+    "defaultTransitVisible": false,
+    "defaultMapLabelsVisible": true,
+    "hideDoubleMapToggle": false,
+    "baseMap": "grey",
+    "onFailedJoinDefault": "continue_<_50_percent_failure"
+  },
+  "aggregationSpec": [
+    {
+      "attribute": "HighestRLV",
+      "aggregation": "mean",
+      "outputName": "highestrlv-mean"
+    },
+    {
+      "attribute": "HighRLVNoZone",
+      "aggregation": "median",
+      "outputName": "highrlvnozone-median"
+    }
+  ],
+  "groupBySpec": [
+    {
+      "groupBy": [
+        {
+          "attribute": "ZONING",
+          "layerName": "Parcels"
+        }
+      ],
+      "outputName": "ZONING"
+    }
+  ],
+  "filterSpec": [
+    {
+      "name": "Test 1",
+      "query": "invalid query"
+    },
+    {
+      "name": "Old buildings",
+      "query": "yr_built < 1950"
+    },
+    {
+      "name": "Test filter",
+      "query": "(station == 'Ballard') and (yr_built > 1940)"
+    }
+  ]
+}
