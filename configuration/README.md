@@ -59,8 +59,7 @@ The ThemeMap object is documented [here](themes.md)
 The ShemaMap object is documented [here](schema.md)
 The LayerSettings object is documented [here](layer_settings.md)
 The ProjectSettings object is documented [here](project_settings.md)
-The AggregationSpec object is documented [here](aggregation_spec.md)
-The GroupBySpec object is documented [here](groupby_spec.md)
+The AggregationSpec and GroupBySpec objects are documented [here](aggregation_spec.md)
 The FilterSpec object is documented [here](filter_spec.md)
 
 ```json
