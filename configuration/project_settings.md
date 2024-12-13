@@ -1,4 +1,4 @@
-# MapCraft Configuration: ProjectSettings object
+# MapCraft Configuration: Project Settings
 
 General project settings - do not set any values you don't want to update
 
