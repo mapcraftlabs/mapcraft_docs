@@ -1,4 +1,4 @@
-# MapCraft Configuration: FilterSpec object
+# MapCraft Configuration: Filters
 
 Filters are used to filter the analysis layer when running simulations and are available in a dropdown in the "run simulation" dialog.
 
