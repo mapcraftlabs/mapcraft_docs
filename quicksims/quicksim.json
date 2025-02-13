@@ -1,0 +1,17 @@
+{
+  "module_name": "terner.proforma",
+  "description": "This is a test simulation",
+  "function_name": "proforma_calc_wrapper",
+  "script_url": "https://example.com/analysis_file.zip",
+  "input_storage_url": "https://example.com/parcels_inputs.parquet",
+  "globals_data": {
+    "absorb_rate_toggle": 30.0,
+    "ahlf_aff_share_toggle": 1.0,
+    "allow_resid_toggle": 0,
+    "avg_du_gross_sqft_toggle": 1.0,
+    "avg_setback_override_on": 0,
+    "avg_setback_override_val": 0.0,
+    "avg_setback_toggle": 1.0,
+    "PUT ALL YOUR GLOBALS HERE": true
+  }
+}
