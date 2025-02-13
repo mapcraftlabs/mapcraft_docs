@@ -6,6 +6,8 @@ You can call the api using any mechanism that can make a POST request, with the 
 
 The script `run_quicksim.py` gives a short python example for authenticating to the api using an email and password and passing a JSON file to the quicksim endpoint.
 
+The python script requires `click` and `requests` which you can install with `pip install -r requirements.txt`
+
 `quicksim.json` is an example of the parameters necessary to run a quicksim:
 
 * `input_storage_url` - a signed url to the input parquet file
