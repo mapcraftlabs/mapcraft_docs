@@ -62,7 +62,7 @@ request you don't want to update.
 - The AggregationSpec and GroupBySpec objects are documented [here](aggregation_spec.md)
 - The FilterSpec object is documented [here](filter_spec.md)
 
-```json
+```
 {
   "config": {
     "layerMap": {
