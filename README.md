@@ -4,8 +4,8 @@ This repo is used to collaboratively build user documentation.  Pull Requests we
 
 ## User Documentation
 - [Frozen Scenarios](user_documentation/frozen_scenarios.md)
-- [Permissions](permissions.md)
-- [Uploading shape data](uploads.md)
+- [Permissions](user_documentation/permissions.md)
+- [Uploading shape data](user_documentation/uploads.md)
 
 ## Simulations API
 - [Use via curl](curl.md)
