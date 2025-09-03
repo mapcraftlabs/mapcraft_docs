@@ -21,7 +21,9 @@ exclude_patterns = [
     "google_sheets",
     "python_example",
     "quicksims",
-    "curl" "docs/_build",
+    "README.md",
+    "curl.md",
+    "docs/_build",
     "Thumbs.db",
     ".DS_Store",
 ]
