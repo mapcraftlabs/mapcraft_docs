@@ -14,7 +14,7 @@ When a simulation is run, the data extraction step for each layer will check to 
 
 Note that this approach is optimally efficient. If numerous simulations are run over time and the scenario has no new edits, no new frozen scenarios will be created; instead, the appropriate scenario will be reused. Also note that no scenarios are frozen until a simulation is actually run. Numerous edits can be made over time and no scenarios will be frozen until a simulation is actually run.
 
-## UI
+## User Interface
 
 See the screenshot below. Each layer in a simulation has:
 
