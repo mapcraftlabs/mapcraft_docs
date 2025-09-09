@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Frozen Scenarios &#8212; MapCraft  documentation</title>
+    <title>Frozen Versions of Scenarios &#8212; MapCraft  documentation</title>
   
   
   
@@ -150,7 +150,7 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Frozen Scenarios</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Frozen Versions of Scenarios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="permissions.html">Permissions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uploads.html">Uploading “Base” Data</a></li>
 </ul>
@@ -291,7 +291,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Frozen Scenarios</h1>
+    <h1>Frozen Versions of Scenarios</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -316,30 +316,30 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="frozen-scenarios">
-<h1>Frozen Scenarios<a class="headerlink" href="#frozen-scenarios" title="Link to this heading">#</a></h1>
+  <section id="frozen-versions-of-scenarios">
+<h1>Frozen Versions of Scenarios<a class="headerlink" href="#frozen-versions-of-scenarios" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>When a simulation is run, the data for each active scenario for each layer is frozen so that you can always return to the scenario’s state at the point in time when the simulation was run.</p>
 </section>
 <section id="how-it-works">
 <h2>How It Works<a class="headerlink" href="#how-it-works" title="Link to this heading">#</a></h2>
-<p>This is accomplished by storing a “last modified date” for each scenario which keeps track of the most recent edit made in each scenario. Note that only modifications to data are relevant - edits to metadata like name and description do not reset the last modified date.</p>
-<p>When a simulation is run, the data extraction step for each layer will check to see if there is already a frozen scenario with the current last modified date. If there is, the scenario will not be re-frozen. If there is not, the scenario will be “frozen” so that the name, description, active upload, and all edits will be kept and the user can return to this frozen state at any time.</p>
+<p>This is accomplished by storing a “last modified date” for each scenario which keeps track of the most recent edit made in each scenario. Note that only modifications to data are relevant - edits to metadata like name and description do not update the last modified date.</p>
+<p>When a simulation is run, the data extraction step for each layer will check to see if there is already a frozen version with the current last modified date. If there is, the scenario will not be re-frozen. If there is not, a scenario will be “frozen” so that the name, description, active upload, and all edits will be kept and the user can return to this frozen state at any time.</p>
 </section>
 <section id="efficiency">
 <h2>Efficiency<a class="headerlink" href="#efficiency" title="Link to this heading">#</a></h2>
-<p>Note that this approach is optimally efficient. If numerous simulations are run over time and the scenario has no new edits, no new frozen scenarios will be created; instead, the appropriate scenario will be reused. Also note that no scenarios are frozen until a simulation is actually run. Numerous edits can be made over time and no scenarios will be frozen until a simulation is actually run.</p>
+<p>Note that this approach is optimally efficient. If numerous simulations are run over time and the scenario has no new edits, no new frozen versions will be created; instead, the appropriate scenario will be reused. Also note that no scenarios are frozen until a simulation is actually run. Numerous edits can be made over time and no scenarios will be frozen until a simulation is actually run.</p>
 </section>
 <section id="user-interface">
 <h2>User Interface<a class="headerlink" href="#user-interface" title="Link to this heading">#</a></h2>
 <p>See the screenshot below. Each layer in a simulation has:</p>
 <ul class="simple">
 <li><p>A button to download the data that was used in this simulation (combined base data and edits)</p></li>
-<li><p>A button to navigate to the frozen scenario (which is not editable and which will not have new edits since this simulation was run)</p></li>
+<li><p>A button to navigate to the frozen version of the scenario (which is not editable and which will not have new edits since this simulation was run)</p></li>
 <li><p>A button to navigate to the “active” scenario (the scenario that was used by the simulation, which might have new edits since this simulation was run)</p></li>
 </ul>
-<p>The user can click on the frozen scenario, duplicate that scenario, and continue working from a point in time in the past in this fashion. For instance, the user might prefer the policy assumptions used in a past scenario, but want to make an additional edit. This is supported by returning to the frozen scenario and duplicating it.  You can also use the frozen scenario directly in new simulations if you have no need for additional changes.</p>
+<p>The user can click on the frozen version of the scenario, duplicate that version, and continue working from a point in time in the past in this fashion. For instance, the user might prefer the policy assumptions used in a past version of the scenario, but want to make an additional edit. This is supported by returning to the frozen version of the scenario and duplicating it.  You can also use the frozen version of the scenario directly in new simulations if you have no need for additional changes.</p>
 </section>
 </section>
 
