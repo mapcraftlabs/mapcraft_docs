@@ -13,10 +13,10 @@ def run_simulation(email, password):
     now = datetime.now()
     date_str = now.strftime("%m%d_%H%M")
 
-    lab_id = "wsble2"
+    project_id = "wsble2"
 
     response = utils.make_post_request(
-        f"simulations/start/{lab_id}",
+        f"simulations/start/{project_id}",
         token,
         dict(
             simulationName=f"API_SIM_{date_str}",
@@ -28,11 +28,11 @@ def run_simulation(email, password):
     simulation_id = response["simulationId"]
     print(f"Simulation started with id: {simulation_id}")
 
-    utils.poll_simulation_status_until_complete(lab_id, simulation_id, token)
+    utils.poll_simulation_status_until_complete(project_id, simulation_id, token)
 
     # fetch the aggregated data for the simulation
     response = utils.make_get_request(
-        f"combined_data/{lab_id}/Simulations/{simulation_id}", token
+        f"combined_data/{project_id}/Simulations/{simulation_id}", token
     )
 
     with open(f"simulation_{simulation_id}_results.geojson", "w") as fp:
