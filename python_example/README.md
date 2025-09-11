@@ -29,13 +29,13 @@ python quick_test.py YOUR_EMAIL YOUR_PASSWORD
 
 - Data I/O
 
-  - `get_layer_data_url(lab_id: str, token: str) -> str:`
-  - `download_layer_data_to_file(lab_id: str, file_name: str, token: str):`
-  - `upload_base_data_from_file(lab_id: str, layer_id: str, file_name: str, token: str):`
-  - `upload_join_csv_data_from_file(lab_id: str, layer_id: str, scenario_id: str, file_name: str, token: str):`
+  - `get_layer_data_url(project_id: str, token: str) -> str:`
+  - `download_layer_data_to_file(project_id: str, file_name: str, token: str):`
+  - `upload_base_data_from_file(project_id: str, layer_id: str, file_name: str, token: str):`
+  - `upload_join_csv_data_from_file(project_id: str, layer_id: str, scenario_id: str, file_name: str, token: str):`
 
 - Monitor Simulations Status
 
-  - `poll_simulation_status_until_complete(lab_id: str, simulation_id: str, token: str):`
+  - `poll_simulation_status_until_complete(project_id: str, simulation_id: str, token: str):`
 
 ```

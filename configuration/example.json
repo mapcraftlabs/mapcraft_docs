@@ -2393,7 +2393,7 @@
     }
   },
   "projectSettings": {
-    "labName": "Seattle Light Rail",
+    "projectName": "Seattle Light Rail",
     "aboutUrl": "https://docs.google.com/document/d/e/2PACX-1vRp_Y75cgQY7gIWLRt5mg4udDyopT8TNedD5TxC8YU5RIyqtp_7CfSVbcCWnDlk1ec95BmaUpaGUlLt/pub?embedded=true",
     "zoom": 10.7887150695485,
     "center": {

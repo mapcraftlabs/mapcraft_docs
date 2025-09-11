@@ -2,7 +2,7 @@
 
 General project settings - do not set any values you don't want to update
 
-- `labName` - name the project
+- `projectName` - name the project
 - `description` - visible description for the project
 - `aboutUrl` - link to Google Doc to use in the about page
 - `zoom` - default zoom level
