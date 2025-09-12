@@ -1,6 +1,7 @@
 import json
 import time
 
+from datetime import datetime
 import requests
 
 BASE_URL = "https://api.mapcraft.io"
@@ -51,11 +52,14 @@ def poll_simulation_status_until_complete(
 
         print("Simulation status:", data["currentStep"])
 
+        fmt = "%Y-%m-%dT%H:%M:%S.%fZ"
+
         if data["currentStep"] == "Simulation Complete":
             elapsed_time = (
-                data["simulationCompleteTime"] - data["simulationStartTime"]
+                datetime.strptime(data["simulationCompleteTime"], fmt)
+                - datetime.strptime(data["simulationStartTime"], fmt)
             ) / 1000
-            print(f"Simulation complete in {round(elapsed_time, 1)}s")
+            print(f"Simulation complete in {round(elapsed_time.total_seconds(), 1)}s")
             return
 
         time.sleep(5)
