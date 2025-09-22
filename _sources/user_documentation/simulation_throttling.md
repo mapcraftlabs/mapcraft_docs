@@ -4,12 +4,12 @@ To ensure fair usage and system stability, simulation requests are throttled bas
 
 ### Hourly Simulation Limits
 
-- **Default Limits:**  
+- **Per-user Limits:**  
   - simulation per hour = 30  
   - geoprocessings per hour = 10 
   - quicksims per hour = 30
 - **Per-User Customization:**  
-  - Per-user customization can be done by MapCraft using simulationsHourlyLimit, geoprocessingHourlyLimit, and quicksimHourlyLimit
+  - Per-user customization can be done by MapCraft using simulationsHourlyLimit, geoprocessingHourlyLimit, and quicksimHourlyLimit.
 - **Enforcement:**  
   - The sum of simulations run in the past hour and the number of simulations in the current batch **must not exceed** the user's `simulationsHourlyLimit`.
 
