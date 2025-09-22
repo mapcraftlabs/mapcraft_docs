@@ -12,6 +12,7 @@ This repo is used to collaboratively build user documentation.  Pull Requests we
 - [Use via simple python wrapper](python_example/README.md)
 - [Use via Google Sheets](google_sheets/README.md)
 - [Quicksims](quicksims)
+- [Throttling](user_documentation/simulation_throttling.md)
 
 ## Project Configuration
 - [Configure projects using the API](configuration/README.md) 
