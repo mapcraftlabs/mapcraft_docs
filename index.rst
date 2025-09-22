@@ -13,3 +13,4 @@ MapCraft documentation
    user_documentation/frozen_scenarios.md
    user_documentation/permissions.md
    user_documentation/uploads.md
+   user_documentation/simulation_throttling.md
