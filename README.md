@@ -2,6 +2,10 @@
 
 This repo is used to collaboratively build user documentation.  Pull Requests welcome!  View specific topics below.
 
+## OpenAPI json spec for the MapCraftAPI
+
+[Here](https://api.mapcraft.io/openapi.json) is the link to the full OpenAPI json spec.
+
 ## User Documentation
 - [Frozen Versions of Scenarios](user_documentation/frozen_scenarios.md)
 - [Permissions](user_documentation/permissions.md)
