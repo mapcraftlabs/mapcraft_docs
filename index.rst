@@ -10,7 +10,7 @@ MapCraft documentation
    :maxdepth: 2
    :caption: Contents:
 
-   user_documentation/frozen_scenarios.md
-   user_documentation/permissions.md
-   user_documentation/uploads.md
-   user_documentation/simulation_throttling.md
+   user_documentation/mapcraft_user_guide.md
+   user_documentation/create_a_project.md
+   user_documentation/run_simulations.md
+   user_documentation/view_simulations.md
