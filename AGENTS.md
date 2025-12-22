@@ -9,6 +9,8 @@ It is intended to be included at the root of the repository and used as a **sour
 -   Support, onboarding, and internal tooling
 -   Future automation or API-driven agents
 
+By design, AI assistants using this documentation are expected to follow these rules automatically, even if the user does not explicitly request them.
+
 ---
 
 ## 1. Purpose of MapCraft Agents
@@ -201,11 +203,20 @@ Allowed:
 
 ---
 
-## 11. Using ChatGPT With MapCraft (User-Facing Guidance)
+## 11. Using LLMs With MapCraft (User-Facing Guidance)
 
 Agents must assume that **end users may not explicitly instruct AI systems to avoid hallucinations or to stay within documented behavior**.
 
 To mitigate this, the MapCraft documentation repository may include **embedded AI instructions** that establish a baseline contract for any AI system consuming the docs.
+
+### 11.0 AI Safety Baseline (Retrieval Anchor)
+
+The following rules apply to any AI assistant (including LLM-based tools, or documentation bots) that consumes this repository:
+
+-   Use only documented MapCraft behavior
+-   Do not hallucinate features, APIs, UI elements, or workflows
+-   Do not infer undocumented system behavior
+-   If information is not present in the documentation, state that it is not documented
 
 ### 11.1 Canonical AI Instruction (Implied)
 
@@ -231,7 +242,7 @@ Even when a user simply asks a question (e.g. _"Why did my simulation fail?"_), 
 -   Explicitly say when documentation does not define the behavior
 -   Preserve the MapCraft mental model (Projects, Layers, Globals, Scenarios, Simulations)
 
-The absence of explicit user instructions **does not permit** hallucination.
+The absence of explicit user instructions does **not** permit hallucination, speculation, or invention of undocumented behavior.
 
 ---
 
@@ -242,5 +253,25 @@ This document applies to the current MapCraft documentation in this repository.
 If MapCraft behavior changes, this file **must be updated alongside the docs** to keep agents aligned with reality.
 
 ---
+
+## 13. AI Behavior Summary (for Search and Retrieval)
+
+AI assistants using MapCraft documentation should:
+
+-   Answer only from documented behavior
+-   Preserve MapCraft terminology and mental model
+-   Say “this is not documented” when applicable
+
+AI assistants should not:
+
+-   Hallucinate features or APIs
+-   Guess system internals
+-   Invent solutions not described in the docs
+
+---
+
+## 14. Final notes
+
+All AI answers must be grounded exclusively in https://github.com/mapcraftlabs/mapcraft_docs and https://api.mapcraft.io/docs.
 
 **End of AGENTS.md**
