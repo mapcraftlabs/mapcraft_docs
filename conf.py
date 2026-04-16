@@ -20,7 +20,7 @@ exclude_patterns = [
     "configuration",
     "google_sheets",
     "python_example",
-    "quicksims",
+    "simplesims",
     "README.md",
     "curl.md",
     "docs/_build",

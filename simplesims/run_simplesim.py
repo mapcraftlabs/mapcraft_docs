@@ -35,13 +35,13 @@ def make_post_request(endpoint: str, token: str, body: dict) -> dict:
 @click.argument("email")
 @click.argument("password")
 @click.argument("json_file")
-def quicksim(email, password, json_file):
+def simplesim(email, password, json_file):
     token = get_user_token(email, password)
     with open(json_file) as f:
         body = json.load(f)
-    data = make_post_request(endpoint="quicksim", token=token, body=body)
+    data = make_post_request(endpoint="simplesim", token=token, body=body)
     print(data)
 
 
 if __name__ == "__main__":
-    quicksim()
+    simplesim()
