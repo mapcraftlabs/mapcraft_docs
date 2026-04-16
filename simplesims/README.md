@@ -1,14 +1,14 @@
-### Quicksims
+### Simplesims
 
-Quicksims are used to run a minimal simulation that takes an input parcel file, an input analysis zip file, and generates an output parquet file.
+Simplesims are used to run a minimal simulation that takes an input parcel file, an input analysis zip file, and generates an output parquet file.
 
-You can call the api using any mechanism that can make a POST request, with the endpoint documented [here](https://api.mapcraft.io/docs#/quicksim/quicksim_endpoint_quicksim_post).
+You can call the api using any mechanism that can make a POST request, with the endpoint documented [here](https://api.mapcraft.io/docs#/simplesim/simplesim_endpoint_simplesim_post).
 
-The script `run_quicksim.py` gives a short python example for authenticating to the api using an email and password and passing a JSON file to the quicksim endpoint.
+The script `run_simplesim.py` gives a short python example for authenticating to the api using an email and password and passing a JSON file to the simplesim endpoint.
 
 The python script requires `click` and `requests` which you can install with `pip install -r requirements.txt`
 
-`quicksim.json` is an example of the parameters necessary to run a quicksim:
+`simplesim.json` is an example of the parameters necessary to run a simplesim:
 
 * `input_storage_url` - a signed url to the input parquet file
 * `script_url` - a signed url to the analysis zip file
